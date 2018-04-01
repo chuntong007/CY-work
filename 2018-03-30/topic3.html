@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>闰年判断</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var numYear = prompt('请输入年份进行闰年判断');
+		var re4 = numYear % 4;
+		var re100 = numYear % 100;
+		var re400 = numYear % 400;
+
+		if ((!re4 && re100) || (!re100 && !re400) && (numYear)) {
+			alert('闰年');
+		}
+		else if (!numYear) {
+			alert('未输入年份');
+		}
+		else {
+			alert('不是闰年');
+		}
+	</script>
+</body>
+</html>
