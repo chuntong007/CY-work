@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>打印实心三角形</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var num = parseInt(prompt());
+
+		for (var i = num; i > 0; i--) {
+			for (var l = 1; l < i; l++) {
+				document.write('&nbsp;&nbsp&nbsp;');
+			}
+			for (var n = 1; n <= num + 1 - l; n++) {
+				document.write('&nbsp;&nbsp;&nbsp;&nbsp;' + '*');
+			}
+			document.write('<br/>');
+		}
+	</script>
+</body>
+</html>

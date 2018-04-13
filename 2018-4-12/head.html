@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>12306头部</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		/* 设置全局属性清零浏览器默认的边距内填充样式 */
+
+		/* header */
+		#header {
+			margin: 0 auto;
+			/*设置头部区域包裹div居中*/
+
+			width: 960px;
+			/*设置内容宽度*/
+		}
+
+		#header #banner {
+			height: 149px;
+			/*控制图片栏高度与12306同步*/
+		}
+
+		#header #menu ul {
+			overflow: hidden;
+			/*设置hidden值控制内容溢出以此清除浮动让父元素div#menu获取导航栏尺寸*/
+			height: 32px;
+			background: url(img/nav_bg.gif);
+			/*插入导航栏图标通过默认格式自动铺满导航栏*/
+		}
+
+		#header #menu li {
+			float: left;
+			/*设置导航栏标签向左浮动取消换行*/
+			padding-right: 1px;
+			width: 75px;
+			font-size: 14px;
+			line-height: 32px;
+			text-align: center;
+			background: url(img/nav_line.gif) no-repeat center right;
+			list-style: none;
+			/*设置列表格式为无取消无序列表原有的点标*/
+		}
+
+		#header #menu li:last-child {
+			background: none;
+		}
+		/*设置导航栏最后一项的伪类标签，取消图标修饰*/
+
+
+		#header #menu .menu-Date {
+			padding: 0 18px 0 20px;
+			/*设置左右内填充隔开导航标签*/
+			width: 150px;
+			font-size: 12px;
+			text-align: center;
+			background: none;
+			color: #ff9;
+		}
+
+		#header #menu a {
+			color: #fff;
+			text-decoration: none;
+			/*取消默认下划线*/
+		}
+
+		#header #menu a:hover {
+			text-decoration: underline;
+		}
+		/*设置导航栏链接标签伪类增加鼠标停留出现下划线效果*/
+
+		/* End header */
+	</style>
+</head>
+<body>
+	<div id="header">
+		<!-- 定义网页头部区域div#header -->
+		<div id="banner">
+			<!-- 头部banner部分 -->
+			<img src="img/noFlashBg.jpg" alt="">
+		</div>
+		<div id="menu">
+			<!-- 头部导航栏部分 -->
+			<ul>
+				<li class="menu-Date">2018年4月12日 星期四</li>
+				<li><a href="">首 页</a></li>
+				<li><a href="">客运服务</a></li>
+				<li><a href="">铁路畅行</a></li>
+				<li><a href="">餐饮•特产</a></li>
+				<li><a href="">行包服务</a></li>
+				<li><a href="">旅游超市</a></li>
+				<li><a href="">车站引导</a></li>
+				<li><a href="">铁路常识</a></li>
+				<li><a href="">站车风采</a></li>
+				<li><a href="">客户信箱</a></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

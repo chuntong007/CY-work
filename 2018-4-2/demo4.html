@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>输入三个数，求出最大值，用三目运算符实现。</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var a = parseInt(prompt());
+		var b = parseInt(prompt());
+		var c = parseInt(prompt());
+		var tmp;
+
+		/*var result = a > b ? tmp = a : tmp = b;
+		result = tmp > c ? alert(tmp) : alert(c);*/
+		
+		var result2 = a > b ? (a > c ? alert(a) : alert(c)) : (b > c ? alert(b) : alert(c));//三目运算单行封装版。
+
+		/*if (a > b) {
+			if (a > c) {
+				alert(a);
+			}
+			else {
+				alert(c);
+			}
+		}
+		else if (b > a) {
+			if (b > c) {
+				alert(b);
+			}
+			else {
+				alert(c);
+			}
+		}*/
+	</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>输入0-6，打印对应的星期</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var week = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
+		var num = prompt('请输入0-6数值');
+
+		if (num && num != null) {
+			if (num % 1 === 0 && num <= 6 && num >=0) {
+					alert(week[num]);
+				}
+				else {
+					alert('请输入0-6数值');
+				}
+		}
+		// else if (!num && null) {
+		// 	alert('请输入0-6数值');
+		// }
+	</script>
+</body>
+</html>

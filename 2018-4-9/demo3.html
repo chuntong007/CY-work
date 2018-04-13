@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>做一个计时器</title>
+</head>
+<body>
+	<p id="time"></p>
+	<!-- 事先插入ID='time'用来输出时间的p标签 -->
+
+	<script type="text/javascript">
+		function Tim(obj) {//声明用来修改时间戳格式的函数
+			if (obj < 10) {//当时间为个位数区间在其前面填补‘0’时间戳并返回值
+				return obj = '0' + obj;
+			}
+			else {//条件判断非各位数时间值情况下返回其本身
+				return obj;
+			}
+		}
+		function Tim2() {//声明用来实时刷新的时间函数
+			var myTime = new Date();
+			var year = myTime.getFullYear();
+			var month = myTime.getMonth() + 1;//月份基数为0，遂加一
+			var date = myTime.getDate();
+			var hours = myTime.getHours();
+			var min = myTime.getMinutes();
+			var sec = myTime.getSeconds();
+			var aWeek = ['日', '一', '二', '三', '四', '五', '六'];
+			/*单独声明将被输出的年月日时分秒*/
+
+			document.getElementById('time').innerHTML = '当前时间为：' + year + '-' + Tim(month) + '-' + Tim(date) + '-' + Tim(hours) + ':' + Tim(min) + ':' + Tim(sec) + ' ' + '星期' + aWeek[myTime.getDay()];//输出包括需要修改时间戳格式在内的时间信息，以修改形式替换ID为time的HTML标签
+		}
+
+		Tim2();//先调用一次在计时器生效前的空档填补空白
+
+		setInterval('Tim2()', 1000);//调用重复定时器，设置一秒间隔对时间输出函数进行刷新输出
+	</script>
+</body>
+</html>

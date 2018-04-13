@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		// setTimeout(function(){
+		// 	alert(0)
+		// },1000);
+		// 
+		// setInterval(function(){
+		// 	document.write('a');
+		// },1000);
+		// 
+		// 
+		
+		function getTime(){
+			var myTime = new Date();
+			var year = myTime.getFullYear();
+			var month = myTime.getMonth() + 1;
+			var date = myTime.getDate();
+			var hour = myTime.getHours();
+			var min = myTime.getMinutes();
+			var sec = myTime.getSeconds();
+			document.write(year+'-'+month+'-'+date+' '+hour+':'+min+':'+sec);
+		}
+
+		getTime();
+		setInterval(function(){
+			getTime();
+		},1000);
+	</script>
+</body>
+</html>

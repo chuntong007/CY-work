@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>打印空心三角形</title>
+	<style type="text/css">
+		body {
+			font-family:cursive;
+			text-align: center;
+			letter-spacing: 1px;
+			word-spacing:-0.5px;
+			line-height:1em;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		var num = 15;
+
+		for (var i = 1; i <= num + 1; i += 2) {			
+			if (i != 1 && i < num ) {
+				document.write('*');
+				for (var n = 1; n <= i - 1; n++) {
+					document.write('&nbsp;');
+				}
+				document.write('*');
+
+			document.write('<br/>');
+			}
+			else {
+				for (var n = 1; n <= i; n++) {
+					document.write('*');
+				}
+				document.write('<br/>');				
+			}
+		}
+	</script>
+</body>
+</html>

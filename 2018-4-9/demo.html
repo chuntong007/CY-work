@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p id="time"></p>
+	<script type="text/javascript">
+		/*setInterval(function() {
+			document.write('hello');
+		}, 1000);*/
+		/*function tim() {
+			var myTime = new Date();
+			var year = myTime.getFullYear();
+			var month = myTime.getMonth() + 1;
+			var date = myTime.getDate();
+			var hours = myTime.getHours();
+			var min = myTime.getMinutes();
+			var sec = myTime.getSeconds();
+
+			document.getElementById('time').innerHTML = year + '-' + month + '-' + date + '-' + hours + ':' + min + ':' +sec;
+		}
+
+		tim();		
+
+		setInterval('tim()', 1000);*/
+
+		/*function add(x, y) {
+			arguments[0] = 3;
+			var sum = x + y;
+
+			if (arguments.length == 2) {
+				document.write(sum);
+			}
+			else {
+				document.write('参数不合法');
+			}
+		
+
+		add(1, 2);*/
+
+		var num = prompt();
+var sum = 0;
+
+for (var i = 1; i <= num; i++) {
+  for (var l = 1, l2 = 1; l <= i; l ++) {
+    l2 *= l;
+  }
+  sum += l2;
+}
+document.write(sum);
+	</script>
+</body>
+</html>

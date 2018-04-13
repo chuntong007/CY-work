@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拓展：实现跳动着的日期</title>
+</head>
+<body>
+	<p id="time"></p>
+	<script type="text/javascript">
+		function Tim(obj) {
+			if (obj == 0) {
+				return obj = '00';
+			}
+			else if (obj < 10 && obj != 0) {
+				return obj = '0' + obj;
+			}
+			else {
+				return obj;
+			}
+
+		}
+
+		function Tim2() {
+			var myTime = new Date();
+			var aWeek = ['日', '一', '二', '三', '四', '五', '六'];
+			var myMonth = myTime.getMonth() + 1;
+			var myDate = myTime.getDate();
+			var myHours = myTime.getHours();
+			var myMinutes = myTime.getMinutes();
+			var mySeconds = myTime.getSeconds();
+
+			document.getElementById('time').innerHTML='当前时间为：' +  myTime.getFullYear() + '-' + Tim(myMonth) + '-' + Tim(myDate) + ' ' + Tim(myHours) + ':' + Tim(myMinutes) + ':' + Tim(mySeconds) + ' 星期' + aWeek[myTime.getDay()];
+
+			setTimeout('Tim2()', 1000);
+		}
+		
+		Tim2();
+	</script>
+</body>
+</html>

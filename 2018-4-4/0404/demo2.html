@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/**
+		 * 1、变量名称要具体，语义化
+		 * 2、变量的数据类型如果是字符串，一般会以s开头：sUserName
+		 *    变量的数据类型如果是数组，一般会以a开头：aName
+		 *    变量的数据类型如果是对象，一般会以o开头：oName
+		 *    变量的数据类型如果是数字，一般会以n开头
+		 */
+		// var str = 'hello11';
+
+		// // alert(str[4])
+		// alert(str.length)
+		// 
+		// 123456
+		// 654321
+		
+		// var str = prompt();
+		// for(var i=str.length-1;i>=0;i--){
+		// 	document.write(str[i])
+		// }
+
+
+		var str = 'apple oppo vivo huawei';
+		// var subStr = 'appue';
+		var subStr = prompt();
+
+		if(str.indexOf(subStr)!=-1){
+			document.write('存在');
+		}else{
+			document.write('不存在');
+		}
+	</script>
+</body>
+</html>

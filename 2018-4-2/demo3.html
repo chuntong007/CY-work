@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> 用if语句实现：输入月份，显示该月份对应的天数。 (2018年)</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var moon = prompt('请输入月份数值');
+		var tmp = moon % 1 ===0;
+
+		if (moon && moon > 0 && moon <= 12) {
+			if (moon == 2 && tmp) {
+				alert('28天');
+			}
+			else if (moon == 4 || moon == 6 || moon == 9 || moon == 11 && tmp) {
+				alert('30天');
+			}
+			else if (tmp){
+				alert('31天');
+			}
+			else {
+				alert('月份信息超出范围')
+			}
+		}
+	</script>
+</body>
+</html>

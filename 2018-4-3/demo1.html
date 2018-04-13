@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>打印九九乘法表</title>
+</head>
+<body>
+	<script type="text/javascript">
+		for (var i = 1; i < 10; i++) {
+			for (var l = 1; l <= i; l++) {
+				document.write(l + '*' + i + '=' + l * i + ' ');
+			}
+			document.write('<br/>');
+		}
+
+		document.write('<br/>');
+
+		for (var i = 9; i > 0; i--) {
+			for (var l = 1; l <= i; l++) {
+				document.write(l + '*' + i + '=' + l * i + ' ');
+			}
+			document.write('<br/>');
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--拓展：实现跳动着的日期-->
+		<div id="box"></div>				<!--html的标签，在网页中弄一个区域，用来放置获取的时间内容-->
+		<script type="text/javascript">
+			//这是自定义的函数，主要处理时间的格式，可以不要；
+			function ten(objTime){			//因为时间格式是2018-04-09,而我们获取month的值是0-11；
+											//所以判断如果获取时间值是小于10，在前面加个'0'，才能达到上面的格式，不然会这样2018-4-9；
+				if(objTime<10){				//objTime是形参，表示获取的时间的值
+					return '0'+objTime;		//用return 值，整个函数调用后就会返回return后面的值；
+				}else{
+					return objTime;			//如果不小于10，函数调用后则返回原来参数的值；
+				}
+			}
+			
+			function localTime(){				
+				var nowTime=new Date();
+				var week=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+				var myMonth=nowTime.getMonth()+1;
+				myMonth=ten(myMonth);				//调用前面自定义的函数来处理格式：如3月份，不处理格式就是3，自定义函数在前面加了0，变成03；
+				var myDate=nowTime.getDate();
+				myDate=ten(myDate);	
+				var myMinutes=nowTime.getMinutes();
+				myMinutes=ten(myMinutes);
+				var mySecond=nowTime.getSeconds();
+				mySecond=ten(mySecond);
+				var timeStr="当前时间为："+nowTime.getFullYear()+"-"+myMonth+"-"+myDate+"&nbsp"+nowTime.getHours()+":"+myMinutes+":"+mySecond+"&nbsp"+week[nowTime.getDay()];
+				var timeBox = document.getElementById("box"); 	//获取前面<div>这个标签，并赋给timeBox
+				timeBox.innerHTML=timeStr;						//在<div>标签中放入时间
+			}
+			localTime();			//先调用一次获取时间的函数，避免出现空白期
+			setInterval("localTime()",1000);		//每隔一秒调用一次获取时间的函数
+		</script>
+	</body>
+</html>

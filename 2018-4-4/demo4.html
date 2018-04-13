@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>求1！+ 2！+3！+4！+5！+6！+。。。。+10！的和</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var result = 0;
+
+		for (var i = 1; i <= 10; i++) {
+			for (var i2 = 1, tmp = 1; i2 <= i; i2++) {
+				tmp *= i2;
+			}
+			result += tmp;
+		}
+
+		document.write(result);
+	</script>
+</body>
+</html>

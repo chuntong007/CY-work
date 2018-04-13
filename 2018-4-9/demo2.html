@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>计算阶乘和：sum=1！+2！+3！+4！+。。。+（n-1）!+n!</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var num = prompt('请输入需要进行阶乘和n的基数');//声明执行输入基数n的存储变量
+		var sum = 0;
+
+		for (var i = 1; i <= num; i++) {//定义要循环计算的第一层基数条件
+			for (var l = 1, tmp = 1; l <= i; l++) {//定义第二层各基数递增将叠加的和，tmp为阶乘底数，从1×1×2×...l
+				tmp *= l;
+			}
+			sum += tmp;//每次递增的阶层叠加给变量sum
+			console.log(i + ' ' + tmp);//用于观察每次递增的阶乘是否计算正常，(检测用)
+		}
+
+		document.write(num + '的阶乘和为：' + sum);//最终输出阶乘和
+	</script>
+</body>
+</html>

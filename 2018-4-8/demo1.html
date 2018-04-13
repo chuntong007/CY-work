@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>实现不重复验证码，用两种方式实现，要求带注释</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var sNum = '0123456789qwertyuiopasdfghjklzxcvbnm';//声明需要获取验证码的字符串
+		var result = '';//声明需要获取验证码的变量
+		
+		while (1) {
+			var index = Math.floor(Math.random() * sNum.length);//声明将产生的随机下标变量
+
+			if (result.indexOf(sNum[index]) == -1) {
+				result += sNum[index];
+				if (result.length == 4) {
+					break;
+				}
+			}
+		}
+
+		document.write('刷新重新生成验证码：' + result)
+	</script>
+</body>
+</html>
