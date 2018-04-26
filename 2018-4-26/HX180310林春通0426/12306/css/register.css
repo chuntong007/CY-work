@@ -1,0 +1,58 @@
+/*----------------------PageBody---------------------- */
+/*注册操作区*/
+#PageBody .regsiter_login {
+	border: 1px solid #1678be;
+	padding-bottom: 15px;
+	border-radius: 4px 4px 0 0;
+	background: url(../img/bg.png) repeat-x 0 -400px;
+}
+
+#PageBody .regsiter_login .reg-line {
+	margin-bottom: 15px;
+	padding-left: 25px;
+	height: 32px;
+	line-height: 32px;
+	font-size: 17px;
+	color: #fff;
+}
+
+.regsiter_login input {
+	display: block;
+	margin: 10px auto 0;
+	height: 20px;
+}
+
+#PageBody .regsiter_login a {
+	color: #F5511C;
+}
+
+.regsiter_login .regs-btn {
+	border: 1px solid #57adfd;
+	border-radius: 4px;
+	width: 40px;
+	height: 30px;
+	background: #57adfd;
+	color: #fff;
+}
+
+.regsiter_login dt {
+	margin: 0 auto;
+	padding-top: 7px;
+	width: 100px;
+	text-align: center;
+}
+
+.regsiter_login dt #verify-code {
+	display: inline-block;
+	width: 70px;
+	height: 30px;
+	font-size: 20px;
+	background: #999;
+}
+
+.regsiter_login #logNbtn {
+	display: none;
+}
+/*注册操作区结束*/
+
+/*----------------------End PageBody---------------------- */

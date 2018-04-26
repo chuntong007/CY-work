@@ -1,0 +1,443 @@
+/*-----------------------------container-----------------------------*/
+#container {
+	background: #fff;
+}
+
+/*appDown*/
+#container #appDown {
+	position: fixed;
+	left: 356px;
+	border: 1px solid #dbdbdb;
+	padding: 0;
+	width: 103px;
+	height: 145px;
+	text-align: center;
+	background: url(../img/app_bg.png) no-repeat;
+
+}
+
+#container #appDown .downOff {
+	display: block;
+	margin-left: auto;
+	width: 17px;
+	height: 18px;
+}
+
+#container #appDown div {
+	margin: 3px 0;
+}
+
+#appDown a img {
+	width: 80px;
+}
+
+#container #appDown a {
+	font-size: 12px;
+	color: #6b6b6b;
+}
+
+/*End appDown*/
+
+ /*---------------------------PageBody--------------------------- */
+ #container #PageBody {
+	display: block;
+	padding-top: 3px;
+	background: #fff;
+}
+
+/*SideBar-left*/
+#container #PageBody #SideBar-left {
+	float: left;
+	display: inline;
+	width: 197px;
+	background: #fff;
+}
+
+/*新闻轮播模块左*/
+#PageBody #SideBar-left #Newleft {
+	position: relative;
+	padding: 0 1px;
+}
+
+#SideBar-left #Newleft span {
+	position: absolute;
+	top: 130px;
+	left: 163px;
+	border: 1px solid #f00;
+	border-radius: 50%;
+	width: 15px;
+	line-height: 15px;
+	text-align: center;
+	background: #f00;
+	color: #fff;
+
+}
+
+#SideBar-left #Newleft img {
+	width: 192px;
+}
+
+#SideBar-left #Newleft div {
+	border: 1px solid #ddd;
+	margin: 0 auto;
+	width: 190px;
+	font: 14px bold;
+	line-height: 38px;
+	text-align: center;
+	background: #edf2f8;
+	color: #000;
+}
+/*End 新闻轮播模块左*/
+
+/*服务问卷*/
+#PageBody #SideBar-left #Service {
+
+}
+/*服务问卷结束*/
+
+/*票务功能栏*/
+#PageBody #SideBar-left #ShopMain {
+	margin: 12px 3px 0;
+}
+
+
+
+#SideBar-left #ShopMain .pic2 {
+	background-position: 4px -52px;
+}
+
+#SideBar-left #ShopMain .pic3 {
+	background-position: 4px -104px;
+
+}
+
+#SideBar-left #ShopMain .pic4 {
+	background-position: 4px -156px;
+}
+
+#SideBar-left #ShopMain .pic5 {
+	background-position: 4px -208px;
+}
+
+#SideBar-left #ShopMain .pic6 {
+	background-position: 4px -260px;
+}
+
+#SideBar-left #ShopMain .pic7 {
+	background-position: 4px -312px;
+}
+
+#SideBar-left #ShopMain .pic8 {
+	background-position: 4px -364px;
+}
+
+#SideBar-left #ShopMain .pic9 {
+	background-position: 4px -416px;
+}
+
+#SideBar-left #ShopMain .pic11 {
+	background-position: 4px -622px;
+}
+
+#SideBar-left #ShopMain .pic10 {
+	padding: 0 2px;
+}
+/*票务功能栏结束*/
+/*End SideBar-left*/
+
+/*MainBody*/
+#container #PageBody #MainBody {
+	float: left;
+	margin-left: 2px;
+	display: inline;/*设为行级显示避免同为块级同时浮动而出现跨行显示*/
+	width: 562px;
+	background: #fff;
+}
+
+#PageBody #MainBody #newContent {
+	border: 1px solid #e4e4e4;
+	width: 560px;
+	height: 242px;
+	background-color: #f7f7f7;
+}/*最新动态新闻栏样式*/
+
+#MainBody #newContent .newTitle {
+	padding-left: 60px;
+	height: 34px;
+	font: 14px/34px bold;
+	background: #f7f7f7 url(../img/news-top.png);
+	color: #d1510f;
+}
+
+#newContent .newList p {
+	padding-top: 5px;
+	font-size: 14px;
+	color: #00f;
+}
+
+.newList p > a {
+	font-size: 14px;
+	color: #f00;
+}
+
+#newContent .newList ul {
+	margin: 0 10px;
+	height: 162px;
+}
+
+#newContent .newList li {
+	height: 23px;
+	line-height: 23px;
+	background: url(../img/lineH.gif) repeat-x 50% bottom;
+	list-style: none;
+}
+
+.newList li a {
+	padding-left: 10px;
+	background: url(../img/icobg_1.1.png) no-repeat;
+}
+
+#newContent .hot a {
+	color: #f00;
+}
+
+#newContent .newList .status {
+	float: right;
+	font: 9px Verdana, Geneva, sans-serif;
+	color: #666;
+}
+
+#newContent .newList .textRight {
+	text-align: right;
+}
+
+#PageBody #MainBody #Search {
+	border: 1px solid #e4e4e4;
+	margin-top: 3px;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+	background: url(../img/search_bg1_1.gif);
+}
+
+#MainBody #Search input {
+	font-family: '微软雅黑', Helvetica, Arial, sans-serif;
+	vertical-align: middle;
+}
+
+#MainBody #Search #Searchtext {
+	border: 1px solid;
+	border-color: #bababa #e3e3e3 #e3e3e3 #bababa;
+	margin: 0 10px;
+	width: 364px;
+	height: 20px;
+	color: #999;
+	line-height: 20px;
+}
+
+#PageBody #MainBody .guild {
+	margin-top: 3px;
+	height: 54px;
+}
+
+#MainBody .guild li {
+	float: left;
+	list-style: none;
+}
+
+#MainBody .guild .guild-l {
+	display: block;
+	border: 1px solid #e4e4e4;
+	margin-right: 2px;
+	width: 278px;
+	height: 52px;
+	background: url(../img/btn-kyfg.png) no-repeat;
+}
+
+#MainBody .guild .guild-r {
+	display: block;
+	border: 1px solid #e4e4e4;
+	width: 278px;
+	height: 52px;
+	background: url(../img/btn-hyfg.png) no-repeat;
+}
+
+/*票务日程模块*/
+#PageBody #MainBody .schedule {
+	border: 1px solid #e4e4e4;
+	margin-top: 3px;
+	padding-bottom: 16px;
+	width: 560px;
+}
+
+#MainBody .schedule .schedule-nav {
+	border: 1px solid #e4e4e4;
+	padding: 0 20px;
+	height: 30px;
+	line-height: 30px;
+	background: #f3f3f3;
+}
+
+.schedule .schedule-nav ul {
+	overflow: hidden;
+}
+
+.schedule .schedule-nav li {
+	float: left;
+	width: 128px;
+	font-size: 14px;
+	text-align: center;
+	color: #333;
+}
+
+#MainBody .schedule .schedule-main {
+	margin-top: 10px;
+}
+
+.schedule-main thead .status-r,
+.schedule-main tbody .status-r {
+	text-align: right;
+}
+
+.schedule-main tbody .status-r {
+	color: #0080ff;
+}
+
+.schedule-main thead .status-l {
+	text-align: left;
+}
+
+.schedule-main table {
+	margin: 0 auto;
+	line-height: 2em;
+}
+
+.schedule-main table td {
+	border: 1px solid #f3f3f3;
+	padding: 0 10px;
+}
+/*票务日程模块结束*/
+
+/*End MainBody*/
+
+/*--------------------右侧栏SideBar-right--------------------*/
+#container #PageBody #SideBar-right {
+	float: right;
+	display: inline;/*设为行级显示避免同为块级同时浮动而出现跨行显示*/
+	margin: 0 auto;
+	width: 198px;
+	text-align: center;
+}
+
+/*新闻轮播模块右*/
+#PageBody #SideBar-right #Newright {
+	position: relative;
+	padding: 0 1px;
+}
+
+#SideBar-right #Newright img {
+	width: 188px;
+}
+
+#SideBar-right #Newright span {
+	position: absolute;
+	top: 130px;
+	left: 163px;
+	border: 1px solid #f00;
+	border-radius: 50%;
+	width: 15px;
+	line-height: 15px;
+	text-align: center;
+	background: #f00;
+	color: #fff;
+
+}
+
+#SideBar-right #Newright div {
+	border: 1px solid #ddd;
+	margin: 0 auto;
+	width: 186px;
+	font: 14px bold;
+	line-height: 38px;
+	text-align: center;
+	background: #edf2f8;
+	color: #000;
+}
+/*End 新闻轮播模块右*/
+
+/*广告横幅*/
+#PageBody #SideBar-right .banr-right {
+	margin: 0 auto;
+}
+
+#PageBody #SideBar-right #banner-2 {
+	margin-top: 3px;
+}
+
+#PageBody #SideBar-right #banner-3 {
+	margin-top: 3px;
+}
+/*End 广告横幅*/
+
+/*物流状态*/
+#PageBody #SideBar-right #status-right {
+	margin: 0 3px;
+}
+
+#SideBar-right #status-right .pic21 {
+	background-position: 4px -468px;
+}
+
+#SideBar-right #status-right .pic22 {
+	background-position: 4px -572px;
+}
+
+#SideBar-right #status-right .pic23 {
+	background-position: 4px -520px;
+}
+/*End 物流状态*/
+
+/*相关链接栏*/
+#PageBody #SideBar-right #friendlink {
+	margin-left: 5px;
+	text-align: left;
+	background: url(../img/ico_link002.gif) repeat-y;
+}
+
+#SideBar-right #friendlink .link-boder {
+	overflow-y: auto;
+	margin: 0 auto;
+	width: 174px;
+	height: 120px;
+}
+/*End 相关链接栏*/
+/*--------------------End 右侧栏SideBar-right--------------------*/
+/*---------------------------End PageBody--------------------------- */
+
+/* Footer */
+#container #Footer {
+	clear: both;
+	padding: 5px 1px 1px;
+	line-height: 150%;
+	text-align: center;
+
+}
+
+#container #Footer .Footer-line1 {
+	border: 1px;
+	margin: 5px auto;
+	width: 96%;
+	height: 4px;
+	background-color: #02457c;
+}
+
+#container #Footer .Footer-line2 {
+	margin: 5px auto;
+	width: 100%;
+	height: 1px;
+	background-color: #02457c;
+	
+}
+ /* End Footer */ 
+
+/*-----------------------------End container-----------------------------

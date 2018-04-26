@@ -1,0 +1,185 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+/* 设置全局属性清零浏览器默认的边距内填充样式 */
+a:visited,
+a:link {
+	color: #000;
+	text-decoration: none;
+	font-size: 12px;
+}
+
+a:hover {
+	color: #c00;
+	text-decoration: underline;
+	font-size: 12px;
+}
+/*统一全局链接伪类样式*/
+
+body {
+	font: 12px/1.5 '宋体', Tahoma, '\5FAE\8F6F\96C5\9ED1', Arial, Helvetica, sans-serif;
+    background-color: #e5e5e5;
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+	list-style-type: none;
+}/*取消全局li标签点标*/
+
+img {
+	vertical-align: top;
+}
+
+.on {
+	border: 1px solid #e4e4e4;
+	border-top: 2px solid #d1510f;
+	border-bottom: 2px solid #fff;
+	height: 28px;
+	background: #fff;
+}/*票务日程导航栏选中样式*/
+
+.pic {
+	display: block;
+	border: 1px solid #d2e1f1;
+	margin: 2px 0;
+	padding-left: 50px;
+	font-size: 14px;
+	line-height: 34px;
+	text-align: left;
+	background: url(../img/item_z.png) #edf2f8 no-repeat;
+}/*UI按钮统一调用样式*/
+
+.mrgn-top {
+	margin-top: 3px;
+}/*模块顶部外边距间隔类调用*/
+
+.textCenter {
+	text-align: center;
+}
+/*------------------------------全局样式------------------------------*/
+
+/* header */
+#container {
+	overflow: hidden;/*设置hidden值控制内容溢出清除浮动*/
+	margin: 0 auto;
+	/*设置页面内容包裹区域div居中*/
+
+	width: 960px;
+	/*设置内容宽度*/
+}
+
+#header #banner {
+	height: 149px;
+	/*控制图片栏高度与12306同步*/
+}
+
+#header #menu ul {
+	height: 32px;
+	background: url(../img/nav_bg.gif);
+	/*插入导航栏图标通过默认格式自动铺满导航栏*/
+}
+
+#header #menu li {
+	float: left;
+	/*设置导航栏标签向左浮动取消换行*/
+	padding-right: 1px;
+	width: 75px;
+	font-size: 14px;
+	line-height: 32px;
+	text-align: center;
+	background: url(../img/nav_line.gif) no-repeat center right;
+	list-style: none;
+	/*设置列表格式为无取消无序列表原有的点标*/
+}
+
+#header #menu li:last-child {
+	background: none;
+}
+/*设置导航栏最后一项的伪类标签，取消图标修饰*/
+
+
+#header #menu #menu-Date {
+	padding: 0 18px 0 20px;
+	/*设置左右内填充隔开导航标签*/
+	width: 150px;
+	font-size: 12px;
+	text-align: center;
+	background: none;
+	color: #ff9;
+}
+
+#header #menu a {
+	color: #fff;
+	text-decoration: none;
+	/*取消默认下划线*/
+}
+
+#header #menu a:hover {
+	text-decoration: underline;/*设置导航栏链接标签伪类增加鼠标停留出现下划线效果*/
+}
+/* End header */
+
+/*登录注册遮罩层*/
+#regsiterMask {
+	position: fixed;
+	display: none;
+	z-index: 1000;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.75;
+}
+
+#regsiter {
+	position: fixed;
+	display: none;
+	z-index: 1100;
+	top: 50%;
+	left: 50%;
+	margin: -145px 0 0 -200px;
+	border-radius: 4px;
+	padding: 30px 0;
+	width: 400px;
+	height: 230px;
+	text-align: center;
+	background: #fff;
+}
+
+#regsiter input {
+	display: block;
+	margin: 10px auto 0;
+	height: 20px;
+}
+
+#regsiter a {
+	color: #F5511C;
+}
+
+#regsiter .regs-btn {
+	border: 1px solid #57adfd;
+	border-radius: 4px;
+	width: 40px;
+	height: 30px;
+	background: #57adfd;
+	color: #fff;
+}
+
+#regsiter dt {
+	margin: 0 auto;
+	padding-top: 7px;
+	width: 100px;
+	text-align: center;
+}
+
+#regsiter dt label {}
+
+#regsiter dt #verify-code {
+	display: inline-block;
+	width: 70px;
+	height: 30px;
+	font-size: 20px;
+	background: #999;
+}
+/*登录注册遮罩层结束*/

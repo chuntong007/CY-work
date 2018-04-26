@@ -1,0 +1,249 @@
+a {
+	text-decoration: none;
+	color: #07f;
+}
+/*------------------------------全局样式------------------------------*/
+
+
+/*----------------------PageBody---------------------- */
+#PageBody {
+	margin: 0 auto;
+	width: 980px;
+}
+
+/*车票搜索框*/
+#PageBody .quick-search {
+	border: 1px solid #298cce;
+	border-radius: 3px;
+	margin-top: 10px;
+	padding: 12px 10px;
+	height: 48px;
+	background: #eef1f8;
+}
+
+#PageBody .quick-search .btn,
+#PageBody .quick-search .shop,
+#PageBody .quick-search .submit {
+	float: left;
+}
+
+#PageBody .quick-search .btn {
+	margin-right: 5px;
+	width: 60px;
+	background: url(../img/line_sear.png) right center no-repeat;
+}
+
+.quick-search .btn li {
+	padding: 2px;
+	height: 20px;
+	line-height: 20px;
+}
+
+.btn li input {
+	margin-right: 4px;
+	vertical-align: -3px;
+}
+
+.btn li label {
+	cursor: pointer;
+}
+
+#PageBody .quick-search .shop {
+	margin-right: 15px;
+}
+
+.quick-search .shop li {
+	float: left;
+	padding: 10px 0;
+	width: 164px;
+	height: 30px;
+	line-height: 30px;
+}
+
+.quick-search .shop .label {
+	display: block;
+	float: left;
+	padding: 0 2px 0 0;
+	width: 40px;
+	text-align: right;
+}
+
+.quick-search .shop div {
+	position: relative;
+	float: left;
+	width: 122px;
+	height: 30px;
+}
+
+.quick-search .shop .shop-text {
+	border: 1px solid #cfcdc7;
+	padding: 5px 0 5px 5px;
+	width: 113px;
+	height: 18px;
+	line-height: 18px;
+	background: #fff;
+}
+
+.quick-search .shop .error {
+	border: 1px solid #f00;
+	color: #999;
+}
+
+.quick-search .shop .shop-bg02 {
+	margin: 18px 0 0 5px;
+	padding: 0;
+	width: 16px;
+	height: 16px;
+	background: url(../img/bg02.png) repeat-x -67px -96px;
+}
+
+.quick-search .shop .i-city {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 20px;
+	height: 20px;
+	background: url(../img/icon.png) no-repeat 0 -150px;
+}
+
+.quick-search .shop .date-icon-1 {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 20px;
+	height: 20px;
+	background: url(../img/icon.png) no-repeat 0 -250px;
+}
+
+.quick-search .shop .date-icon-2 {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 20px;
+	height: 20px;
+	background: url(../img/icon.png) no-repeat 0 -300px;
+}
+
+#PageBody .quick-search .submit {
+	margin-top: -5px;
+	padding-left: 15px;
+	width: 184px;
+	height: 58px;
+	background: url(../img/line_sear.png) left center no-repeat;
+}
+
+.quick-search .submit ul {
+	float: left;
+	margin-top: 4px;
+	width: 80px;
+}
+
+.quick-search .submit li {
+	height: 23px;
+	line-height: 23px;
+}
+
+.quick-search .submit input {
+	margin-right: 4px;
+	vertical-align: -3px;
+}
+
+.quick-search .submit .submit-btn {
+	float: left;
+	width: 98px;
+	height: 58px;
+	margin-top: 0px;
+}
+
+.submit .submit-btn a {
+	display: block;
+	border-radius: 4px;
+	margin-right: 2px;
+	width: 92px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	background: #ff8000;
+	color: #fff;
+}
+
+.submit .submit-btn a:hover {
+	text-decoration: none;
+	background: #f79209;
+}
+
+.submit .submit-btn div {
+	margin-top: 5px;
+}
+
+/*End 车票搜索框*/
+
+/*列车搜索框*/
+#schedule-list {
+	border: 1px solid #298cce;
+	margin-top: 10px;
+}
+
+#schedule-list table {
+	border-collapse: collapse;
+	width: 100%;
+	table-layout: fixed;
+	background: url(../img/bg_tlisthd.png) top repeat-x;
+}
+
+#schedule-list thead th {
+	height: 52px;
+	background: url(../img/line_tlisth.png) right center no-repeat;
+	color: #fff;
+}
+
+#schedule-list thead th:last-child {
+	background: none;
+}
+
+#schedule-list thead tr {
+	height: 52px;
+	line-height: 52px;
+}
+
+#schedule-list thead input {
+	border: 1px solid #FE0944;
+	margin-left: 16px;
+	width: 110px;
+	height: 21px;
+}
+
+#schedule-list tbody td {
+	border-top: 1px solid #b0cedd;
+	border-right: 1px solid #b0cedd;
+	text-align: center;
+}
+
+#schedule-list #schedule-body .bgc {
+	background: #eef1f8;
+}
+
+#schedule-list #schedule-body tr {
+	height: 41px;
+	line-height: 41px;
+}
+
+#schedule-list #schedule-body input {
+	border-radius: 4px;
+	border: none;
+	width: 72px;
+	height: 30px;
+	background: #0080ff;
+	color: #fff;
+}
+
+#schedule-list #schedule-body input:hover {
+	background: #208fff;
+}
+/*End列车搜索框*/
+
+/*----------------------End PageBody---------------------- */
+
+
+
+

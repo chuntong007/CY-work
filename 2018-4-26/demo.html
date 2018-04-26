@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#box {
+			border: 1px solid #f00;
+			width: 100px;
+			height: 60px;
+		}
+	</style>
+</head>
+<body>
+	<div onclick="Code(5, 'box')" id="box"></div>
+	<input id="testCode" type="type" placeholder="请输入验证码">
+	<input onclick="check()" type="button" value="验证">
+
+	<script type="text/javascript">
+		// var bo = document.getElementById('box');
+
+		// alert(bo.innerHTML);
+
+		// var obj = {
+		// 	name: 'Lnation',
+		// 	age: 23,
+		// 	phone: 13959282964
+		// }
+
+		// var obj = {}
+
+		// var num = 13.2323;
+
+		// document.write(num.toFixed(3));
+/**
+ * 思考产生5~10范围的随机数
+ * 1、声明获取随机数的变量num
+ * 2、定义无限循环，循环中声明变量获取随机数*10
+ * 3、判断随机数大于5情况下num += 随机数值并break退出循环
+ * 4、向网页打印获取的随机数进行检验。
+ */
+
+
+		function ranDom() {
+			var num = arguments[0];
+
+			return Math.floor(Math.random() * num) + 1;
+		}
+
+		document.write(ranDom(100));
+
+
+
+	function Code() {
+		var str = 'qwertyuiopasdfghjklzxcvbnm1234567890';
+		var code = '';
+
+		for (var i = 0; i < arguments[0]; i++) {
+		code += str[Math.floor(Math.random() * str.length)];
+		}
+
+		document.getElementById(arguments[1]).innerHTML = code;
+	}
+
+	Code(5, 'box');
+
+	function check() {
+		var code = document.getElementById('box').innerHTML.toUpperCase();
+		var tesCo = document.getElementById('testCode').value.toUpperCase();
+
+		if (code == tesCo) {
+			alert('输入正确');
+		}
+		else {
+			alert('输入错误');
+		}
+	}
+	</script>
+</body>
+</html>

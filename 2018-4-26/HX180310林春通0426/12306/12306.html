@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>12306</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<!-- 登录注册遮罩层 -->
+	<div id="regsiterMask" onclick="appOff('regsiterMask'), appOff('regsiter'), getVerify()">
+	</div>
+
+	<div id="regsiter">
+		<input placeholder="用户名" type="text" id="Account">
+		<!-- <input placeholder="手机号" type="text" id="PhoneNum"> -->
+		<input placeholder="帐号密码" type="password" name="" id="Password">
+		<!-- <input placeholder="确认密码/登录不需确认" type="password" name="" id="Password2"> -->
+		<input placeholder="请输入验证码" type="text" id="verify">
+		<a href="login_register.html">没有帐号请点击注册跳转！</a>
+		<dt>
+			<label for="">验证码</label>
+			<strong id="verify-code"></strong>
+		</dt>
+		<input type="button" class="regs-btn" value="登录" onclick="getlogin()">
+		<!-- <input type="button" class="regs-btn" value="注册" onclick="getReg()"> -->
+	</div>
+	<!-- 登录注册遮罩层结束 -->
+
+	<div id="container">
+		<!-- 页面居中包裹层 -->
+
+		<div id="header">
+			<!-- 定义网页头部区域div#header -->
+			<div id="banner">
+				<!-- 头部banner部分 -->
+				<img src="img/noFlashBg.jpg" alt="">
+			</div>
+			<div id="menu">
+				<!-- 头部导航栏部分 -->
+				<ul>
+					<li id="menu-Date"></li>
+					<li><a href="">首 页</a></li>
+					<li><a href="">客运服务</a></li>
+					<li><a href="">铁路畅行</a></li>
+					<li><a href="">餐饮•特产</a></li>
+					<li><a href="">行包服务</a></li>
+					<li><a href="">旅游超市</a></li>
+					<li><a href="">车站引导</a></li>
+					<li><a href="">铁路常识</a></li>
+					<li><a href="">站车风采</a></li>
+					<li><a id="userName" onclick="appBlock('regsiterMask'), appBlock('regsiter')">登录/注册</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- 二维码 -->
+		<div id="appDown">
+			<a href="javascript:void()" class="downOff" onclick="appOff('appDown')"></a>
+			<div>
+				<a href=""><img src="img/dynamic.png" alt=""></a>
+			</div>
+			<a href="">手机购票客户端<br/>点击或扫描下载</a>
+		</div>
+		<!-- 二维码结束 -->
+
+		<div id="PageBody">
+			<!-- 内容区 -->
+
+			<!-- 左侧栏 -->
+			<div id="SideBar-left">
+
+				<!-- 新闻轮播模块 -->
+				<div id="Newleft">
+					<img src="img/l02.jpg" alt="">
+					<span>1</span>
+					<div>高铁动卧、夕发朝至</div>
+				</div>
+				<!-- 新闻轮播模块结束 -->
+
+				<!-- 服务问卷 -->
+				<div id=Service class="mrgn-top textCenter">
+					<a href=""><img src="img/ico_question.gif" width="194" alt=""></a>
+				</div>
+				<!-- 服务问卷结束 -->
+
+				<!-- 票务功能栏 -->
+				<div id="ShopMain">
+					<ul>
+						<li><a href="login.html"><img src="img/newS.gif" width="191" alt=""></a></li>
+						<li><a href="login_register.html" class="pic1 pic">网上购票用户注册</a></li>
+						<li><a href="login.html" class="pic2 pic">购票</a></li>
+						<li><a href="" class="pic3 pic">退票</a></li>
+						<li><a href="" class="pic4 pic">余票查询</a></li>
+						<li><a href="" class="pic5 pic">旅客列车时刻表查询</a></li>
+						<li><a href="" class="pic6 pic">旅客列车正晚点查询</a></li>
+						<li><a href="" class="pic7 pic">票价查询</a></li>
+						<li><a href="" class="pic8 pic">客票代售点查询</a></li>
+						<li><a href="" class="pic9 pic">客运营业站站点 </a></li>
+						<li><a href="" class="pic11 pic">我的保险</a></li>
+						<li><a href="" class="pic10"><img src="img/ico_tltel.gif" width="189" alt=""></a></li>
+					</ul>
+				</div>
+				<!-- 票务功能栏结束 -->
+
+			</div>
+			<!-- 左侧栏结束 -->
+
+			<!-- 中间内容区 -->
+			<div id="MainBody">
+				<!-- 中间内容栏 -->
+				<div id="newContent">
+					<!-- 新闻内容 -->
+					<div class="newTitle">最新动态</div>
+					<div class="newList">
+						<p>&nbsp;&nbsp;为保障您顺畅购票，请下载安装<a href=""><u>根证书</u></a></p>
+						<ul>
+							<li>
+								<span class="hot"><a href="">关于微信方式发送购票通知服务的使用说明</a></span>
+								<span class="status">(2018-04-17)</span>
+								<img src="img/new02.gif" alt="">
+							</li>
+							<li>
+								<span class="hot"><a href="">关于12306网站新增微信支付服务功能的公告</a></span>
+								<span class="status">(2018-04-17)</span>
+								<img src="img/new02.gif" alt="">
+							</li>
+							<li>
+								<span class="hot"><a href="">接续换乘和选座功能使用说明</a></span>
+								<span class="status">(2018-04-17)</span>
+								<img src="img/new02.gif" alt="">
+							</li>
+							<li><a href="">公 告</a><span class="status">(2018-04-17)</span></li>
+							<li><a href="">关于调整互联网、电话订票起售时间的公告</a><span class="status">(2018-04-17)</span></li>
+							<li><a href="">中国铁路上海局集团有限公司关于2018年4月28日-2018年5月1日部分动...</a><span class="status">(2018-04-17)</span></li>
+							<li><a href="">中国铁路沈阳局集团有限公司关于调整列车运行图的公告</a><span class="status">(2018-04-17)</span></li>
+						</ul>
+						<div class="textRight"><a href="">更多>>>&nbsp;&nbsp;</a></div>
+					</div>
+				</div>
+
+				<!-- 搜索模块开始 -->
+				<div id="Search">
+					<form action="" id="fmSearch">
+						<strong>全文搜索:</strong>
+						<input type="text" id="Searchtext" placeholder="请输入搜索条件" >
+						<input type="image" src="img/search_submit_1.jpg" alt="">
+					</form>
+				</div>
+				<!-- 搜索模块结束 -->
+
+				<!-- 指南模块开始 -->
+				<div class="guild">
+					<ul>
+						<li><a href="" class="guild-l"></a></li>
+						<li><a href="" class="guild-r"></a></li>
+					</ul>
+				</div>
+				<!-- 指南模块结束 -->
+
+				<!-- 票务日程模块 -->
+				<div class="schedule">
+					<div class="schedule-nav">
+						<ul>
+							<li class="on">余票动态信息</li>
+							<li>网上购票常见问题</li>
+							<li>铁路常识</li>
+							<li>货运办理常见问题</li>
+						</ul>
+					</div>
+					<div class="schedule-main">
+						<table width="539" style="font-size: 12px; border-collapse: collapse; border: 1px solid #f3f3f3; color: #333" border="1" >
+							<thead bgcolor="#f3f3f3">
+								<tr>
+									<td class="status-l">出发地</td>
+									<td class="status-l">目的地</td>
+									<td class="status-r">4月11日</td>
+									<td class="status-r">4月12日</td>
+									<td class="status-r">4月13日</td>
+									<td class="status-r">4月14日</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="status-l">北京</td>
+									<td class="status-l">哈二饼</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+								</tr>
+								<tr>
+									<td class="status-l">北京</td>
+									<td class="status-l">肠村</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+								</tr>
+								<tr>
+									<td class="status-l">北京</td>
+									<td class="status-l">大脸</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+								</tr>
+								<tr>
+									<td class="status-l">北京</td>
+									<td class="status-l">机灵</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+								</tr>
+								<tr>
+									<td class="status-l">北京</td>
+									<td class="status-l">山海</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+								</tr>
+								<tr>
+									<td class="status-l">北京</td>
+									<td class="status-l">试驾撞</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+								</tr>
+								<tr>
+									<td class="status-l">北京</td>
+									<td class="status-l">天井</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+								</tr>
+								<tr>
+									<td class="status-l">北京</td>
+									<td class="status-l">太远</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+								</tr>
+								<tr>
+									<td class="status-l">北京</td>
+									<td class="status-l">呼呵浩克</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+									<td class="status-r">12306</td>
+								</tr>
+								<tr>
+									<td colspan="5" align="center" style="color: #f00; border-right: 1px solid #fff">余票张数为全部席别的总数（30分钟更新一次，上次更新时间：22:02）</td>
+									<td class="status-r">
+										<a href="">查看更多>></a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!-- 票务日程模块结束 -->
+
+			</div>
+			<!-- 中间内容区结束 -->
+
+
+			<!-- 右侧栏 -->
+			<div id="SideBar-right">
+				<!-- 新闻轮播右侧 -->
+				<div id="Newright">
+					<img src="img/l02.jpg" alt="">
+					<span>1</span>
+					<div>高铁动卧、夕发朝至</div>
+				</div>
+				<!-- 新闻轮播右侧结束 -->
+
+				<!-- 广告横幅 -->
+				<div id="banner-1" class="banr-right"><a href=""><img src="img/ico_lkcx.jpg" alt=""></a></div>
+				<div id="banner-2" class="banr-right"><a href=""><img src="img/ico_hy009.gif" alt=""></a></div>
+				<div id="banner-3" class="banr-right"><a href=""><img src="img/ico_hy010.gif" alt=""></a></div>
+				<!-- 广告横幅结束 -->
+
+				<!-- 右侧物流状态栏 -->
+				<div id="status-right">
+					<ul>
+						<li><a href="" class="pic pic21">主要营业站受理服务电话</a></li>
+						<li><a href="" class="pic pic22">货运运费查询</a></li>
+						<li><a href="" class="pic pic23">货物追踪</a></li>
+					</ul>
+				</div>
+				<!-- 右侧物流状态栏结束 -->
+
+				<!-- 相关链接栏 -->
+				<div><img src="img/ico_link001.gif" alt=""></div>
+				<div id="friendlink">
+					<div class="link-boder">
+						<ul>
+							<li><a href="">中央政府门户网站</a></li>
+							<li><a href="">外交部</a></li>
+							<li><a href="">发展改革委</a></li>
+							<li><a href="">教育部</a></li>
+							<li><a href="">科技部</a></li>
+							<li><a href="">国家民委</a></li>
+							<li><a href="">卫生部</a></li>
+							<li><a href="">人口计生委</a></li>
+							<li><a href="">人民银行</a></li>
+						</ul>
+					</div>
+				</div>
+				<div><img src="img/ico_link003.gif" alt=""></div>
+				<!-- 相关链接栏结束 -->
+
+			</div>
+			<!-- 右侧栏结束 -->
+
+		</div>
+		<div id="Footer">
+			<!-- 底部区 -->
+			<div class="Footer-line1"></div>
+			<div>
+				<br/>
+				<a href="./gljd/gywm/">关于我们</a>  |  <a href="./gljd/wzls/">网站声明</a>
+				<br/>
+				版权所有 © 2008-2018 中国铁路信息技术中心 中国铁道科学研究院 
+				<br/>
+				京ICP备15003716号-3&nbsp;&nbsp;|&nbsp;&nbsp;京ICP证150437号	
+			</div>
+			<div class="Footer-line2"></div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/User.js"></script>
+	<script type="text/javascript">
+		function Tim2() {//声明用来刷新的时间函数
+			var myTime = new Date();
+			var year = myTime.getFullYear();
+			var month = myTime.getMonth() + 1;//月份基数为0，遂加一
+			var date = myTime.getDate();
+			var aWeek = ['日', '一', '二', '三', '四', '五', '六'];
+			/*单独声明将被输出的年月日时分秒*/
+
+			document.getElementById("menu-Date").innerHTML = year + '年' + month + '月' + date +　'日' + '&nbsp;' + '星期' + aWeek[myTime.getDay()];//为导航栏时间头标签输出当前日前
+		}
+
+		Tim2();//先调用一次在计时器生效前的空档填补空白
+		setInterval('Tim2()', 1000000);//调用重复定时器,隔一段时间刷新日期信息
+
+		/*----------------------div关闭函数----------------------*/
+		/*function appOff(obj) {
+			document.getElementById(obj).style.display = 'none';
+		}*/
+		/*----------------------End div关闭函数----------------------*/
+	</script>
+</body>
+</html>
