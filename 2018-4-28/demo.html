@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<p>
+		<span><a href=""></a></span><input type="button" value="a1">
+	</p>
+	<p>
+		<span><a href=""></a></span><input type="button" value="a2">
+	</p>
+	<p>
+		<span><a href=""></a></span><input type="button" value="a3">
+	</p>
+	<p>
+		<span><a href=""></a></span><input type="button" value="a4">
+	</p>
+	<script type="text/javascript">
+		var inPut = document.getElementsByTagName('input');
+
+		for (var i = 0; i < inPut.length; i++) {
+			inPut[i].onclick = function() {
+				// sPan[i].innerHTML = this.value;
+				alert(this.value);
+			}
+		}
+	</script>
+</body>
+</html>

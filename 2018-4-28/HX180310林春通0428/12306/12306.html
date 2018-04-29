@@ -17,10 +17,10 @@
 		<input placeholder="帐号密码" type="password" name="" id="Password">
 		<!-- <input placeholder="确认密码/登录不需确认" type="password" name="" id="Password2"> -->
 		<input placeholder="请输入验证码" type="text" id="verify">
-		<a href="login_register.html">没有帐号请点击注册跳转！</a>
+		<a href="register.html">没有帐号请点击注册跳转！</a>
 		<dt>
 			<label for="">验证码</label>
-			<strong id="verify-code"></strong>
+			<strong onclick="getVerify()" id="verify-code"></strong>
 		</dt>
 		<input type="button" class="regs-btn" value="登录" onclick="getlogin()">
 		<!-- <input type="button" class="regs-btn" value="注册" onclick="getReg()"> -->
@@ -87,9 +87,9 @@
 				<!-- 票务功能栏 -->
 				<div id="ShopMain">
 					<ul>
-						<li><a href="login.html"><img src="img/newS.gif" width="191" alt=""></a></li>
-						<li><a href="login_register.html" class="pic1 pic">网上购票用户注册</a></li>
-						<li><a href="login.html" class="pic2 pic">购票</a></li>
+						<li><a href="ticket.html"><img src="img/newS.gif" width="191" alt=""></a></li>
+						<li><a href="register.html" class="pic1 pic">网上购票用户注册</a></li>
+						<li><a href="ticket.html" class="pic2 pic">购票</a></li>
 						<li><a href="" class="pic3 pic">退票</a></li>
 						<li><a href="" class="pic4 pic">余票查询</a></li>
 						<li><a href="" class="pic5 pic">旅客列车时刻表查询</a></li>
@@ -356,6 +356,8 @@
 			document.getElementById(obj).style.display = 'none';
 		}*/
 		/*----------------------End div关闭函数----------------------*/
+
+		getVerify();//刷新验证码保证不验证码框数据不为空
 	</script>
 </body>
 </html>

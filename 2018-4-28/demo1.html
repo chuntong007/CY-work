@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#menu div {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="爸爸不要我啦">
+
+	<script type="text/javascript">
+		/**
+		 * 1、获取所有的以及菜单
+		 */
+		
+		/*var aMenu = document.getElementById('menu').getElementsByTagName('a');
+
+		for (var i = 0; i < aMenu.length; i++) {
+			aMenu[i].onclick = function() {
+				if (this.nextElementSibling) {
+					if (this.nextElementSibling.getAttribute('dis') == 1) {
+						this.nextElementSibling.style.display = 'none';
+						this.nextElementSibling.setAttribute('dis', 0);
+					}
+					else {
+						this.nextElementSibling.style.display = 'block';
+						this.nextElementSibling.setAttribute('dis', 1);
+					}
+				}
+			}
+		}*/
+
+		var ochild = document.getElementsByTagName('input')[0];
+
+		ochild.onclick = function() {
+			this.parentElement.removeChild(this);
+		}
+
+
+	</script>
+</body>
+</html>

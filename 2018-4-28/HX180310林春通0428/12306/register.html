@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>我的12306</title>
-	<link rel="stylesheet" type="text/css" href="css/my12306.css">
+	<title>注册页</title>
+	<link rel="stylesheet" type="text/css" href="css/register.css">
 	<link rel="stylesheet" type="text/css" href="css/common.css">
 	<link rel="stylesheet" type="text/css" href="css/common_login.css">
 </head>
@@ -25,7 +25,7 @@
 					<a href="">手机版</a>
 				</div>
 				<div class="menu">
-					<a href="" class="menu-bd">我的12306<b></b></a>
+					<a href="my12306.html" class="menu-bd">我的12306<b></b></a>
 					<div class="menu-list">
 						<b></b>
 						<ul>
@@ -49,9 +49,9 @@
 					意见反馈：
 					<a class="link-color" href="">12306yjfk@rails.com.cn</a>
 					&nbsp;您好，请
-					<a class="link-color" href="javascript:void(0)" onclick="appBlock('regsiterMask'), appBlock('regsiter')">登录</a>
+					<a class="link-color" href="register.html" onclick="loginType()">登录</a>
 					|
-					<a href="login_register.html">注册</a>
+					<a href="register.html">注册</a>
 				</span>
 			</div>
 			<!-- 用户账户操作区结束 -->
@@ -59,7 +59,7 @@
 			<div class="nav">
 				<ul>
 					<li><a href="">客运首页</a></li>
-					<li><a href="login.html">车票预订</a></li>
+					<li><a href="ticket.html">车票预订</a></li>
 					<li><a href="">接续换乘</a></li>
 					<li><a href="">铁路畅行</a></li>
 					<li><a href="">餐饮•特产</a></li>
@@ -86,17 +86,37 @@
 	<!-- 内容区 -->
 	<div id="PageBody">
 
-		<!-- 左侧导航栏 -->
-		<div class="sidebarNav">
-			<div class="Nav-line">我的12306</div>
-		</div>
-		<!-- 左侧导航栏结束 -->
+		<!-- 页序 -->
+		<div style="line-height: 32px;width: 962px;position: relative; margin:auto;">
+			您现在的位置：
+			<a href="" style="color: #333333;">客运首页</a>
 
-		<!-- 右侧内容主体 -->
-		<div class="MainBody">
-			<div class="Nav-line">系统信息</div>
+			&nbsp;&gt;&nbsp;
+			<strong>注册</strong>
 		</div>
-		<!-- 右侧内容主体结束 -->
+		<!-- 页序结束 -->
+
+		<!-- 注册操作区 -->
+		<div class="regsiter_login">
+			<div class="reg-line">账户信息</div>
+			<div style="text-align: center;">
+				<input style="display: block;" placeholder="用户名" type="text" id="Account">
+				<input onmouseout="rexPhon()" style="display: block;" placeholder="手机号" type="text" id="PhoneNum">
+				<span style="display: inline-block;" id="phonMsg" class="msg">请正确填写手机号码</span>
+				<input style="display: block;" placeholder="帐号密码" type="password" name="" id="Password">
+				<input style="display: block;" placeholder="确认密码/登录不需确认" type="password" name="" id="Password2">
+				<input style="display: block;" placeholder="请输入验证码" type="text" id="verify">
+				<a id="turnBtn" onclick="disReg()" href="javascript:void(0)">已有账号请点击登录跳转</a>
+				<dt>
+					<label for="">验证码</label>
+					<strong onclick="getVerify()" id="verify-code"></strong>
+				</dt>
+				<input style="display: none;" id="logNbtn" type="button" class="regs-btn" value="登录" onclick="getlogin()">
+				<input style="display: block;" id="Regsbtn" type="button" class="regs-btn" value="注册" onclick="getReg()">
+			</div>
+		</div>
+		<!-- 注册操作区结束 -->
+
 	</div>
 	<!-- 内容区结束 -->
 
@@ -115,6 +135,15 @@
 	<!-- 插入Js文件 -->
 	<script type="text/javascript" src="js/common.js"></script>
 	<script type="text/javascript" src="js/User.js"></script>
+	<script type="text/javascript">
+		getVerify();
+		//调用验证码刷新，保证验证码不为空
+
+		if (window.localStorage.getItem('login')) {//判断本地存储登录状态为true执行登录注册显示跳转并清除本地登录状态key。
+			disReg();
+			window.localStorage.removeItem('login');
+		}
+	</script>
 	<!-- 插入Js文件结束 -->
 </body>
 </html>

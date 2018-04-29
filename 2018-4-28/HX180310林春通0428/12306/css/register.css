@@ -1,10 +1,21 @@
 /*----------------------PageBody---------------------- */
 /*注册操作区*/
+#PageBody {
+	margin: 0 auto;
+	width: 980px;
+}
+
 #PageBody .regsiter_login {
 	border: 1px solid #1678be;
 	padding-bottom: 15px;
 	border-radius: 4px 4px 0 0;
 	background: url(../img/bg.png) repeat-x 0 -400px;
+}
+
+#PageBody .regsiter_login .msg {
+	margin-top: 10px;
+	padding-left: 18px;
+	color: #ff7f00;
 }
 
 #PageBody .regsiter_login .reg-line {
