@@ -13,6 +13,7 @@
 }
 
 #PageBody .regsiter_login .msg {
+	position: absolute;
 	margin-top: 10px;
 	padding-left: 18px;
 	color: #ff7f00;

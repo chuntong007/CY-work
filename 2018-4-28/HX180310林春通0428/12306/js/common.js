@@ -32,6 +32,7 @@ var aUser = [//声明存储用户信息数组
 	{username: 'ln', phonenum: 110, password: 123}
 	/*以上为测试用账户对象*/
 ];
+var wUser = JSON.parse(window.localStorage.getItem('user')) == null ? aUser : JSON.parse(window.localStorage.getItem('user'));//获取当前本地存储的账户数据
 
 function getVerify() {//声明刷新验证码函数
 	var sNum = '1234567890qwertyuiopasdfghjklzxcvbnm';
@@ -52,6 +53,8 @@ function getVerify() {//声明刷新验证码函数
 }
 
 var phonRex = /^[1][3-9]\d{9}$/;
+var countRex = /\w{6,30}$/;
+var passRex = /\w{6,20}$/;
 	// 声明变量获取注册信息、验证码、收集信息并置入的数组变量。
 
 function getReg() {//声明注册功能
@@ -68,7 +71,7 @@ function getReg() {//声明注册功能
 
 
 
-	if (uCount && uPhon.match(phonRex) && uPswd && uVerf) {//判断文本库已填入信息
+	if (uCount.match(countRex) && uPhon.match(phonRex) && uPswd.match(passRex) && uVerf) {//判断文本库已填入信息
 		for (var i = 0; i < aUser.length; i++) {//循环遍历账户信息数组
 			if (aUser[i].username == uCount) {//判断用户名已注册执行语句
 				alert('用户名已注册。');
@@ -96,9 +99,6 @@ function getReg() {//声明注册功能
 		console.log(aUser);
 		getVerify();
 	}
-	else if (!uPhon.match(phonRex)) {
-		alert('您输入的手机号码不是有效的格式！');
-	}
 	else {
 		alert('请将注册信息补全。');
 		getVerify();
@@ -114,12 +114,14 @@ function getlogin() {//声明登录账户功能
 	var Verf = document.getElementById('verify-code').innerHTML;
 
 	if (uCount && uPswd && uVerf.toLowerCase() == Verf.toLowerCase()) {
-		for (var i = 0; i < aUser.length; i++) {//遍历账户数组是否有符合条件账户信息，找到后弹出提示并返回
-			if (aUser[i].username == uCount && aUser[i].password == uPswd) {
+		for (var i = 0; i < wUser.length; i++) {//遍历账户数组是否有符合条件账户信息，找到后弹出提示并返回
+			if (wUser[i].username == uCount && wUser[i].password == uPswd) {
 				alert('登录成功!');
 				// appOff('regsiterMask'), appOff('regsiter');//登录成功后调用隐藏遮罩层函数
 
-				window.localStorage.setItem('nowUser', aUser[i].username);//向本定存储增加一个键名为nowUser值为uCount的数据
+				wUser[i].contacts != null ? window.localStorage.setItem('nowContacts', wUser[i].contacts) : wUser[i].contacts;//通过三目运算判断本地存储是否已有联系人数组，有则将联系人数组导入本地存储当前账户联系人键名区，没有则返回本身
+
+				window.localStorage.setItem('nowUser', wUser[i].username);//向本定存储增加一个键名为nowUser值为uCount的数据
 				window.location.href = 'my12306.html';//跳转页面到个人帐号界面
 				return;
 
@@ -149,54 +151,74 @@ var ulogBtn = document.getElementById('logNbtn');
 var uRegbtn = document.getElementById('Regsbtn');
 var uTubtn = document.getElementById('turnBtn');
 var uMsg = document.getElementById('phonMsg');
+var AMsg = document.getElementById('countMsg');
+var PMsg = document.getElementById('passMsg');
 // 提前声明好输入框对象获取变量
 
 function disReg() {
-	if (uPhtext.style.display == 'block' && uPtrtext.style.display == 'block' && ulogBtn.style.display == 'none') {
-		uPhtext.style.display = 'none';
-		uPtrtext.style.display = 'none';
-		ulogBtn.style.display = 'block';
+	if (uPhtext.style.display == 'inline-block' && uPtrtext.style.display == 'inline-block' && ulogBtn.style.display == 'none') {
+		uPhtext.parentElement.style.display = 'none';
+		uPtrtext.parentElement.style.display = 'none';
+		ulogBtn.style.display = 'inline-block';
 		uRegbtn.style.display = 'none';
 		uMsg.style.display = 'none';
+		AMsg.style.display = 'none';
+		PMsg.style.display = 'none';
 		uTubtn.innerHTML = '没有账号请点击注册跳转';
 	}
 	else {
-		uPhtext.style.display = 'block';
-		uPtrtext.style.display = 'block';
+		uPhtext.parentElement.style.display = 'inline-block';
+		uPtrtext.parentElement.style.display = 'inline-block';
 		ulogBtn.style.display = 'none';
-		uRegbtn.style.display = 'block';
+		uRegbtn.style.display = 'inline-block';
 		uMsg.style.display = 'inline-block';
+		AMsg.style.display = 'inline-block';
+		PMsg.style.display = 'inline-block';
 		uTubtn.innerHTML = '已有账号请点击登录跳转';
 	}
+
+	document.getElementById('Account').value = '';
+	document.getElementById('PhoneNum').value = '';
+	document.getElementById('Password').value = '';
+	document.getElementById('Password2').value = '';
+	document.getElementById('verify').value = '';
+	// 点击跳转显示后自动清空输入框信息。
 }
 /*----------------------End 登录注册跳转显示功能----------------------*/
 
 /*----------------------执行注销账户跳转功能----------------------*/
 function RemoveUser() {
 	window.localStorage.removeItem('nowUser');//移除本地存储中的账户键名
+	window.localStorage.removeItem('nowContacts');//移除本地存储中的联系人数组
 	window.location.href = '12306.html';
 }
 /*----------------------End执行注销账户跳转功能----------------------*/
 
 
 /*----------------------正则校验功能----------------------*/
-/*手机号校验*/
-function rexPhon() {//手机号校验信息提示功能
-	var uPhon = document.getElementById('PhoneNum').value;
-	var uMsg = document.getElementById('phonMsg');
+/**
+ * [rexTest 正则验证后提示信息功能]
+ * @param  {[Id]} inputId [获取输入框Id]
+ * @param  {[Id]} msgId   [验证提示框Id]
+ * @param  {[字符串]} msg     [验证性信息名称，例如'手机号']
+ * @param  {[正则表达式对象]} rex     [用以验证对应id输入框的验证规则]
+ * @return {[type]}         [description]
+ */
+function rexTest(inputId, msgId, msg, rex) {//手机号校验信息提示功能
+	var uPhon = document.getElementById(inputId).value;
+	var uMsg = document.getElementById(msgId);
 
-	if (uPhon.match(phonRex)) {//判断手机号格式正确显示样式
-		uMsg.innerHTML = '手机号合法';
+	if (uPhon.match(rex)) {//判断手机号格式正确显示样式
+		uMsg.innerHTML = msg + '合法';
 		uMsg.style.background = '';
 		uMsg.style.color = '#0f0';
 	}
 	else {//当格式错误样式信息修改
-		uMsg.innerHTML = '请输入正确的手机号码!';
+		uMsg.innerHTML = '请输入正确的' + msg;
 		uMsg.style.background = 'url(img/icon_wrong.png) no-repeat left';
 		uMsg.style.color = '#f00';
 	}
 }
-/*手机号校验结束*/
 /*----------------------End正则校验功能----------------------*/
 
 
@@ -217,3 +239,64 @@ function loginType() {//用于点击登录跳转注册页，让注册页用于�
 	window.localStorage.setItem('login', true);//赋予键login值为true使之具备语义化。
 }
 /*----------------------End 登录状态传导功能----------------------*/
+
+
+/*----------------------添加联系人功能----------------------*/
+var cName = document.getElementById('contName');
+var cAge = document.getElementById('contAge');
+var cPhone = document.getElementById('contPhone');
+var cradio = document.getElementsByName('sex-btn');
+var cSex = '';
+var cAry;//声明获取联系人信息的变量，用于添加置入账户数组里
+/*声明变量获取文档对象用户输入的联系人信息*/
+
+	
+
+function addCon() {
+	var nowuser = window.localStorage.getItem('nowUser');//获取当前登录帐户名
+
+	for (var i = 0; i < cradio.length; i++) {//遍历单选框对象判断获取选中值
+		if (cradio[i].checked == true) {//判断单选框被选中的状态
+			cSex = cradio[i].value;//将选中对象的value值赋予变量
+			break;
+		}
+	}
+
+	if (cSex == '') {
+		return alert('未选择性别！');
+	}
+
+	if (cName.value && cAge.value && cPhone.value) {
+		if (!cAge.value.match(/\d/)) {
+			return alert('请输入正常年龄！');
+		}
+		if (!cPhone.value.match(phonRex)) {
+			return alert('请输入正确的手机号！');
+		}
+
+		for (var i = 0; i < wUser.length; i++) {
+			if (wUser[i].username == nowuser) {//遍历判断是否为当前登录账户的信息对象
+				cAry = new Contacts(cName.value, cAge.value, cPhone.value, cSex);//将输入的联系人信息通过Contacts类存储为对象
+				
+				wUser[i].contacts = JSON.parse(window.localStorage.getItem('nowContacts')) != null ? JSON.parse(window.localStorage.getItem('nowContacts')) : [];//通过三目运算判断本地存储是否已有联系人数组，有则获取本地存储联系人数组，没有则赋值空数组
+
+				wUser[i].contacts.push(cAry);//将联系人对象置入当前账户的contact属性数组中
+
+				window.localStorage.setItem('nowContacts', JSON.stringify(wUser[i].contacts));//将当前账户的联系人属性数组存入本地键值为nowContacts
+				window.localStorage.setItem('user', JSON.stringify(wUser));//更新本地账户数据
+
+				return alert('添加联系人成功!');
+			}
+		}
+	}
+	else {
+		alert('请将联系人信息补全!');
+	}
+
+}
+/*----------------------End 添加联系人功能----------------------*/
+
+
+/*----------------------打印联系人功能----------------------*/
+
+/*----------------------End 打印联系人功能----------------------*/

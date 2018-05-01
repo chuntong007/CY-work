@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>我的12306</title>
+	<title>我的联系人</title>
 	<link rel="stylesheet" type="text/css" href="css/common.css">
 	<link rel="stylesheet" type="text/css" href="css/common_my12306.css">
 	<link rel="stylesheet" type="text/css" href="css/common_login.css">
@@ -93,6 +93,12 @@
 
 			&nbsp;&gt;&nbsp;
 			<strong>我的12306</strong>
+
+			&nbsp;&gt;&nbsp;
+			<strong>常用信息管理</strong>
+
+			&nbsp;&gt;&nbsp;
+			<strong>常用联系人</strong>
 		</div>
 		<!-- 页序结束 -->
 
@@ -117,10 +123,10 @@
 						<li><a href="javascript:void(0)">账号安全</a></li>
 						<li><a href="javascript:void(0)">手机核验</a></li>
 					</ul>
-					<li><a onclick="turnDisp('sideNav3')" href="javascript:void(0)">常用信息管理</a>
+					<li><a href="javascript:void(0)">常用信息管理</a>
 					</li>
-					<ul id="sideNav3" class="Nav-none" style="display: none;">
-						<li><a href="my-contact.html">常用联系人</a></li>
+					<ul id="sideNav3" class="Nav-none" style="display: block;">
+						<li><a href="javascript:void(0)">常用联系人</a></li>
 						<li><a href="my-addcontact.html">添加联系人</a></li>
 					</ul>
 					<li><a onclick="turnDisp('sideNav4')" href="javascript:void(0)">温馨服务</a>
@@ -143,32 +149,69 @@
 
 		<!-- 右侧内容主体 -->
 		<div class="MainBody">
-			<div class="Nav-line">系统信息</div>
-			<div class="Main-Content">
-				<div class="welcome">
-					<span class="icon"></span>
-					<div style="margin-left: 112px;">
-						<p style="font: 20px blod; color: #000;"><span id="userName" style="font-weight: bold; color: #00f;">林春通</span>先生，下午好！</p>
-						<p>欢迎您登录中国铁路客户服务中心网站。
-							<br>
-							<span style="color: red;">如果您的密码在其他网站也使用，建议您修改本网站密码。
-							</span>
-							<br>点击<a id="isStationMember" href="#nogo">成为会员</a>
-							<br>
-							<span style="color:red;">完成手机双向核验，即可使用手机号码直接登录的新服务，解除您遗忘用户名的烦恼。
-							</span>
-							<br>
-						</p>
-					</div>
-					<div class="welcome-code">
-						<img src="img/showqrcode.png" style="border: 1px dashed #478dcd" width="122px" alt="">
-						<p>使用微信扫一扫，即可关注并绑定12306公众号。</p>
-					</div>
+			<div class="Nav-line">常用联系人</div>
+			<div class="Main-Content" style="background: url(img/bg_train.png) bottom right no-repeat;">
+
+				<!-- 联系人列表开始 -->
+				<div id="contact-list">
+					<table>
+						<thead>
+							<tr>
+								<th>头像</th>
+								<th>姓名</th>
+								<th>手机号</th>
+								<th>性别</th>
+								<th><input onclick="" class="list-btn" type="button" value="年龄/排序" style="border: none; border-radius:4px; margin-left: 5px; width: 80px; height: 30px; background: #ff8000; color: #fff;"></input></th>
+							</tr>
+						</thead>
+						<tbody id="contact-body">
+							<tr>
+								<td><img width="100px" src="img/man.jpeg" alt=""></td>
+								<td>Lnation</td>
+								<td>13959282964</td>
+								<td>男</td>
+								<td>23</td>
+							</tr>
+							<tr>
+								<td><img width="100px" src="img/women.jpg" alt=""></td>
+								<td>十三姨</td>
+								<td>1359121568</td>
+								<td>女</td>
+								<td>23</td>
+							</tr>
+							<tr>
+								<td><img width="100px" src="img/man.jpeg" alt=""></td>
+								<td>Lnation</td>
+								<td>13959282964</td>
+								<td>男</td>
+								<td>23</td>
+							</tr>
+							<tr>
+								<td><img width="100px" src="img/women.jpg" alt=""></td>
+								<td>十三姨</td>
+								<td>1359121568</td>
+								<td>女</td>
+								<td>23</td>
+							</tr>
+							<tr>
+								<td><img width="100px" src="img/women.jpg" alt=""></td>
+								<td>十三姨</td>
+								<td>1359121568</td>
+								<td>女</td>
+								<td>23</td>
+							</tr>
+							<tr>
+								<td><img width="100px" src="img/women.jpg" alt=""></td>
+								<td>十三姨</td>
+								<td>1359121568</td>
+								<td>女</td>
+								<td>23</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
-				<div class="Main-msg">
-					<h2>温馨提示：</h2>
-					关注“铁路12306”公众号并完成微信绑定后，购票、改签、退票、购买乘意险、退乘意险的通知消息，将会通过“铁路12306”微信公众号发送给您；手机号码核验、通过手机号码找回密码、列车运行调整的通知仍然通过短信发送给您。
-				</div>
+				<!-- 联系人列表结束 -->
+
 			</div>
 
 		</div>
@@ -195,7 +238,6 @@
 		/*----------------------登录后页面指定部分显示本地存储账户名信息----------------------*/
 		var nowUser = window.localStorage.getItem('nowUser');//声明变量获取本地存储中键名为nowUser的数据
 
-		document.getElementById('userName').innerHTML = nowUser;//将获取到的数据输出到指定Id元素进行显示
 		document.getElementById('userNav').innerHTML = nowUser;//将获取到的数据输出到指定Id元素进行显示
 		/*----------------------End 登录后页面指定部分显示本地存储账户名信息----------------------*/
 

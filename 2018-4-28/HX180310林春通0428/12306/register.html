@@ -99,20 +99,42 @@
 		<!-- 注册操作区 -->
 		<div class="regsiter_login">
 			<div class="reg-line">账户信息</div>
-			<div style="text-align: center;">
-				<input style="display: block;" placeholder="用户名" type="text" id="Account">
-				<input onmouseout="rexPhon()" style="display: block;" placeholder="手机号" type="text" id="PhoneNum">
-				<span style="display: inline-block;" id="phonMsg" class="msg">请正确填写手机号码</span>
-				<input style="display: block;" placeholder="帐号密码" type="password" name="" id="Password">
-				<input style="display: block;" placeholder="确认密码/登录不需确认" type="password" name="" id="Password2">
-				<input style="display: block;" placeholder="请输入验证码" type="text" id="verify">
+			<div style="position: relative; text-align: center;">
+				<p style="display: block;">
+					<label style="color: #f00;" for="">*</label>
+					用 户 名：
+					<input onblur="rexTest('Account', 'countMsg', '帐户名', countRex)" style="display: inline-block;" placeholder="6-30位字母、数字或“_”，字母开头" type="text" id="Account">
+					<span style="display: inline-block; top: 2px; right: 232px;" id="countMsg" class="msg">请正确填写帐户名</span>
+				</p>
+				<p style="display: block;">
+					<label style="color: #f00;" for="">*</label>
+					手机号码：
+					<input onblur="rexTest('PhoneNum', 'phonMsg', '手机号码', phonRex)" style="display: inline-block;" placeholder="手机号" type="text" id="PhoneNum">
+					<span style="display: inline-block; top: 37px; right: 220px;" id="phonMsg" class="msg">请正确填写手机号码</span>
+				</p>
+				<p style="display: block;">
+					<label style="color: #f00;" for="">*</label>
+					登录密码：
+					<input onblur="rexTest('Password', 'passMsg', '帐号密码', passRex)" style="display: inline-block;" placeholder="6-20位字母，数字或符号" type="password" name="" id="Password">
+					<span style="display: inline-block; top: 70px; right: 220px;" id="passMsg" class="msg">请正确填写帐号密码</span>
+				</p>
+				<p style="display: block;">
+					<label style="color: #f00;" for="">*</label>
+					确认密码：
+					<input style="display: inline-block;" placeholder="确认密码/登录不需确认" type="password" name="" id="Password2">
+				</p>
+				<p style="display: block;">
+					<label style="color: #f00;" for="">*</label>
+					验 证 码：
+					<input style="display: inline-block;" placeholder="请输入验证码" type="text" id="verify">
+				</p>
 				<a id="turnBtn" onclick="disReg()" href="javascript:void(0)">已有账号请点击登录跳转</a>
 				<dt>
 					<label for="">验证码</label>
 					<strong onclick="getVerify()" id="verify-code"></strong>
 				</dt>
 				<input style="display: none;" id="logNbtn" type="button" class="regs-btn" value="登录" onclick="getlogin()">
-				<input style="display: block;" id="Regsbtn" type="button" class="regs-btn" value="注册" onclick="getReg()">
+				<input style="display: inline-block;" id="Regsbtn" type="button" class="regs-btn" value="注册" onclick="getReg()">
 			</div>
 		</div>
 		<!-- 注册操作区结束 -->

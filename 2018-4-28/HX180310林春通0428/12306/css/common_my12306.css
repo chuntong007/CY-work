@@ -1,0 +1,188 @@
+
+/*----------------------PageBody---------------------- */
+#PageBody {
+	overflow: hidden;
+	margin: 0 auto;
+	width: 980px;
+}
+
+#PageBody .Nav-line {
+	padding-left: 25px;
+	height: 32px;
+	line-height: 32px;
+	font-size: 17px;
+	color: #fff;
+}
+
+
+/*左侧内容区*/
+#PageBody .sidebarNav,
+#PageBody .MainBody {
+	border-radius: 4px 4px 0 0;
+	background: url(../img/bg.png) repeat-x 0 -400px;
+}
+
+#PageBody .sidebarNav {
+	float: left;
+	border: 1px solid #1678be;
+	margin-right: 10px;
+	width: 198px;
+	background: #eef1f8 url(../img/bg.png) repeat-x 0 -400px;
+}
+
+#PageBody .sidebarNav .Nav-Body {
+	padding: 20px 14px;
+}
+
+#PageBody .Nav-Body li {
+	border-bottom: 1px solid #ddd;
+	height: 39px;
+	line-height: 39px;
+}
+
+#PageBody .Nav-Body li:hover {
+	border-left: 5px solid #66c8e8;
+	border-bottom: 1px solid #fff;
+	margin-left: -15px;
+	padding-left: 10px;
+	background: #fff;
+}
+
+.Nav-Body li:hover a {
+	text-decoration: none;
+	color: #66c8e8;
+}
+
+.Nav-Body .Nav-none a {
+	padding-left: 30px;
+	color: #666;
+}
+
+/*End 左侧内容区*/
+
+
+/*右侧内容区*/
+#PageBody .MainBody {
+	float: left;
+	border: 1px solid #1678be;
+	width: 768px;
+}
+
+#PageBody .Main-Content {
+	padding: 10px;
+	min-height: 499px;
+
+}
+
+#PageBody .Main-Content .icon {
+	float: left;
+	margin-right: 30px;
+	width: 82px;
+	height: 92px;
+	background: url(../img/icon02.png) no-repeat 0 -300px;
+}
+
+#PageBody .Main-Content .welcome {
+	margin-left: 112px;
+	padding-top: 60px;
+	height: 330px;
+	background: url(../img/bg_train.png) bottom right no-repeat;
+}
+
+#PageBody .Main-Content .welcome-code {
+	border-top: 1px dashed #999;
+	margin-left: 112px;
+	padding-top: 45px;
+	width: 450px;
+}
+
+.Main-Content .welcome-code p {
+	margin: 20px 0 0 -50px;
+}
+
+#PageBody .Main-Content .Main-msg {
+	border: 1px solid #fbd800;
+	border-radius: 5px;
+	margin-top: 10px;
+	padding: 5px;
+	background: #fffbe5;
+}
+
+
+/* 常用信息管理 */
+#PageBody .Main-Content #contact-list {
+	border: 1px solid #298cce;
+	margin-top: 10px;
+}
+
+.Main-Content #contact-list table {
+	width: 100%;
+	table-layout: fixed;
+	background: url(../img/bg_tlisthd.png) top repeat-x;
+}
+
+.Main-Content #contact-list thead {}
+
+#contact-list thead tr {}
+
+.Main-Content #contact-list tr {
+	line-height: 52px;
+}
+
+.Main-Content #contact-list th {
+	background: url(../img/line_tlisth.png) right center no-repeat;
+	color: #fff;
+}
+
+.Main-Content #contact-list td {
+	font: 15px bold;
+	text-align: center;
+	background: url(../img/line_tlisth.png) right center no-repeat;
+	color: #d41313;
+}
+
+.Main-Content #contact-list th:last-child,
+.Main-Content #contact-list td:last-child {
+	background: none;
+}
+
+/*联系人添加*/
+#PageBody .Main-Content .add-contact {}
+
+.Main-Content .add-contact p {
+	text-align: center;
+	margin-top: 50px;
+}
+
+.Main-Content .add-contact .con-text {
+	display: inline-block;
+	width: 200px;
+	height: 30px;
+	line-height: 30px;
+}
+
+.add-contact .con-text span {
+	margin-right: 30px;
+}
+
+.add-contact p a {
+	display: inline-block;
+	width: 60px;
+	height: 30px;
+	line-height: 30px;
+	background: #208fff;
+	color: #fff;
+	border-radius: 4px;
+}
+
+.add-contact span input {
+	vertical-align: middle;
+}
+
+/*End 联系人添加*/
+
+/* End常用信息管理 */
+
+/*End 右侧内容区*/
+
+/*----------------------End PageBody---------------------- */
