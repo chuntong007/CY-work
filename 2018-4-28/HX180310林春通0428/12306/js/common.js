@@ -119,7 +119,9 @@ function getlogin() {//声明登录账户功能
 				alert('登录成功!');
 				// appOff('regsiterMask'), appOff('regsiter');//登录成功后调用隐藏遮罩层函数
 
-				wUser[i].contacts != null ? window.localStorage.setItem('nowContacts', wUser[i].contacts) : wUser[i].contacts;//通过三目运算判断本地存储是否已有联系人数组，有则将联系人数组导入本地存储当前账户联系人键名区，没有则返回本身
+				if (wUser[i].contacts) {//判断登陆账号已有联系人情况下存入本地存储
+					window.localStorage.setItem('nowContacts', JSON.stringify(wUser[i].contacts));
+				}
 
 				window.localStorage.setItem('nowUser', wUser[i].username);//向本定存储增加一个键名为nowUser值为uCount的数据
 				window.location.href = 'my12306.html';//跳转页面到个人帐号界面
@@ -250,8 +252,9 @@ var cSex = '';
 var cAry;//声明获取联系人信息的变量，用于添加置入账户数组里
 /*声明变量获取文档对象用户输入的联系人信息*/
 
-	
-
+/**
+ * [addCon 添加联系人功能]
+ */
 function addCon() {
 	var nowuser = window.localStorage.getItem('nowUser');//获取当前登录帐户名
 
@@ -298,5 +301,5 @@ function addCon() {
 
 
 /*----------------------打印联系人功能----------------------*/
-
+function putCont() {}
 /*----------------------End 打印联系人功能----------------------*/
