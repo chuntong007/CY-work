@@ -141,6 +141,15 @@
 	color: #d41313;
 }
 
+#contact-list #contact-body .delete {
+	border: none;
+	border-radius: 4px;
+	width: 50px;
+	height: 30px;
+	background: #ff8000;
+	color: #fff;
+}
+
 .Main-Content #contact-list th:last-child,
 .Main-Content #contact-list td:last-child {
 	background: none;
