@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<input type="text" id='name' name="">
+	<input type="password" id='pwd' name="">
+	<input type="button" id='regBtn' onclick="reg()" value="注册" name="">
+
+	<script type="text/javascript">
+		// if(window.localStorage.getItem('aUsers')==null){
+		// 	var allUser = [];
+		// }else{
+		// 	var allUser = JSON.parse(window.localStorage.getItem('aUsers'));
+		// }
+		// window.localStorage.clear();
+		var allUser = window.localStorage.getItem('hx180301aUsers')==null ? [] : JSON.parse(window.localStorage.getItem('hx180301aUsers'));
+
+		function reg(){
+			var nameValue = document.getElementById('name').value;
+			var pwdValue = document.getElementById('pwd').value;
+			var obj = {
+				name : nameValue,
+				pwd : pwdValue
+			}
+			allUser.push(obj);
+			window.localStorage.setItem('hx180301aUsers',JSON.stringify(allUser));
+		}
+	</script>
+</body>
+</html>
