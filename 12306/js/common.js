@@ -293,17 +293,5 @@ function addCon() {
 
 
 /*----------------------打印联系人功能----------------------*/
-var cTbody = document.getElementById('contact-body');
-
-function putCont() {
-	for (var i = 0; i < cAry.length; i++) {
-		oTr = document.createElement('tr');
-		oTdimg = document.createElement('td');
-		oTdname = document.createElement('td');
-		oTdphone = document.createElement('td');
-		oTdsex = document.createElement('td');
-		oTdage = document.createElement('td');
-		oTdremove = document.createElement('td');
-	}
-}
+function putCont() {}
 /*----------------------End 打印联系人功能----------------------*/
