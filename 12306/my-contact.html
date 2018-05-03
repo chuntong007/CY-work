@@ -165,7 +165,7 @@
 								<th>操作</th>
 							</tr>
 						</thead>
-						<tbody id="contact-body">
+						<tbody id="contact-body"><!-- 
 							<tr>
 								<td><img width="100px" src="img/man.jpeg" alt=""></td>
 								<td>Lnation</td>
@@ -214,7 +214,7 @@
 								<td>23</td>
 								<td><input class="delete" type="button" value="删除"></td>
 							</tr>
-						</tbody>
+						 --></tbody>
 					</table>
 				</div>
 				<!-- 联系人列表结束 -->
@@ -249,6 +249,10 @@
 		/*----------------------End 登录后页面指定部分显示本地存储账户名信息----------------------*/
 
 		userType();//执行函数判断个人页面非法判断跳转
+
+		putCont();//执行联系人打印功能，以表格形式输出在页面中。
+
+		contDel();
 
 	</script>
 	<!-- 插入Js文件结束 -->

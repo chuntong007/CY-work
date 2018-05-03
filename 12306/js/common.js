@@ -272,7 +272,7 @@ function addCon() {
 			return alert('请输入正确的手机号！');
 		}
 
-		for (var i = 0; i < wUser.length; i++) {
+		/*for (var i = 0; i < wUser.length; i++) {
 			if (wUser[i].username == nowuser) {//遍历判断是否为当前登录账户的信息对象
 				var oCont = new Contacts(cName.value, cAge.value, cPhone.value, cSex, wUser[i].username);//将输入的联系人信息通过Contacts类存储为对象
 
@@ -282,7 +282,21 @@ function addCon() {
 
 				return alert('添加联系人成功!');
 			}
+		}*/
+		for (var i = 0; i < cAry.length; i++) {//遍历本地联系人数组
+			if (cAry[i].contbelong == nowuser && cAry[i].contphone == cPhone.value) {//判断但联系人附属于当前账户且联系人手机号与输入框手机号重复
+				alert('联系人手机号重复！');
+				return;//当联系人手机号重复弹出提示并退出函数
+			}
 		}
+
+		var oCont = new Contacts(cName.value, cAge.value, cPhone.value, cSex, nowuser);//将输入的联系人信息通过Contacts类存储为对象
+
+		cAry.push(oCont);//将联系人对象置入数组里用于统一存入本地中
+
+		window.localStorage.setItem('hx180310Contacts', JSON.stringify(cAry));//将联系人对象数组存入本地存储区
+
+		return alert('添加联系人成功!');
 	}
 	else {
 		alert('请将联系人信息补全!');
@@ -293,5 +307,76 @@ function addCon() {
 
 
 /*----------------------打印联系人功能----------------------*/
-function putCont() {}
+var cTbody = document.getElementById('contact-body');//获取将要用来打印联系人的表格主体对象
+
+/**
+ * [putCont 打印联系人功能]
+ * @return {[type]} [description]
+ * 1、循环遍历联系人数组，判断联系人是否归属于当前账户
+ * 2、属于当前账户情况下创建节点将联系人信息按表格结构进行进行追加输出
+ */
+function putCont() {
+	var cimg;//用于获取男女头像的图片标签变量。
+
+	for (var i = 0; i < cAry.length; i++) {//遍历联系人数组
+		if (cAry[i].contbelong == nowUser) {//判断属于当前账户的联系人进行书输出
+			var ctr = document.createElement('tr');//创建一个行标签再后续用来追加于tbody
+			var ctd = document.createElement('td');
+			var cinput = document.createElement('input');
+			
+			if (cAry[i].contsex == '男') {//判断联系人性别输出对应头像标签
+				cimg = '<td><img width="100px" src="img/man.jpeg" alt=""></td>'; 
+			}
+			else {
+				cimg = '<td><img width="100px" src="img/women.jpg" alt=""></td>';
+			}
+
+			cinput.type = 'button';
+			cinput.className = 'delete';
+			cinput.value = '删除';
+			cinput.belong = cAry[i].contphone;//给删除按钮定义一个和隐藏的属性belong赋值当前联系人的手机号
+
+			ctd.appendChild(cinput);
+
+			// alert(cimg + cAry[i].contname);
+			ctr.innerHTML = cimg + '<td>' + cAry[i].contname + '</td>' + '<td>' + cAry[i].contphone + '</td>' + '<td>' + cAry[i].contsex + '</td>' + '<td>' + cAry[i].contage + '</td>';// + '<td><input class="delete" type="button" value="删除"></td>';//将联系人信息按照表格结构输出于行标签中
+
+			ctr.appendChild(ctd);
+
+			cTbody.appendChild(ctr);//将格式化为行标签的联系人信息追加于表格主体对象中进行显示输出
+		}
+	}
+	
+}
+
+// 联系人删除功能
+function contDel() {//封装联系人删除功能，在联系人页面底部调用
+	cTbody.onclick = function(e) {//给联系人显示表格主体添加点击事件委托
+		var target = e.target;//声明变量调用点击事件的触发对象
+
+		if (target.className == 'delete') {//判断点击触发对象的class名是否和删除按钮一致
+			var msg = confirm('确定要删除联系人？');
+
+			if (!msg) {
+				return
+			}
+			
+			for (var i = 0; i < cAry.length; i++) {//遍历联系人数组
+
+				if (cAry[i].contphone == target.belong && msg) {//判断联系人姓名与触发按钮的附属联系人名一致且提示确认删除联系人返回值为true执行操作
+					cAry.splice(i, 1);//删除对应联系人数组下标
+
+					window.localStorage.setItem('hx180310Contacts', JSON.stringify(cAry));//将联系人对象数组存入本地存储区刷新数据
+					window.location.reload();//刷新页面重新打印联系人。
+					return;
+				}
+			}
+		}
+
+	}
+	
+}
+
+// End 联系人删除功能
+
 /*----------------------End 打印联系人功能----------------------*/
