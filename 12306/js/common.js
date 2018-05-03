@@ -32,7 +32,7 @@ var aUser = [//声明存储用户信息数组
 	{username: 'ln', phonenum: 110, password: 123}
 	/*以上为测试用账户对象*/
 ];
-var wUser = JSON.parse(window.localStorage.getItem('user')) == null ? aUser : JSON.parse(window.localStorage.getItem('user'));//获取当前本地存储的账户数据
+var wUser = JSON.parse(window.localStorage.getItem('hx180310user')) == null ? aUser : JSON.parse(window.localStorage.getItem('hx180310user'));//获取当前本地存储的账户数据
 
 function getVerify() {//声明刷新验证码函数
 	var sNum = '1234567890qwertyuiopasdfghjklzxcvbnm';
@@ -67,7 +67,7 @@ function getReg() {//声明注册功能
 	var ary;
 	
 
-	aUser = JSON.parse(window.localStorage.getItem('user')) == null ? aUser : JSON.parse(window.localStorage.getItem('user'));//赋值用户数组进行三目运算判断，当本地存储没有用户数据赋为原先值，否则赋值本地用户数组数据。
+	aUser = JSON.parse(window.localStorage.getItem('hx180310user')) == null ? aUser : JSON.parse(window.localStorage.getItem('hx180310user'));//赋值用户数组进行三目运算判断，当本地存储没有用户数据赋为原先值，否则赋值本地用户数组数据。
 
 
 
@@ -93,7 +93,7 @@ function getReg() {//声明注册功能
 
 		ary = new User(uCount, uPhon, uPswd);//手机号账号名都未重复情况下将注册信息写入数组变量
 		aUser.push(ary);//将账号数组写入第一维存储数组变量
-		window.localStorage.setItem('user', JSON.stringify(aUser));//将存储用户信息的数组变量以数组形式存储于本地空间。
+		window.localStorage.setItem('hx180310user', JSON.stringify(aUser));//将存储用户信息的数组变量以数组形式存储于本地空间。
 
 		alert('注册成功');
 		console.log(aUser);
@@ -119,11 +119,7 @@ function getlogin() {//声明登录账户功能
 				alert('登录成功!');
 				// appOff('regsiterMask'), appOff('regsiter');//登录成功后调用隐藏遮罩层函数
 
-				if (wUser[i].contacts) {//判断登陆账号已有联系人情况下存入本地存储
-					window.localStorage.setItem('nowContacts', JSON.stringify(wUser[i].contacts));
-				}
-
-				window.localStorage.setItem('nowUser', wUser[i].username);//向本定存储增加一个键名为nowUser值为uCount的数据
+				window.localStorage.setItem('hx180310nowUser', wUser[i].username);//向本定存储增加一个键名为nowUser值为uCount的数据
 				window.location.href = 'my12306.html';//跳转页面到个人帐号界面
 				return;
 
@@ -190,8 +186,7 @@ function disReg() {
 
 /*----------------------执行注销账户跳转功能----------------------*/
 function RemoveUser() {
-	window.localStorage.removeItem('nowUser');//移除本地存储中的账户键名
-	window.localStorage.removeItem('nowContacts');//移除本地存储中的联系人数组
+	window.localStorage.removeItem('hx180310nowUser');//移除本地存储中的账户键名
 	window.location.href = '12306.html';
 }
 /*----------------------End执行注销账户跳转功能----------------------*/
@@ -226,7 +221,7 @@ function rexTest(inputId, msgId, msg, rex) {//手机号校验信息提示功能
 
 /*----------------------判断个人页面非法访问跳转功能----------------------*/
 function userType() {
-	if (window.localStorage.getItem('nowUser')) {
+	if (window.localStorage.getItem('hx180310nowUser')) {
 		return;
 	}
 	else {
@@ -249,14 +244,14 @@ var cAge = document.getElementById('contAge');
 var cPhone = document.getElementById('contPhone');
 var cradio = document.getElementsByName('sex-btn');
 var cSex = '';
-var cAry;//声明获取联系人信息的变量，用于添加置入账户数组里
+var cAry = JSON.parse(window.localStorage.getItem('hx180310Contacts')) ? JSON.parse(window.localStorage.getItem('hx180310Contacts')) : [];//通过三目运算判断本地是否已有联系人信息数组，有则获取赋值，没有则赋值空数组
 /*声明变量获取文档对象用户输入的联系人信息*/
 
 /**
  * [addCon 添加联系人功能]
  */
 function addCon() {
-	var nowuser = window.localStorage.getItem('nowUser');//获取当前登录帐户名
+	var nowuser = window.localStorage.getItem('hx180310nowUser');//获取当前登录帐户名
 
 	for (var i = 0; i < cradio.length; i++) {//遍历单选框对象判断获取选中值
 		if (cradio[i].checked == true) {//判断单选框被选中的状态
@@ -279,14 +274,11 @@ function addCon() {
 
 		for (var i = 0; i < wUser.length; i++) {
 			if (wUser[i].username == nowuser) {//遍历判断是否为当前登录账户的信息对象
-				cAry = new Contacts(cName.value, cAge.value, cPhone.value, cSex);//将输入的联系人信息通过Contacts类存储为对象
-				
-				wUser[i].contacts = JSON.parse(window.localStorage.getItem('nowContacts')) != null ? JSON.parse(window.localStorage.getItem('nowContacts')) : [];//通过三目运算判断本地存储是否已有联系人数组，有则获取本地存储联系人数组，没有则赋值空数组
+				var oCont = new Contacts(cName.value, cAge.value, cPhone.value, cSex, wUser[i].username);//将输入的联系人信息通过Contacts类存储为对象
 
-				wUser[i].contacts.push(cAry);//将联系人对象置入当前账户的contact属性数组中
+				cAry.push(oCont);//将联系人对象置入数组里用于统一存入本地中
 
-				window.localStorage.setItem('nowContacts', JSON.stringify(wUser[i].contacts));//将当前账户的联系人属性数组存入本地键值为nowContacts
-				window.localStorage.setItem('user', JSON.stringify(wUser));//更新本地账户数据
+				window.localStorage.setItem('hx180310Contacts', JSON.stringify(cAry));//将联系人对象数组存入本地存储区
 
 				return alert('添加联系人成功!');
 			}
@@ -301,5 +293,17 @@ function addCon() {
 
 
 /*----------------------打印联系人功能----------------------*/
-function putCont() {}
+var cTbody = document.getElementById('contact-body');
+
+function putCont() {
+	for (var i = 0; i < cAry.length; i++) {
+		oTr = document.createElement('tr');
+		oTdimg = document.createElement('td');
+		oTdname = document.createElement('td');
+		oTdphone = document.createElement('td');
+		oTdsex = document.createElement('td');
+		oTdage = document.createElement('td');
+		oTdremove = document.createElement('td');
+	}
+}
 /*----------------------End 打印联系人功能----------------------*/

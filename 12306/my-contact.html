@@ -162,6 +162,7 @@
 								<th>手机号</th>
 								<th>性别</th>
 								<th><input onclick="" class="list-btn" type="button" value="年龄/排序" style="border: none; border-radius:4px; margin-left: 5px; width: 80px; height: 30px; background: #ff8000; color: #fff;"></input></th>
+								<th>操作</th>
 							</tr>
 						</thead>
 						<tbody id="contact-body">
@@ -171,6 +172,7 @@
 								<td>13959282964</td>
 								<td>男</td>
 								<td>23</td>
+								<td><input class="delete" type="button" value="删除"></td>
 							</tr>
 							<tr>
 								<td><img width="100px" src="img/women.jpg" alt=""></td>
@@ -178,13 +180,15 @@
 								<td>1359121568</td>
 								<td>女</td>
 								<td>23</td>
-							</tr>
+								<td><input class="delete" type="button" value="删除"></td>
+							<!-- </tr>
 							<tr>
 								<td><img width="100px" src="img/man.jpeg" alt=""></td>
 								<td>Lnation</td>
 								<td>13959282964</td>
 								<td>男</td>
 								<td>23</td>
+								<td><input class="delete" type="button" value="删除"></td>
 							</tr>
 							<tr>
 								<td><img width="100px" src="img/women.jpg" alt=""></td>
@@ -192,6 +196,7 @@
 								<td>1359121568</td>
 								<td>女</td>
 								<td>23</td>
+								<td><input class="delete" type="button" value="删除"></td>
 							</tr>
 							<tr>
 								<td><img width="100px" src="img/women.jpg" alt=""></td>
@@ -199,6 +204,7 @@
 								<td>1359121568</td>
 								<td>女</td>
 								<td>23</td>
+								<td><input class="delete" type="button" value="删除"></td>
 							</tr>
 							<tr>
 								<td><img width="100px" src="img/women.jpg" alt=""></td>
@@ -206,7 +212,8 @@
 								<td>1359121568</td>
 								<td>女</td>
 								<td>23</td>
-							</tr>
+								<td><input class="delete" type="button" value="删除"></td>
+							</tr> -->
 						</tbody>
 					</table>
 				</div>
@@ -236,7 +243,7 @@
 	<script type="text/javascript" src="js/User.js"></script>
 	<script type="text/javascript">
 		/*----------------------登录后页面指定部分显示本地存储账户名信息----------------------*/
-		var nowUser = window.localStorage.getItem('nowUser');//声明变量获取本地存储中键名为nowUser的数据
+		var nowUser = window.localStorage.getItem('hx180310nowUser');//声明变量获取本地存储中键名为nowUser的数据
 
 		document.getElementById('userNav').innerHTML = nowUser;//将获取到的数据输出到指定Id元素进行显示
 		/*----------------------End 登录后页面指定部分显示本地存储账户名信息----------------------*/
