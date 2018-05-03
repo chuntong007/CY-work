@@ -97,6 +97,7 @@ function getReg() {//声明注册功能
 
 		alert('注册成功');
 		console.log(aUser);
+		disReg();
 		getVerify();
 	}
 	else {
@@ -212,6 +213,38 @@ function rexTest(inputId, msgId, msg, rex) {//手机号校验信息提示功能
 	}
 	else {//当格式错误样式信息修改
 		uMsg.innerHTML = '请输入正确的' + msg;
+		uMsg.style.background = 'url(img/icon_wrong.png) no-repeat left';
+		uMsg.style.color = '#f00';
+	}
+}
+
+/**
+ * [passTest 密码校验提示功能]
+ * @param  {[Id]} inputId  [获取输入框id]
+ * @param  {[Id]} msgId    [获取信息提示框id]
+ * @param  {[Id]} inputId2 [获取对比输入框id]
+ * @param  {[string]} msg      [正确提示信息]
+ * @param  {[string]} msg2     [错误提示信息]
+ * @return {[type]}          [description]
+ */
+function passTest(inputId, msgId, inputId2, msg, msg2) {//手机号校验信息提示功能
+	var uPass = document.getElementById(inputId).value;
+	var uPass2 = document.getElementById(inputId2).value;
+	var uMsg = document.getElementById(msgId);
+
+	if (uPass == uPass2) {//判断手机号格式正确显示样式
+		if (!uPass && !uPass2) {//判断手机号格式正确显示样式
+			uMsg.innerHTML = '密码不许为空';
+			uMsg.style.background = '';
+			uMsg.style.color = '#f00';
+			return;
+		}
+		uMsg.innerHTML = msg;
+		uMsg.style.background = '';
+		uMsg.style.color = '#0f0';
+	}
+	else {//当格式错误样式信息修改
+		uMsg.innerHTML = msg2;
 		uMsg.style.background = 'url(img/icon_wrong.png) no-repeat left';
 		uMsg.style.color = '#f00';
 	}
@@ -351,8 +384,9 @@ function putCont() {
 
 // 联系人删除功能
 function contDel() {//封装联系人删除功能，在联系人页面底部调用
-	cTbody.onclick = function(e) {//给联系人显示表格主体添加点击事件委托
-		var target = e.target;//声明变量调用点击事件的触发对象
+	cTbody.onclick = function() {//给联系人显示表格主体添加点击事件委托
+		var e = arguments[0] || window.event;
+		var target = e.target || arguments.srcElement;//声明变量调用点击事件的触发对象
 
 		if (target.className == 'delete') {//判断点击触发对象的class名是否和删除按钮一致
 			var msg = confirm('确定要删除联系人？');

@@ -204,14 +204,17 @@
 		/*----------------------登录后页面指定部分显示本地存储账户名信息----------------------*/
 		if (window.localStorage.getItem('hx180310nowUser')) {
 			var nowUser = window.localStorage.getItem('hx180310nowUser');//声明变量获取本地存储中键名为nowUser的数据
+			var uRomve = document.getElementById('userRomve');
+			var uNav = document.getElementById('userNav');
 
-			document.getElementById('userRomve').onclick = RemoveUser;//给原先注册按钮添加注销功能
+			uRomve.onclick = RemoveUser;//给原先注册按钮添加注销功能
 
-			document.getElementById('userRomve').innerHTML = '退出/注销';
-			document.getElementById('userRomve').href = 'javascript:void(0)';
+			uRomve.innerHTML = '退出/注销';
+			uRomve.href = 'javascript:void(0)';
 			//将原先注册按钮改变为退出注销按钮
 
-			document.getElementById('userNav').innerHTML = nowUser;//将获取到的数据输出到指定Id元素进行显示
+			uNav.innerHTML = nowUser;//将获取到的数据输出到指定Id元素进行显示
+			uNav.href = 'javascript:void(0)';//取消原先a标签的默认链接跳珠行
 		}
 
 		/*----------------------End 登录后页面指定部分显示本地存储账户名信息----------------------*/		

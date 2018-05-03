@@ -115,13 +115,14 @@
 				<p style="display: block;">
 					<label style="color: #f00;" for="">*</label>
 					登录密码：
-					<input onblur="rexTest('Password', 'passMsg', '帐号密码', passRex)" style="display: inline-block;" placeholder="6-20位字母，数字或符号" type="password" name="" id="Password">
+					<input onblur="rexTest('Password', 'passMsg', '帐号密码', passRex), passTest('Password2', 'passMsg2', 'Password', '密码一致', '两次密码输入不同！')" style="display: inline-block;" placeholder="6-20位字母，数字或符号" type="password" name="" id="Password">
 					<span style="display: inline-block; top: 70px; right: 220px;" id="passMsg" class="msg">请正确填写帐号密码</span>
 				</p>
 				<p style="display: block;">
 					<label style="color: #f00;" for="">*</label>
 					确认密码：
-					<input style="display: inline-block;" placeholder="确认密码/登录不需确认" type="password" name="" id="Password2">
+					<input onblur="passTest('Password2', 'passMsg2', 'Password', '密码一致', '两次密码输入不同！')" style="display: inline-block;" placeholder="确认密码/登录不需确认" type="password" name="" id="Password2">
+					<span style="display: inline-block; top: 105px; right: 220px;" id="passMsg2" class="msg">请正确填写帐号密码</span>
 				</p>
 				<p style="display: block;">
 					<label style="color: #f00;" for="">*</label>
