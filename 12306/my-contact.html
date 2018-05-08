@@ -165,59 +165,25 @@
 								<th>操作</th>
 							</tr>
 						</thead>
-						<tbody id="contact-body"><!-- 
-							<tr>
-								<td><img width="100px" src="img/man.jpeg" alt=""></td>
-								<td>Lnation</td>
-								<td>13959282964</td>
-								<td>男</td>
-								<td>23</td>
-								<td><input class="delete" type="button" value="删除"></td>
-							</tr>
-							<tr>
-								<td><img width="100px" src="img/women.jpg" alt=""></td>
-								<td>十三姨</td>
-								<td>1359121568</td>
-								<td>女</td>
-								<td>23</td>
-								<td><input class="delete" type="button" value="删除"></td>
-							</tr>
-							<tr>
-								<td><img width="100px" src="img/man.jpeg" alt=""></td>
-								<td>Lnation</td>
-								<td>13959282964</td>
-								<td>男</td>
-								<td>23</td>
-								<td><input class="delete" type="button" value="删除"></td>
-							</tr>
-							<tr>
-								<td><img width="100px" src="img/women.jpg" alt=""></td>
-								<td>十三姨</td>
-								<td>1359121568</td>
-								<td>女</td>
-								<td>23</td>
-								<td><input class="delete" type="button" value="删除"></td>
-							</tr>
-							<tr>
-								<td><img width="100px" src="img/women.jpg" alt=""></td>
-								<td>十三姨</td>
-								<td>1359121568</td>
-								<td>女</td>
-								<td>23</td>
-								<td><input class="delete" type="button" value="删除"></td>
-							</tr>
-							<tr>
-								<td><img width="100px" src="img/women.jpg" alt=""></td>
-								<td>十三姨</td>
-								<td>1359121568</td>
-								<td>女</td>
-								<td>23</td>
-								<td><input class="delete" type="button" value="删除"></td>
-							</tr>
-						 --></tbody>
+						<tbody id="contact-body">
+						</tbody>
 					</table>
 				</div>
 				<!-- 联系人列表结束 -->
+
+				<!-- 分页按钮开始 -->
+				<div id="contentPage">
+					<a href="javascript:void(0)" class="lastPage">上一页</a>
+					<ul id="pageBtn">
+						<!-- <li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li> -->
+					</ul>
+					<a href="javascript:void(0)" class="nextPage">下一页</a>
+				</div>
+				<!-- 分页按钮结束 -->
 
 			</div>
 
@@ -249,10 +215,9 @@
 		/*----------------------End 登录后页面指定部分显示本地存储账户名信息----------------------*/
 
 		userType();//执行函数判断个人页面非法判断跳转
-
-		putCont();//执行联系人打印功能，以表格形式输出在页面中。
-
-		contDel();
+		// putCont(nowContacts, 0, 3);//执行联系人打印功能，以表格形式输出在页面中。
+		contDel();//插入联系人删除功能安装函数
+		PageFun(nowContacts, 3);//插入联系人分页打印功能，打印对象为当前账户联系人，单页打印长度为3通过传参设置
 
 	</script>
 	<!-- 插入Js文件结束 -->

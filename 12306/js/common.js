@@ -29,7 +29,8 @@ function turnDisp(iD) {
 
 /*----------------------登录注册功能----------------------*/
 var aUser = [//声明存储用户信息数组
-	{username: 'ln', phonenum: 110, password: 123}
+	{"username":"ln","phonenum":110,"password":123},
+	{"username":"a123123","phonenum":"13123123123","password":"123123"}
 	/*以上为测试用账户对象*/
 ];
 var wUser = JSON.parse(window.localStorage.getItem('hx180310user')) == null ? aUser : JSON.parse(window.localStorage.getItem('hx180310user'));//获取当前本地存储的账户数据
@@ -277,7 +278,7 @@ var cAge = document.getElementById('contAge');
 var cPhone = document.getElementById('contPhone');
 var cradio = document.getElementsByName('sex-btn');
 var cSex = '';
-var cAry = JSON.parse(window.localStorage.getItem('hx180310Contacts')) ? JSON.parse(window.localStorage.getItem('hx180310Contacts')) : [];//通过三目运算判断本地是否已有联系人信息数组，有则获取赋值，没有则赋值空数组
+var cAry = JSON.parse(window.localStorage.getItem('hx180310Contacts')) ? JSON.parse(window.localStorage.getItem('hx180310Contacts')) : [{"contname":"巍峨","contage":"13","contphone":"13123123132","contsex":"女","contbelong":"ln"},{"contname":"人为钱","contage":"13","contphone":"13123123123","contsex":"男","contbelong":"a123123"},{"contname":"人为钱","contage":"13","contphone":"13123123112","contsex":"男","contbelong":"a123123"},{"contname":"流出","contage":"12","contphone":"13123123123","contsex":"男","contbelong":"ln"},{"contname":"惹玩","contage":"12","contphone":"13123123122","contsex":"女","contbelong":"ln"},{"contname":"范甘迪","contage":"12","contphone":"13123123222","contsex":"男","contbelong":"ln"},{"contname":"大哥","contage":"44","contphone":"13123122222","contsex":"男","contbelong":"ln"},{"contname":"温情","contage":"44","contphone":"13233332222","contsex":"女","contbelong":"ln"},{"contname":"美格菲","contage":"44","contphone":"13222123123","contsex":"女","contbelong":"ln"},{"contname":"槐花黄","contage":"34","contphone":"13222133421","contsex":"女","contbelong":"ln"},{"contname":"林春通","contage":"22","contphone":"13123123234","contsex":"男","contbelong":"a123123"},{"contname":"周培真","contage":"24","contphone":"15880260500","contsex":"女","contbelong":"a123123"},{"contname":"王咪","contage":"23","contphone":"13234321432","contsex":"女","contbelong":"a123123"},{"contname":"各位","contage":"24","contphone":"13423412133","contsex":"男","contbelong":"a123123"},{"contname":"带我飞","contage":"24","contphone":"13423412333","contsex":"女","contbelong":"a123123"},{"contname":"广河村","contage":"24","contphone":"13421234333","contsex":"男","contbelong":"a123123"}];//通过三目运算判断本地是否已有联系人信息数组，有则获取赋值，没有则赋值空数组
 /*声明变量获取文档对象用户输入的联系人信息*/
 
 /**
@@ -344,20 +345,28 @@ var cTbody = document.getElementById('contact-body');//获取将要用来打印�
 
 /**
  * [putCont 打印联系人功能]
- * @return {[type]} [description]
+ * @param  {[Array]} Ary  [打印遍历的数组对象]
+ * @param  {[number]} star [打印起始位]
+ * @param  {[number]} end  [打印结束位]
+ * @return {[type]}      [description]
  * 1、循环遍历联系人数组，判断联系人是否归属于当前账户
  * 2、属于当前账户情况下创建节点将联系人信息按表格结构进行进行追加输出
  */
-function putCont() {
+function putCont(Ary, star, end) {
 	var cimg;//用于获取男女头像的图片标签变量。
 
-	for (var i = 0; i < cAry.length; i++) {//遍历联系人数组
-		if (cAry[i].contbelong == nowUser) {//判断属于当前账户的联系人进行书输出
+	for (var i = star; i < end; i++) {//遍历联系人数组
+		if (!Ary[i]) {
+			return;
+		}
+		/*打印联系人最后一页超出数组范围则退出打印*/
+
+		if (Ary[i].contbelong == nowUser) {//判断属于当前账户的联系人进行输出
 			var ctr = document.createElement('tr');//创建一个行标签再后续用来追加于tbody
 			var ctd = document.createElement('td');
 			var cinput = document.createElement('input');
 			
-			if (cAry[i].contsex == '男') {//判断联系人性别输出对应头像标签
+			if (Ary[i].contsex == '男') {//判断联系人性别输出对应头像标签
 				cimg = '<td><img width="100px" src="img/man.jpeg" alt=""></td>'; 
 			}
 			else {
@@ -367,12 +376,12 @@ function putCont() {
 			cinput.type = 'button';
 			cinput.className = 'delete';
 			cinput.value = '删除';
-			cinput.belong = cAry[i].contphone;//给删除按钮定义一个和隐藏的属性belong赋值当前联系人的手机号
+			cinput.belong = Ary[i].contphone;//给删除按钮定义一个和隐藏的属性belong赋值当前联系人的手机号
 
 			ctd.appendChild(cinput);
 
 			// alert(cimg + cAry[i].contname);
-			ctr.innerHTML = cimg + '<td>' + cAry[i].contname + '</td>' + '<td>' + cAry[i].contphone + '</td>' + '<td>' + cAry[i].contsex + '</td>' + '<td>' + cAry[i].contage + '</td>';// + '<td><input class="delete" type="button" value="删除"></td>';//将联系人信息按照表格结构输出于行标签中
+			ctr.innerHTML = cimg + '<td>' + Ary[i].contname + '</td>' + '<td>' + Ary[i].contphone + '</td>' + '<td>' + Ary[i].contsex + '</td>' + '<td>' + Ary[i].contage + '</td>';// + '<td><input class="delete" type="button" value="删除"></td>';//将联系人信息按照表格结构输出于行标签中
 
 			ctr.appendChild(ctd);
 
@@ -414,3 +423,137 @@ function contDel() {//封装联系人删除功能，在联系人页面底部调�
 // End 联系人删除功能
 
 /*----------------------End 打印联系人功能----------------------*/
+
+
+/*----------------------分页按钮功能----------------------*/
+var nowContacts = [];//声明当前账户联系人空数组
+var nowuser = window.localStorage.getItem('hx180310nowUser') ? window.localStorage.getItem('hx180310nowUser') : '';//获取当前登录帐户名，没有则赋空字符。
+
+for (var i = 0; i < cAry.length; i++) {
+	if (cAry[i].contbelong == nowuser) {
+		nowContacts.push(cAry[i]);
+	}
+}
+/*遍历联系人数组筛选当前账户联系人存入nowContacts*/
+
+window.localStorage.setItem('hx180310nowContacts', JSON.stringify(nowContacts));//将当前账户联系人导入本地存储
+
+/**分页按钮功能流程：
+ * 1、获取分页信息对象并声明当前页、开始页、结束页、总页数、单页信息长度变量
+ * 2、根据总页数追加打印分页按钮
+ * 3、改编原先联系人打印功能传参化进行初始页（第一页）联系人信息的打印
+ * 4、通过事件委托给分页按钮父级安装点击事件，判断对应按钮对象分别打印分页功能
+ */
+
+/*节点追加功能封装*/
+/**
+ * [showInfo 节点追加]
+ * @param  {[string]} id      [要被追加节点的对象id名]
+ * @param  {[obj]} data    [追加节点的内容]
+ * @param  {[string]} tagName [要追加的节点标签类型]
+ * @return {[type]}         [description]
+ */
+function showInfo(id, data, tagName) {
+	var obj = document.getElementById(id);
+	var oP = document.createElement(tagName);
+	oP.innerHTML = data;
+
+	obj.appendChild(oP);
+}
+/*End 节点追加功能封装*/
+
+/**
+ * [PageFun 当前联系人分页化打印输出功能]
+ * @param {[Array]} ary  [要打印的数组信息]
+ * @param {[number]} Size [单页打印长度]
+ */
+function PageFun(ary, Size) {
+	var ary;//分页总数据
+	var pageSize = Size;//单页长度
+	var pageNum = Math.ceil(ary.length / pageSize);//总页数
+	var Now = 1;//获取当前页值并取整
+	var Star = pageSize * (Now - 1);//单页总数据开始下标
+	var End = pageSize * Now;//单页总数据结束下标	
+	var cPage = document.getElementById('contentPage');//获取分页按钮标签父级对象
+	var cbtn = document.getElementById('pageBtn');
+
+	for (var i = 1; i <= pageNum; i++) {
+		/*var cli = document.createElement('li');
+		cli.innerHTML = i;
+		cbtn.appendChild(cli);*/
+		showInfo('pageBtn', i, 'li');
+	}//循环创建分页按钮对象追加进按钮标签中
+	var cli = cbtn.getElementsByTagName('li');
+	putCont(nowContacts, Now - 1, Size);//预先打印第一页联系人
+
+	cPage.onclick = function(e) {
+		var event = e || window.event;
+		var target = event.target || ararguments.srcElement;
+		//获取事件对象兼容ie
+
+		if (target.className == 'lastPage') {//上一页按钮
+			if (Now == 1) {//当前页若为第一页则退出功能
+				return;
+			}
+			Now--;
+			Star = pageSize * (Now - 1);//单页总数据开始下标
+			End = pageSize * Now;//单页总数据结束下标
+
+			for (var i = 0; i < cli.length; i++) {
+				if (cli[i].innerHTML == Now) {
+					cli[i].style.background = '#999';
+				}
+				else {
+					cli[i].style.background = '#bcb7bf';
+				}
+			}
+			/*遍历分页按钮标签修改当前页按钮背景色*/
+
+			cTbody.innerHTML = '';//清空表格已有联系人信息
+			putCont(nowContacts, Star, End);//打印对应页数联系人
+		}
+
+		if (target.className == 'nextPage') {//下一页按钮
+			if (Now == pageNum) {//当前页若为最后一页则退出功能
+				return;
+			}
+			Now++;
+			Star = pageSize * (Now - 1);//单页总数据开始下标
+			End = pageSize * Now;//单页总数据结束下标
+
+
+			for (var i = 0; i < cli.length; i++) {
+				if (cli[i].innerHTML == Now) {
+					cli[i].style.background = '#999';
+				}
+				else {
+					cli[i].style.background = '#bcb7bf';
+				}
+			}
+			/*遍历分页按钮标签修改当前页按钮背景色*/
+
+			cTbody.innerHTML = '';//清空表格已有联系人信息
+			putCont(nowContacts, Star, End);//打印对应页数联系人
+
+		}
+
+		if (target.tagName == 'LI') {//分页按钮标签
+			Now = parseInt(target.innerHTML);//获取当前页值并取整
+			Star = pageSize * (Now - 1);//单页总数据开始下标
+			End = pageSize * Now;//单页总数据结束下标
+			
+
+
+			for (var i = 0; i < cli.length; i++) {
+				cli[i].style.background = '#bcb7bf';
+			}
+			target.style.background = '#999';
+			/*遍历分页按钮标签修改当前按钮背景色*/
+
+			cTbody.innerHTML = '';//清空表格已有联系人信息
+			putCont(nowContacts, Star, End);//打印对应页数联系人
+		}
+	}
+
+}
+/*----------------------End 分页按钮功能----------------------*/

@@ -71,9 +71,79 @@ img {
 }
 
 #header #banner {
+	position: relative;
+	overflow: hidden;
 	height: 149px;
 	/*控制图片栏高度与12306同步*/
 }
+
+#banner .banner-list {
+	position: absolute;
+}
+
+.banner-list li {
+	float: left;
+}
+
+ul li {
+	list-style: none;
+}
+/*轮播图*/
+#circle {
+	position: absolute;
+	bottom: 10px;
+	left: 440px;
+}
+
+#circle li {
+	cursor: pointer;
+	float: left;
+	width: 10px;
+	height: 10px;
+	background: #999;
+	opacity: 0.6;
+	filter: alpha(opacity=0.6);
+	border-radius: 50%;
+	margin-left: 5px;
+}
+
+#circle li:first-child {
+	background: #e21717;
+}
+
+#banner #imgBtn {
+	position: absolute;
+	top: 55px;
+	padding: 0 20px;
+	width: 920px;
+}
+
+#banner #imgBtn span {
+	cursor: pointer;
+	border-radius: 2px;
+	height: 45px;
+	font: 33px/40px bold;
+	font-family: "Microsoft YaHei";
+	background: #999;
+	opacity: 0.5;
+	filter: alpha(opacity=0.66);
+	color: #fff;
+}
+
+#banner #imgBtn span:hover {
+	background: #000;
+	opacity: 0.63;
+	filter: alpha(opacity=0.63);
+}
+
+#banner #imgBtn .btn-l {
+	float: left;
+}
+
+#banner #imgBtn .btn-r {
+	float: right;
+}
+/*End 轮播图*/
 
 #header #menu ul {
 	height: 32px;

@@ -12,30 +12,47 @@ var aStation = [//声明表格站台所需要的初始二维数组信息
     ['G571', '北京', '剑门关', '成都', '重庆', 600],
 ];
 
+window.localStorage.setItem('hx180310aStation', JSON.stringify(aStation));//将此次数据存入本地数组key命名为hx180310aStation
+
+var oStbody = document.getElementById('schedule-body');
+
 function getStation() {//声明函数封装用来遍历数组信息输出于表格
-	var result = '';//声明初始字符串变量，用来获取叠加标签化数组信息
-	
+	oStbody.innerHTML = '';//先清空页面车次信息避免其他功能调用时进重复递增
 	for (var i = 0; i < aStation.length; i++) {//第一层循环遍历数组第一维下标
 		if (i % 2 == 0) {//设置条件表格每隔一行输出一个带有样式的tr头标
-			result += '<tr class="bgc">';//在二维数组循环前获取表格行标签头标
+			var result = document.createElement('tr');//创建tr标签对象节点
+			result.className = 'bgc';
+			
+			// result += '<tr class="bgc">';//在二维数组循环前获取表格行标签头标
 		}
 		else {
-			result += '<tr>';//在二维数组循环前获取表格行标签头标
+			// result += '<tr>';//在二维数组循环前获取表格行标签头标
+			var result = document.createElement('tr');//创建tr标签对象节点
 		}
 
 		for (var l = 0; l < aStation[i].length; l++) {//第二层循环遍历数组第二维下标
-			result += '<td>' + aStation[i][l] + '</td>';
+			// result += '<td>' + aStation[i][l] + '</td>';
+			var otd = document.createElement('td');
+			otd.innerHTML = aStation[i][l];
+			result.appendChild(otd);
 		}
 
-		result += '<td><input type="button" value="购票" /></td>' + '</tr>';//在二维数组循环后获取表格行标签闭合
-	}
+		/*退出循环后追加购票按钮节点*/
+		var otd = document.createElement('td');
+		var oinput = document.createElement('input');
+		
+		oinput.type = 'button';
+		oinput.value = '购票';
 
-	return result;//返回最终叠加嵌套表格标签的数组信息
+		otd.appendChild(oinput);
+		result.appendChild(otd);
+		/*End 退出循环后追加购票按钮节点*/
+
+		oStbody.appendChild(result);
+	}
 }
 
-document.getElementById('schedule-body').innerHTML = getStation();
-//声明变量向id指定的tbody标签进行数据输出
-
+getStation();
 
 /*车次打印功能*/
 
@@ -70,7 +87,7 @@ function searchSta() {
 
 	if (uSer) {
 		if (count > 0) {
-		    document.getElementById('schedule-body').innerHTML = result;
+		    oStbody.innerHTML = result;
 		}
 		else {
 		    alert('没有符合条件的车次信息,请重新查找。');
@@ -87,16 +104,6 @@ function searchSta() {
  * @return {[type]} [description]
  * 用户点击按钮时执行confirm方法选择进行站点信息查看或是站点间票价查询
  */
-/*function selectFun() {
-	var slect = confirm('是否查看站点间票价，取消返回站点信息查看。');
-
-	if (slect) {
-		ticKetserh();
-	}
-	else {
-		searchSta();
-	}
-}*/
 
 /**
  * [ticKetserh description]
@@ -153,7 +160,7 @@ function addSta() {
 	}
 	// 查重遍历没有重复车次信息后判断输入框是否输入必填项符合要求则将车次信息加入第一维大数组，不符合弹出提示补全信息。
 
-	document.getElementById('schedule-body').innerHTML = getStation();
+	getStation();
 	//重新输出所有列车信息检验是否正常添加。
 }
 // 车次添加功能结束
@@ -185,17 +192,17 @@ function findStation() {
 		}
 
 		if (result) {//判断在有符合车次条件叠加的情况下对表格输出相应车次信息
-			document.getElementById('schedule-body').innerHTML = result;
+			oStbody.innerHTML = result;
 		}
 		else {//当result没获取到符合条件信息则在表格中输出对应提示信息
-			document.getElementById('schedule-body').innerHTML = '<tr>' + '<td colspan="7">没有符合条件的车次信息。</td>' + '</tr>';
+			oStbody.innerHTML = '<tr>' + '<td colspan="7">没有符合条件的车次信息。</td>' + '</tr>';
 		}
 	}
 	else if (uStar && !uEnd) {//判断只输入起点站情况下调用车次查找打印功能
 		searchSta();
 	}
 	else {//强两者条件不满足的情况下判断只有起始站点未输入，并在对表格输出已有的车次信息后弹出提示。
-		document.getElementById('schedule-body').innerHTML = getStation();
+		getStation();
 		alert('请输入起始站点。');
 	}
 }
@@ -226,6 +233,6 @@ function asc() {//声明排序功能函数
 	}
 	result++;//排序完成后计数变量加一递增，当重新点击执行判断后将进行不同于前次的排序
 
-	document.getElementById('schedule-body').innerHTML = getStation();
+	getStation();
 }
 /*票价排序功能结束*/
