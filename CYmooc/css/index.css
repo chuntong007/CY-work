@@ -1,0 +1,44 @@
+/* -------------------------Container------------------------- */
+#Container {}
+
+/* banner轮播图 */
+#Container #banner {
+	position: relative;
+	margin: 0 auto;
+	width: 948px;
+}
+
+#Container .banner-wrap {
+	height: 580px;
+	background: url(../images/banner_bg.png) no-repeat center;
+}
+
+#Container #banner #bannerBox {
+	overflow: hidden;
+	height: 459px;
+}
+
+#Container #banner #circle {
+	margin: 0 auto;
+	width: 135px;
+}
+
+#banner #circle li:first-child {
+	background: #fff;
+}
+
+#banner #circle li {
+	float: left;
+	cursor: pointer;
+	border: 1px solid #747474;
+	border-radius: 50%;
+	margin-right: 10px;
+	width: 15px;
+	height: 15px;
+	background: #747474;
+}
+
+#Container #banner #bannerBtn {}
+/* End banner轮播图 */
+
+/* -------------------------End Container------------------------- */

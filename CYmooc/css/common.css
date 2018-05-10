@@ -1,0 +1,171 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ul li {
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	min-width: 1000px;
+	font-size: 14px;
+}
+/* 清除浏览器默认样式 */
+
+/* -------------------------Header------------------------- */
+#Header {
+	background: #14598c;
+}
+
+#Header .head-body {
+	margin: 0 auto;
+	width: 1000px;
+	height: 73px;
+	line-height: 73px;
+}
+
+#Header .head-body img {
+	float: left;
+	margin: 15px 74px 15px 0;
+}
+
+#Header ul {
+	position: relative;
+}
+
+#Header .Nav li {
+	float: left;
+	font-size: 21px;
+}
+
+#Header ul li.Clints:hover {
+	background: #104974;
+}
+
+#Header li.Clints:hover ul.Nav-Clints {
+	display: block;
+}
+
+#Header .Clints ul.Nav-Clints {
+	position: absolute;
+	display: none;
+	-webkit-box-shadow:  2px 2px 8px 0px #000;
+	box-shadow:  2px 2px 8px 0px #000; 
+	background: #14598c;
+}
+
+#Header ul.Nav-Clints li {
+	float: none;
+}
+
+#Header ul.Nav-Clints li:hover {
+	background: #104974;
+}
+
+#Header li a {
+	border-right: 1px solid #fff;
+	padding: 0 22px;
+	color: #fff;
+}
+
+#Header li:last-child a {
+	border: none;
+}
+
+
+#Header .head-body .head-right {
+	float: right;
+}
+
+#Header .head-body #Search {
+	display: inline-block;
+	margin-right: 52px;
+}
+
+#Header #Search #SearchText {
+	height: 30px;
+	border: none;
+	padding: 0 12px;
+	vertical-align: middle;
+}
+
+#Header #Search #SearchBtn {
+	border: none;
+	padding: 0 10px;
+	width: 15px;
+	height: 30px;
+	vertical-align: middle;
+	background: url(../images/search_btn.png) #fff no-repeat center;
+}
+
+#Header .head-body #Registerted {
+	display: inline-block;
+}
+
+#Header #Registerted a#Login {
+	border-right: 1px solid #fff;
+	margin-right: 10px;
+	padding-right: 10px;
+	color: #fff;
+}
+
+#Header #Registerted a#Regis {
+	color: #fff;
+}
+/* -------------------------End Header------------------------- */
+
+
+/* -------------------------Footer------------------------- */
+#Footer {
+	background: #696e71;
+}
+
+#Footer .footer-body {
+	position: relative;
+	margin: 0 auto;
+	width: 1000px;
+	height: 200px;
+}
+
+#Footer .footer-body .footerB-l {
+	position: absolute;
+	top: 50%;
+	float: left;
+	margin-top: -63px;
+	height: 126px;
+}
+
+#Footer .footerB-l table {
+	width: 340px;
+}
+
+#Footer table a {
+	color: #000;
+}
+
+#Footer thead td {
+	padding-bottom: 25px;
+}
+
+#Footer tbody td {}
+
+#Footer table tr {}
+
+#Footer .footer-body .footerB-r {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	margin-top: -34px;
+	height: 68px;
+}
+
+#Footer .footerB-r #Copright {
+	float: right;
+	margin-top: 10px;
+}
+/* -------------------------End Footer------------------------- */
