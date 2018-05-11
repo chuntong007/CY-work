@@ -29,7 +29,7 @@ function Carousel() {
 	pos++;
 }
 
-var oint = setInterval(Carousel, 3000);
+var oint = setInterval(Carousel, 1500);
 /*声明变量赋值定时器轮播方法*/
 
 aban.onmouseover = function() {//安装鼠标停留清除计时器终端轮播
@@ -37,7 +37,7 @@ aban.onmouseover = function() {//安装鼠标停留清除计时器终端轮播
 }
 
 aban.onmouseout = function(e) {
-	oint = setInterval(Carousel, 3000);
+	oint = setInterval(Carousel, 1500);
 	/*鼠标离开重新调用定时器*/
 }
 

@@ -54,6 +54,7 @@ body {
 #Header .Clints ul.Nav-Clints {
 	position: absolute;
 	display: none;
+	z-index: 1000;
 	-webkit-box-shadow:  2px 2px 8px 0px #000;
 	box-shadow:  2px 2px 8px 0px #000; 
 	background: #14598c;
@@ -83,23 +84,23 @@ body {
 }
 
 #Header .head-body #Search {
-	display: inline-block;
-	margin-right: 52px;
+	float: left;
+	margin: 21.5px 52px 21.5px 0;
 }
 
 #Header #Search #SearchText {
+	float: left;
 	height: 30px;
 	border: none;
 	padding: 0 12px;
-	vertical-align: middle;
 }
 
 #Header #Search #SearchBtn {
+	float: left;
 	border: none;
 	padding: 0 10px;
 	width: 15px;
 	height: 30px;
-	vertical-align: middle;
 	background: url(../images/search_btn.png) #fff no-repeat center;
 }
 
@@ -169,3 +170,85 @@ body {
 	margin-top: 10px;
 }
 /* -------------------------End Footer------------------------- */
+
+
+/* 推荐课程模块 */
+#Container .recourse {
+	overflow: hidden;
+	margin: 20px auto 0;
+	padding: 10px 0;
+	width: 872px;
+	text-align: center;
+}
+
+#Container .recourse a {
+	color: #4f4f4f;
+	font-size: 20px;
+}
+
+#Container .recourse a:hover {
+	text-decoration: underline;
+}
+
+#Container .recourse ul {
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+.recourse ul li {
+	position: relative;
+	float: left;
+	overflow: hidden;
+	border: 1px solid #999;
+	margin-right: 18px;
+	padding: 10px 10px;
+	width: 138px;
+	height: 108px;
+}
+
+.recourse ul li:last-child {
+	margin-right: 0;
+}
+
+.recourse li img {
+	margin-bottom: 10px;
+}
+
+.recourse li .course-Dp {
+	position: absolute;
+	top: 69px;
+	left: 10px;
+	overflow: hidden;
+	width: 140px;
+	height: 22px;
+	color: #fff;
+	text-align: left;
+	background: #000;
+	opacity: 0.75;
+	-webkit-transition: top 1s, height 1s;
+	-o-transition: top 1s, height 1s;
+	transition: top 1s, height 1s;
+}
+
+.recourse li:hover .course-Dp {
+	top: 9px;
+	height: 86px;
+}
+
+.recourse li span {
+	font-size: 10px;
+}
+
+.recourse li .score {
+	float: left;
+}
+
+.recourse li .attention {
+	float: right;
+}
+
+.recourse .course-Dp p {
+	font-size: 10px;
+}
+
+/* End 推荐课程模块 */
