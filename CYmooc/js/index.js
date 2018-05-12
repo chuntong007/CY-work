@@ -29,22 +29,33 @@ function Carousel() {
 	pos++;
 }
 
-var oint = setInterval(Carousel, 1500);
-/*声明变量赋值定时器轮播方法*/
+/**
+ * [getCarousel 轮播功能调用方法]
+ * @param  {[dom]} obj  [调用执行的文档对象]
+ * @param  {[function]} func [执行滚动的函数功能]
+ * @param  {[number]} time [设置定时器的间隔时间单位：毫秒]
+ * @return {[type]}      [description]
+ */
+function getCarousel(obj, func, time) {
+	var int = setInterval(func, time);
 
-aban.onmouseover = function() {//安装鼠标停留清除计时器终端轮播
-	clearInterval(oint);
+	obj.onmouseover = function() {
+		clearInterval(int);//为对象添加发生鼠标停留事件时停止走马灯滚动计时
+	}
+	obj.onmouseout = function() {
+		int = setInterval(func, time);//为对象添加发生鼠标离开事件时唤醒走马灯滚动计时变量
+	}
 }
+//将调用唤醒动态滚动的代码功能封装传参设置进行复用减少代码量
 
-aban.onmouseout = function(e) {
-	oint = setInterval(Carousel, 1500);
-	/*鼠标离开重新调用定时器*/
-}
+getCarousel(aban, Carousel, 1500);
+
+
 
 for (var j = 0; j < ali.length; j++) {
 	ali[j].index = j;//将当前循环循环变量序号值赋予创建的隐藏属性中
-	ali[j].onclick = function() {
-		this.style.background = '#e2171796'
+	ali[j].onmousemove = function() {//安装鼠标停留事件，当鼠标停留于下标圆点自动切换对应轮播图
+		// this.style.background = '#e21717'
 		pos = this.index;//设置轮播顺序变量为当前下标属性的序号值
 		Carousel();//执行轮播功能进行图片切换
 	}
@@ -73,3 +84,23 @@ abtn.onclick = function(e) {
 /*轮播图左右切换点击功能*/
 
 /*----------------------End 首页轮播图功能----------------------*/
+
+
+/*----------------------首页走马灯功能----------------------*/
+var oWind = document.getElementById('worksWindow');
+var oWpos = 0;
+//获取走马灯滚动对象，声明变量oWpos设定滚动初始left获取值。
+
+function seaCarousel() {//创建走马灯滚动功能
+	if (oWpos <= -950) {
+		oWpos = 0;
+	}//判断滚动对象达到需要初始化滚动值的位置清零
+
+	oWpos--;
+	oWind.style.left = oWpos + 'px';
+	//滚动值递减并传递给对象修改样式left属性进行滚动
+}
+
+getCarousel(oWind, seaCarousel, 15);
+
+/*----------------------End 首页走马灯功能----------------------*/

@@ -225,9 +225,9 @@ body {
 	text-align: left;
 	background: #000;
 	opacity: 0.75;
-	-webkit-transition: top 1s, height 1s;
-	-o-transition: top 1s, height 1s;
-	transition: top 1s, height 1s;
+	-webkit-transition: top 0.5s, height 0.5s;
+	-o-transition: top 0.5s, height 0.5s;
+	transition: top 0.5s, height 0.5s;
 }
 
 .recourse li:hover .course-Dp {

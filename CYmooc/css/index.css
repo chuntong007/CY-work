@@ -15,7 +15,7 @@ h3 {
 	margin-bottom: 5px;
 	font-size: 12px;
 	font-weight: normal;
-	color: #838383;
+	color: #4f4f4f;
 }
 
 /* 全局属性 */
@@ -92,31 +92,48 @@ h3 {
 	overflow: hidden;
 	margin: 20px auto 0;
 	padding: 10px 0;
-	width: 872px;
+	width: 888px;
+	height: 280px;
 	text-align: center;
+}
+
+#Container .technical img {
+	width: 100%;
+	-webkit-box-shadow: 0px 0px 0px 0px #000;
+	box-shadow: 0px 0px 0px 0px #000;
+	-webkit-transition: width 0.2s, box-shadow 0.2s;
+	-o-transition: width 0.2s, box-shadow 0.2s;
+	transition: width 0.2s, box-shadow 0.2s;
+}
+
+#Container .technical img:hover {
+	width: 102%;
+	box-shadow: 0px 2px 7px 3px #A196A0;
 }
 
 #Container .technical .thc-left {
 	float: left;
-	height: 169px;
+	margin-left: 5px;
 }
 
 #Container .technical .thc-right {
-	float: right;
-	height: 169px;
+	float: left;
 }
 
 #Container .technical .thc-center {
 	float: left;
-	margin: 0 8.5px;
+	margin: 0 10px;
 	width: 460px;
-	height: 169px;
 }
 
 .thc-center ul li {
 	float: left;
 	margin-right: 7.5px;
 	height: 80px;
+}
+
+#Container .thc-center li:last-child {
+	margin-left: 4px;
 }
 
 .thc-center ul li.top {
@@ -180,14 +197,15 @@ h3 {
 	text-align: center;
 }
 
-#Container .teacher-msg ul {
+#Container .teacher-msg .teacher-content {
 	overflow: hidden;
-	padding-right: 10px;
 	background: #000;
 }
 
-.teacher-msg ul li:first-child {
-	width: 558px;
+#Container .teacher-msg ul {
+	float: left;
+	height: 290px;
+	background: #000;
 }
 
 .teacher-msg ul li {
@@ -195,18 +213,30 @@ h3 {
 	overflow: hidden;
 	margin-left: 10px;
 	padding: 25px 0;
+	width: 120px;
+	-webkit-transition: width 0.5s;
+	-o-transition: width 0.5s;
+	transition: width 0.5s;
+}
+
+.teacher-msg ul:hover li {
 	width: 50px;
 }
 
-.teacher-msg li .teacher-widow {}
+.teacher-msg ul li:first-child {}
+
+.teacher-msg ul li:hover {
+	width: 558px;
+}
 
 .teacher-msg li .teacher-wrap {
 	width: 558px;
 	height: 240px;
 }
 
-.teacher-msg li div {
+li .teacher-wrap div {
 	float: right;
+	padding-left: 6px;
 	width: 350px;
 	height: 240px;
 	text-align: left;
@@ -226,4 +256,57 @@ h3 {
 	margin: 15px 0;
 }
 /* End 手风琴特效模块 */
+
+
+/* 走马灯模块 */
+#Container .student-works {
+	margin: 0 auto 20px;
+	width: 950px;
+	text-align: center;
+}
+
+#Container .student-works .works-wrap {
+	position: relative;
+	overflow: hidden;
+	width: 950px;
+	height: 300px;
+}
+
+.student-works #worksWindow {
+	position: absolute;
+	width: 1900px;
+	height: 300px;
+}
+
+#Container .works-wrap ul {
+	float: left;
+	overflow: hidden;
+	width: 950px;
+	background: #bcbfc0;
+}
+
+.student-works ul li {
+	float: left;
+	margin-right: 5px;
+	padding: 20px 12px;
+	width: 160px;
+	height: 260px;
+	text-align: left;
+	-webkit-transition: width 0.2s, height 0.2s;
+	-o-transition: width 0.2s, height 0.2s;
+	transition: width 0.2s, height 0.2s;
+}
+
+.student-works ul li:hover {
+	width: 165px;
+	height: 255px;
+	-webkit-box-shadow: 6px 6px 8px 0px #423c3c;
+	box-shadow: 6px 6px 8px 0px #423c3c;
+	background: #c6c8c9;
+}
+
+.student-works li img {
+	margin-bottom: 10px;
+}
+/* End 走马灯模块 */
 /* -------------------------End Container------------------------- */
