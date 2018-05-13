@@ -101,14 +101,15 @@ h3 {
 	width: 100%;
 	-webkit-box-shadow: 0px 0px 0px 0px #000;
 	box-shadow: 0px 0px 0px 0px #000;
-	-webkit-transition: width 0.2s, box-shadow 0.2s;
-	-o-transition: width 0.2s, box-shadow 0.2s;
-	transition: width 0.2s, box-shadow 0.2s;
+	-webkit-transition: width 0.2s, box-shadow 0.2s, transform 1s;
+	-o-transition: width 0.2s, box-shadow 0.2s, transform 1s;
+	transition: width 0.2s, box-shadow 0.2s, transform 1s;
 }
 
 #Container .technical img:hover {
-	width: 102%;
+	width: 105%;
 	box-shadow: 0px 2px 7px 3px #A196A0;
+	transform: rotate(360deg);
 }
 
 #Container .technical .thc-left {
@@ -211,7 +212,7 @@ h3 {
 .teacher-msg ul li {
 	float: right;
 	overflow: hidden;
-	margin-left: 10px;
+	border-left: 10px solid #000;
 	padding: 25px 0;
 	width: 120px;
 	-webkit-transition: width 0.5s;
@@ -309,4 +310,191 @@ li .teacher-wrap div {
 	margin-bottom: 10px;
 }
 /* End 走马灯模块 */
+
+/* 企业合作模块 */
+#Container .cooperation {
+	overflow: hidden;
+	margin: 20px auto 0;
+	padding: 40px 0;
+	width: 938px;
+	text-align: center;
+}
+
+#Container .cooperation ul {}
+
+#Container .cooperation li {
+	float: left;
+	margin-top: 20px;
+	margin-right: 25px;
+}
+
+#Container .cooperation li:last-child {
+	margin-right: 0;
+}
+
+.cooperation li img {}
+/* End 企业合作模块 */
+
+/* 学霸墙模块 */
+#Container .photo-wall {
+	overflow: hidden;
+	padding: 40px 0;
+	text-align: center;
+	background: url(../images/bg_02.png);
+}
+
+#Container .photo-wall .photo-content {
+	overflow: hidden;
+	margin: 12px auto 0;
+	width: 940px;
+}
+
+#Container .photo-content ul {
+	float: left;
+	width: 188px;
+	height: 188px;
+}
+
+#Container .photo-content li {
+	position: relative;
+	float: left;
+}
+
+.photo-content li div {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.63;
+	-webkit-transition: opacity 0.2s;
+	-o-transition: opacity 0.2s;
+	transition: opacity 0.2s;
+}
+
+.photo-content li img {
+	width: 100%;
+	height: 100%;
+	-webkit-transition: width 0.2s, height 0.2s;
+	-o-transition: width 0.2s, height 0.2s;
+	transition: width 0.2s, height 0.2s;
+}
+
+.photo-content li.small:hover img,
+.photo-content li:hover img {
+	width: 105%;
+	height: 105%;
+}
+
+.photo-content li:hover div {
+	opacity: 0;
+}
+
+#Container .photo-content li.small {
+	width: 94px;
+	height: 94px;
+}
+/* End 学霸墙模块 */
+
+/* 就业信息模块 */
+#Container .getJob {
+	overflow: hidden;
+	margin: 0 auto 20px;
+	width: 1000px;
+	text-align: center;
+}
+
+#Container .getJob h1 {
+	margin: 30px 0;
+}
+
+#Container .getJob ul {
+	overflow: hidden;
+	margin: 20px 0;
+}
+
+#Container .getJob li {
+	float: left;
+}
+
+#Container .getJob li:last-child {
+	margin: 12px;
+}
+
+.getJob li span {
+	display: inline-block;
+	margin-right: 5px;
+	width: 50px;
+	font-size: 18px;
+}
+/* End 就业信息模块 */
+
+/* 就业推荐模块 */
+#Container .recommen-wrap {
+	overflow: hidden;
+	background: url(../images/bg_03.jpg) center;
+}
+
+#Container .recommen-wrap .recommen {
+	margin: 40px auto;
+	width: 1000px;
+	text-align: center;
+}
+
+#Container .recommen h1 {}
+
+#Container .recommen h2 {
+	margin-top: 40px;
+}
+
+#Container .recommen a {
+	display: inline-block;
+	margin: 230px 0 10px;
+	padding: 13px;
+	border-radius: 30px;
+	font-size: 25px;
+	background: #005c9f;
+	color: #fff;
+}
+/* End 就业推荐模块 */
 /* -------------------------End Container------------------------- */
+
+
+/* ---------------------------FixedColumn--------------------------- */
+#FixedColumn {
+	position: fixed;
+	display: none;
+	top: 20%;
+	right: 18%;
+	margin-right: -90px;
+	width: 178px;
+	height: 384px;
+}
+
+/* 固定广告位模块 */
+#FixedColumn .fix-banner {
+	background: #000;
+}
+
+#FixedColumn .fix-banner .banner-mask {
+	overflow: hidden;
+}
+
+#FixedColumn .banner-mask img {
+	float: left;
+	margin: 1px;
+}
+/* End 固定广告位模块 */
+
+/* 返回顶部按钮模块 */
+#FixedColumn .toTop {
+	position: absolute;
+	bottom: -70px;
+	left: 70px;
+	display: block;
+	width: 38px;
+	height: 36px;
+	background: url(../images/fanhui.png) center;
+}
+/* End 返回顶部按钮模块 */
+/* -------------------------End FixedColumn------------------------- */

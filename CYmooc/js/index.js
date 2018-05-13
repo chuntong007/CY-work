@@ -104,3 +104,27 @@ function seaCarousel() {//创建走马灯滚动功能
 getCarousel(oWind, seaCarousel, 15);
 
 /*----------------------End 首页走马灯功能----------------------*/
+
+
+/*----------------------固定定位模块显示隐藏功能----------------------*/
+/*var obody = document.body;//声明变量获取页面body文档对象
+var ofix = document.getElementById('FixedColumn');
+*/
+document.body.onscroll = function(e) {
+	var e = e || window.event;
+	var target = e.target || arguments.srcElement;
+	/*兼容ie事件委托*/
+
+	var oFix = target.all.FixedColumn;
+	/*获取浮动广告和表格按钮父级固定定位模块对象*/
+
+	if (e.path[1].scrollY == 0) {
+		oFix.style.display = 'none';
+	}
+	else {
+		oFix.style.display = 'block';
+	}
+	/*判断页面滚轴处于顶部时对固定定位模块进行隐藏，离开则显示*/
+
+}
+/*----------------------End 固定定位模块显示隐藏功能----------------------*/
