@@ -150,8 +150,12 @@ function disReg() {
 
 	if (uPhtext.style.display == 'inline-block' && uEmail.style.display == 'inline-block'　&& uPtrtext.style.display == 'inline-block' && ulogBtn.style.display == 'none') {
 		oRegis.children[1].children[0].onclick = '';
+		oRegis.children[1].children[0].style.borderBottom = '3px solid #57adfd';
 		oRegis.children[1].children[1].onclick = disReg;
+		oRegis.children[1].children[1].style.border = 'none';
 		oRegis.children[2].style.textAlign = 'center';
+		/*切换显示时修改登录注册框样式*/
+
 		uPhtext.parentElement.style.display = 'none';
 		uEmail.parentElement.style.display = 'none';
 		uPtrtext.parentElement.style.display = 'none';
@@ -163,8 +167,12 @@ function disReg() {
 	}
 	else {
 		oRegis.children[1].children[0].onclick = disReg;
+		oRegis.children[1].children[0].style.border = 'none';
 		oRegis.children[1].children[1].onclick = '';
+		oRegis.children[1].children[1].style.borderBottom = '3px solid #57adfd';
 		oRegis.children[2].style.textAlign = '';
+		/*切换显示时修改登录注册框样式*/
+
 		uPhtext.parentElement.style.display = 'inline-block';
 		uEmail.parentElement.style.display = 'inline-block';
 		uPtrtext.parentElement.style.display = 'inline-block';

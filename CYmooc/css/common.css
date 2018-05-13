@@ -288,7 +288,7 @@ body {
 
 #register .reg-head {
 	border-bottom: 1px solid #ededed;
-	margin-top: 20px;
+	margin-top: 30px;
 	font-size: 18px;
 	overflow: hidden;
 }
@@ -296,7 +296,7 @@ body {
 #register .reg-head li {
 	float: left;
 	cursor: pointer;
-	border-bottom: 3px solid #14598c;
+	border-bottom: 3px solid #57adfd;
 	margin-left: 110px;
 	padding: 10px 0;
 	font-size: 18px;
