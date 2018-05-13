@@ -118,13 +118,13 @@ document.body.onscroll = function(e) {
 	var oFix = target.all.FixedColumn;
 	/*获取浮动广告和表格按钮父级固定定位模块对象*/
 
-	if (e.path[1].scrollY == 0) {
+	if (e.path[1].scrollY <= 400) {
 		oFix.style.display = 'none';
 	}
 	else {
 		oFix.style.display = 'block';
 	}
-	/*判断页面滚轴处于顶部时对固定定位模块进行隐藏，离开则显示*/
+	/*判断页面滚轴距离顶部<= 400时对固定定位模块进行隐藏，离开则显示*/
 
 }
 /*----------------------End 固定定位模块显示隐藏功能----------------------*/
