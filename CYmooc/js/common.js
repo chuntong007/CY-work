@@ -22,6 +22,7 @@ var aUser = [//声明存储用户信息数组
 	{"username":"a123123","phonenum":"13123123123","emailsrc": "1231421@qq.com", "password":"123123"}
 	/*以上为测试用账户对象*/
 ];
+window.localStorage.setItem('hx180310user', JSON.stringify(aUser));
 var wUser = JSON.parse(window.localStorage.getItem('hx180310user')) == null ? aUser : JSON.parse(window.localStorage.getItem('hx180310user'));//获取当前本地存储的账户数据
 
 function getVerify() {//声明刷新验证码函数

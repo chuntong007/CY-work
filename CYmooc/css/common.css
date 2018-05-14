@@ -15,6 +15,10 @@ body {
 	min-width: 1000px;
 	font-size: 14px;
 }
+
+.nowWeb {
+	background: #104974;
+}
 /* 公共样式 */
 
 /* -------------------------Header------------------------- */
@@ -64,7 +68,7 @@ body {
 	float: none;
 }
 
-#Header ul.Nav-Clints li:hover {
+#Header ul li:hover {
 	background: #104974;
 }
 
