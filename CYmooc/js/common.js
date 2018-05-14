@@ -18,8 +18,8 @@ function turnDisp(iD) {
 
 /*----------------------登录注册功能----------------------*/
 var aUser = [//声明存储用户信息数组
-	{"username":"ln","phonenum":110,"password":123},
-	{"username":"a123123","phonenum":"13123123123","password":"123123"}
+	{"username": "ln","phonenum": 110,"emailsrc": "1221421@qq.com", "password": 123},
+	{"username":"a123123","phonenum":"13123123123","emailsrc": "1231421@qq.com", "password":"123123"}
 	/*以上为测试用账户对象*/
 ];
 var wUser = JSON.parse(window.localStorage.getItem('hx180310user')) == null ? aUser : JSON.parse(window.localStorage.getItem('hx180310user'));//获取当前本地存储的账户数据
@@ -45,15 +45,18 @@ function getVerify() {//声明刷新验证码函数
 var phonRex = /^[1][3-9]\d{9}$/;
 var countRex = /\w{6,30}$/;
 var passRex = /\w{6,20}$/;
-	// 声明变量获取注册信息、验证码、收集信息并置入的数组变量。
+var emailRex = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+// 声明用户注册信息正则表达式
 
 function getReg() {//声明注册功能
 	var uCount = document.getElementById('Account').value;
 	var uPhon = document.getElementById('PhoneNum').value;
+	var vEmail = document.getElementById('Email').value;
 	var uPswd = document.getElementById('Password').value;
 	var uPswd2 = document.getElementById('Password2').value;
 	var uVerf = document.getElementById('verify').value;
 	var Verf = document.getElementById('verify-code').innerHTML;
+	var uDate = new Date();
 	var ary;
 	
 
@@ -61,7 +64,7 @@ function getReg() {//声明注册功能
 
 
 
-	if (uCount.match(countRex) && uPhon.match(phonRex) && uPswd.match(passRex) && uVerf) {//判断文本库已填入信息
+	if (vEmail.match(emailRex) && uCount.match(countRex) && uPhon.match(phonRex) && uPswd.match(passRex) && uVerf) {//判断文本库已填入信息
 		for (var i = 0; i < aUser.length; i++) {//循环遍历账户信息数组
 			if (aUser[i].username == uCount) {//判断用户名已注册执行语句
 				alert('用户名已注册。');
@@ -69,6 +72,10 @@ function getReg() {//声明注册功能
 			}
 			if (aUser[i].phonenum == uPhon) {//判断手机号已注册执行语句
 				alert('手机号已注册。');
+				return getVerify();
+			}
+			if (aUser[i].emailsrc == vEmail) {//判断邮箱地址已注册执行语句
+				alert('邮箱地址已注册');
 				return getVerify();
 			}
 			if (uVerf != Verf) {//判断验证码输入错误后弹出提示并调用函数重新生成验证码。
@@ -81,7 +88,7 @@ function getReg() {//声明注册功能
 			}
 		}
 
-		ary = new User(uCount, uPhon, uPswd);//手机号账号名都未重复情况下将注册信息写入数组变量
+		ary = new User(uCount, uPhon, uPswd, vEmail, 0, 0, 0, 1, uDate);//手机号账号名都未重复情况下将初始各项参数的注册信息写入数组变量
 		aUser.push(ary);//将账号数组写入第一维存储数组变量
 		window.localStorage.setItem('hx180310user', JSON.stringify(aUser));//将存储用户信息的数组变量以数组形式存储于本地空间。
 
@@ -111,7 +118,8 @@ function getlogin() {//声明登录账户功能
 				// appOff('regsiterMask'), appOff('regsiter');//登录成功后调用隐藏遮罩层函数
 
 				window.localStorage.setItem('hx180310nowUser', wUser[i].username);//向本定存储增加一个键名为nowUser值为uCount的数据
-				window.location.href = 'my12306.html';//跳转页面到个人帐号界面
+				// window.location.href = 'my12306.html';//跳转页面到个人帐号界面
+				window.location.reload();
 				return;
 
 				// return document.getElementById('userName').innerHTML = aUser[i].username;//登录成功后登录按钮名称变为帐户名。
@@ -249,3 +257,27 @@ function passTest(inputId, msgId, inputId2, msg, msg2) {//手机号校验信息�
 	}
 }
 /*----------------------End正则校验功能----------------------*/
+
+/*----------------------显示登陆状态功能----------------------*/
+var oLogin = document.getElementById('Login');
+var oRegis = document.getElementById('Regis');
+//获取登陆注册按钮对象
+
+function onLogin() {
+	oLogin.innerHTML = window.localStorage.getItem('hx180310nowUser') ? window.localStorage.getItem('hx180310nowUser') : oLogin.innerHTML;
+	oRegis.innerHTML = window.localStorage.getItem('hx180310nowUser') ? '注销' : oRegis.innerHTML;
+	/*判断本地存储已有登陆账户修改登陆注册按钮显示*/
+
+	if (window.localStorage.getItem('hx180310nowUser')) {
+		oLogin.onclick = '';//修改登陆注册状态后清空登陆按钮原有点击事件
+
+		oRegis.onclick = function() {
+			window.localStorage.removeItem('hx180310nowUser');
+			window.location.reload();
+			//在登陆状态下为注销按钮安装注销刷新页面功能
+		}
+	}
+}
+
+onLogin();//调用执行功能
+/*----------------------End 显示登陆状态功能----------------------*/

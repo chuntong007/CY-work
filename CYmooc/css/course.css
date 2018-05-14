@@ -1,0 +1,31 @@
+/* -------------------------Container------------------------- */
+#Container {
+	margin: 0 auto;
+	padding: 20px 0;
+	width: 1000px;
+}
+
+#Container #CourseNav {
+	border: 2px solid #bfbfbf;
+}
+
+#Container #CourseNav .Nav-head {
+	padding-left: 15px;
+	height: 55px;
+	line-height: 55px;
+	text-align: left;
+	background: #14598c;
+	color: #fff;
+}
+
+#Container #CourseNav #TechnoLogy {}
+
+#Container #CourseNav #ClassIfy {}
+
+#Container #CourseNav #Nodus {}
+
+#Container #CourseNav input {
+	border: none;
+	background: #fff;
+}
+/* -------------------------End Container------------------------- */

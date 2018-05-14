@@ -18,10 +18,15 @@ h3 {
 	color: #4f4f4f;
 }
 
+body {
+	background: #f2f2f2;
+}
 /* 全局属性 */
 
 /* -------------------------Container------------------------- */
-#Container {}
+#Container {
+	overflow: hidden;
+}
 
 /* banner轮播图 */
 #Container #banner {
@@ -67,14 +72,16 @@ h3 {
 }
 
 #Container #bannerBtn .btn-l {
+	position: absolute;
+	left: -100px;
 	cursor: pointer;
-	float: left;
 	padding: 10px 0;
 }
 
 #Container #bannerBtn .btn-r {
+	position: absolute;
+	right: -100px;
 	cursor: pointer;
-	float: right;
 	padding: 10px 0;
 }
 
