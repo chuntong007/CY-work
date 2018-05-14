@@ -10,7 +10,7 @@
 }
 
 #Container #CourseNav .Nav-head {
-	padding-left: 15px;
+	padding-left: 30px;
 	height: 55px;
 	line-height: 55px;
 	text-align: left;
@@ -18,7 +18,10 @@
 	color: #fff;
 }
 
-#Container #CourseNav #TechnoLogy {}
+#Container #CourseNav #TechnoLogy {
+	padding: 0 0 30px 26px;
+
+}
 
 #Container #CourseNav #ClassIfy {}
 
