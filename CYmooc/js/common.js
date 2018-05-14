@@ -252,7 +252,7 @@ function passTest(inputId, msgId, inputId2, msg, msg2) {//手机号校验信息�
 	}
 	else {//当格式错误样式信息修改
 		uMsg.innerHTML = msg2;
-		uMsg.style.background = 'url(img/icon_wrong.png) no-repeat left';
+		uMsg.style.background = 'url(images/icon_wrong.png) no-repeat left';
 		uMsg.style.color = '#f00';
 	}
 }
