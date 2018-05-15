@@ -61,14 +61,15 @@
 	cursor: pointer;
 	float: left;
 	margin: 20px 10px 0 35px;
+	padding: 0 5px;
 }
 
-#CourseNav ul li:first-child {
+/* #CourseNav ul li:first-child {
 	margin-left: 0;
 	padding: 0 5px;
 	background: #000;
 	color: #fff;
-}
+} */
 
 /*分页按钮*/
 #contentPage {
