@@ -59,6 +59,7 @@ function getReg() {//声明注册功能
 	var Verf = document.getElementById('verify-code').innerHTML;
 	var uDate = new Date();
 	var ary;
+	/*获取注册信息输入对象*/
 	
 
 	aUser = JSON.parse(window.localStorage.getItem('hx180310user')) == null ? aUser : JSON.parse(window.localStorage.getItem('hx180310user'));//赋值用户数组进行三目运算判断，当本地存储没有用户数据赋为原先值，否则赋值本地用户数组数据。
@@ -111,6 +112,7 @@ function getlogin() {//声明登录账户功能
 	var uPswd = document.getElementById('Password').value;
 	var uVerf = document.getElementById('verify').value;
 	var Verf = document.getElementById('verify-code').innerHTML;
+	/*获取登入信息对象*/
 
 	if (uCount && uPswd && uVerf.toLowerCase() == Verf.toLowerCase()) {
 		for (var i = 0; i < wUser.length; i++) {//遍历账户数组是否有符合条件账户信息，找到后弹出提示并返回
@@ -213,6 +215,7 @@ function disReg() {
 function rexTest(inputId, msgId, msg, rex) {//手机号校验信息提示功能
 	var uPhon = document.getElementById(inputId).value;
 	var uMsg = document.getElementById(msgId);
+	/*获取传参ID对象*/
 
 	if (uPhon.match(rex)) {//判断手机号格式正确显示样式
 		uMsg.innerHTML = msg + '合法';

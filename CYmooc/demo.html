@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<span>technology</span>
+	<input type="text" name="" id="value1">
+	<br>
+	<span>classify</span>
+	<input type="text" name="" id="value2">
+	<br>
+	<span>nodus</span>
+	<input type="text" name="" id="value3">
+	<br>
+	<span>course</span>
+	<input type="text" name="" id="value4">
+	<br>
+	<span>description</span>
+	<input type="text" name="" id="value5">
+	<br>
+	<span>teachenr</span>
+	<input type="text" name="" id="value6">
+	<br>
+	<input onclick="add()" type="button" value="添加">
+	<script src="js/Course.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		var technology = document.getElementById('value1');
+		var classify = document.getElementById('value2');
+		var nodus = document.getElementById('value3');
+		var course = document.getElementById('value4');
+		var description = document.getElementById('value5');
+		var result = [];
+		function add() {
+			var obj = new Course(course.value, technology.value, classify.value, description.value, 1, 60, 120, 'Lnation', 'images/c.jpg', 'images/img_01.jpg', nodus.value);
+			result.push(obj);
+			window.localStorage.setItem('hx180310aCourse', JSON.stringify(result));
+			alert('OK');
+		}
+	</script>
+</body>
+</html>

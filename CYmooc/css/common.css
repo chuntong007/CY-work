@@ -181,7 +181,7 @@ body {
 	overflow: hidden;
 	margin: 20px auto 0;
 	padding: 10px 0;
-	width: 872px;
+	width: 1000px;
 	text-align: center;
 }
 
@@ -204,7 +204,8 @@ body {
 	float: left;
 	overflow: hidden;
 	border: 1px solid #999;
-	margin-right: 18px;
+	margin-top: 20px;
+	margin-left: 33px;
 	padding: 10px 10px;
 	width: 138px;
 	height: 108px;
@@ -216,6 +217,7 @@ body {
 
 .recourse li img {
 	margin-bottom: 10px;
+	width: 140px;
 }
 
 .recourse li .course-Dp {

@@ -1,3 +1,11 @@
+.nav-Now {
+	margin-left: 0;
+	padding: 0 5px;
+	background: #000;
+	color: #fff;
+}
+/* 通用样式 */
+
 /* -------------------------Container------------------------- */
 #Container {
 	margin: 0 auto;
