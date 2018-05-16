@@ -463,7 +463,7 @@ function showInfo(id, data, tagName) {
 /*End 节点追加功能封装*/
 
 /**
- * [PageFun 当前联系人分页化打印输出功能]
+ * [PageFun 分页化打印输出功能]
  * @param {[Array]} ary  [要打印的数组信息]
  * @param {[number]} Size [单页打印长度]
  */

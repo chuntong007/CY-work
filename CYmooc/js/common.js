@@ -285,3 +285,105 @@ function onLogin() {
 
 onLogin();//调用执行功能
 /*----------------------End 显示登陆状态功能----------------------*/
+
+/*----------------------分页按钮功能----------------------*/
+/**
+ * [PageFun 分页化打印输出功能]
+ * @param {[Array]} ary      [打印数组]
+ * @param {[Number]} Size     [单页打印长度]
+ * @param {[Function]} addBtn   [分页按钮打印功能]
+ * @param {[Function]} showfunc [打印信息功能]
+ * @param {[Object]} showObj  [清空对象]
+ */
+function PageFun(ary, Size, addBtn, showfunc, showObj) {
+	var ary;//分页总数据
+	var pageSize = Size;//单页长度
+	var pageNum = Math.ceil(ary.length / pageSize);//总页数
+	var Now = 1;//获取当前页值并取整
+	var Star = pageSize * (Now - 1);//单页总数据开始下标
+	var End = pageSize * Now;//单页总数据结束下标	
+	var cPage = document.getElementById('contentPage');//获取分页按钮标签父级对象
+	var cbtn = document.getElementById('pageBtn');
+
+	for (var i = 1; i <= pageNum; i++) {
+		/*var cli = document.createElement('li');
+		cli.innerHTML = i;
+		cbtn.appendChild(cli);*/
+		addBtn(cbtn, 'LI', i);
+	}//循环创建分页按钮对象追加进按钮标签中
+
+	var cli = cbtn.getElementsByTagName('li');
+
+	showfunc(aCourse, Now - 1, Size);//预先打印第一页课程
+
+	cPage.onclick = function(e) {
+		var event = e || window.event;
+		var target = event.target || ararguments.srcElement;
+		//获取事件对象兼容ie
+
+		if (target.className == 'lastPage') {//上一页按钮
+			if (Now == 1) {//当前页若为第一页则退出功能
+				return;
+			}
+			Now--;
+			Star = pageSize * (Now - 1);//单页总数据开始下标
+			End = pageSize * Now;//单页总数据结束下标
+
+			for (var i = 0; i < cli.length; i++) {
+				if (cli[i].innerHTML == Now) {
+					cli[i].style.background = '#999';
+				}
+				else {
+					cli[i].style.background = '#bcb7bf';
+				}
+			}
+			/*遍历分页按钮标签修改当前页按钮背景色*/
+
+			showObj.innerHTML = '';//清空表格已有课程信息
+			showfunc(aNavCourse, Star, End);//打印对应页数课程
+		}
+
+		if (target.className == 'nextPage') {//下一页按钮
+			if (Now == pageNum) {//当前页若为最后一页则退出功能
+				return;
+			}
+			Now++;
+			Star = pageSize * (Now - 1);//单页总数据开始下标
+			End = pageSize * Now;//单页总数据结束下标
+
+
+			for (var i = 0; i < cli.length; i++) {
+				if (cli[i].innerHTML == Now) {
+					cli[i].style.background = '#999';
+				}
+				else {
+					cli[i].style.background = '#bcb7bf';
+				}
+			}
+			/*遍历分页按钮标签修改当前页按钮背景色*/
+
+			showObj.innerHTML = '';//清空表格已有课程信息
+			showfunc(aNavCourse, Star, End);//打印对应页数课程
+
+		}
+
+		if (target.tagName == 'LI') {//分页按钮标签
+			Now = parseInt(target.innerHTML);//获取当前页值并取整
+			Star = pageSize * (Now - 1);//单页总数据开始下标
+			End = pageSize * Now;//单页总数据结束下标
+			
+
+
+			for (var i = 0; i < cli.length; i++) {
+				cli[i].style.background = '#bcb7bf';
+			}
+			target.style.background = '#999';
+			/*遍历分页按钮标签修改当前按钮背景色*/
+
+			showObj.innerHTML = '';//清空表格已有课程信息
+			showfunc(aNavCourse, Star, End);//打印对应页数课程
+		}
+	}
+
+}
+/*----------------------End 分页按钮功能----------------------*/
