@@ -99,6 +99,13 @@
 					<li>高级</li>
 				</ul>
 			</div>
+			<div id="Sorting">
+				<span class="Sort-score"><input type="radio" value="评分" name="Sorting-btn" id="Score"><label for="Score"> 评分</label></span><span class="Sort-score"><input type="radio" value="关注度" name="Sorting-btn" id="Attention"><label for="Attention"> 关注度</label></span>
+				<select class="Sort-score" name="" id="">
+					<option value="">升序</option>
+					<option value="">降序</option>
+				</select>
+			</div>
 		</div>
 		<!-- 课程三级联动导航栏结束 -->
 
@@ -286,7 +293,7 @@
 
 		aNavCourse = aNavCourse.length > 0 ? aNavCourse : aCourse;//三目运算判断筛选数组已有值返回本身没有值获取课程总数组
 
-		PageFun(aNavCourse, 10, addChild, printCourse, oCoShow);
+		PageFun(aNavCourse, 10, addChild, printCourse, oCoShow.children[0]);//调用分页打印功能打印分页后的课程信息
 	</script>
 	<!-- js脚本区结束 -->
 	

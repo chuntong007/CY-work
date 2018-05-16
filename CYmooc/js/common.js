@@ -288,6 +288,76 @@ onLogin();//调用执行功能
 
 /*----------------------分页按钮功能----------------------*/
 /**
+ * [addChild 对象节点追加功能封装]
+ * @param {[Object]} obj     [被追加标签内容的节点对象]
+ * @param {[string]} TagName [标签名称]
+ * @param {[string]} provalue [标签属性值]
+ * @param {[prototype]} proto [标签属性]
+ * @param {[Object]} Data    [标签内容对象]
+ */
+function addChild(obj, TagName, Data, provalue, proto) {
+	var ochild = document.createElement(TagName);
+	ochild[proto] = provalue;
+	ochild.innerHTML = Data;
+
+	obj.appendChild(ochild);
+}
+
+/**
+ * [showCourse 课程追加功能]
+ * @param  {[Object]} obj             [被追加打印的对象]
+ * @param  {[URL]} CourseImg       [课程封面图片地址]
+ * @param  {[Object]} CourseName      [课程名称]
+ * @param  {[Object]} CourseDpn       [课程简介]
+ * @param  {[Object]} CourseScore     [课程评分]
+ * @param  {[Object]} CourseAttention [课程关注度]
+ * @return {[type]}                 [description]
+ */
+function showCourse(obj, CourseImg, CourseName, CourseDpn, CourseScore, CourseAttention) {
+	var oLi = document.createElement('LI');
+	var oDiv = document.createElement('DIV');
+	var oSpan = document.createElement('SPAN');
+	var oSpan2 = document.createElement('SPAN');
+	//创建追加于课程展示区中的标签对象
+
+	oSpan.innerHTML = '评分：' + CourseScore.toFixed(1);//评分取值保留一位小数进行显示
+	oSpan.className = 'score';
+	oSpan2.innerHTML = CourseAttention + '人关注';
+	oSpan2.className = 'attention';
+	//创建评分与关注度节点
+
+	oDiv.className = 'course-Dp';
+	addChild(oDiv, 'H4', CourseName);
+	addChild(oDiv, 'P', CourseDpn);
+	//课程信息简介与名称追加进弹出课程展示弹出div
+
+	addChild(oLi, 'IMG', '', CourseImg, 'src');
+	oLi.appendChild(oDiv);
+	oLi.appendChild(oSpan);
+	oLi.appendChild(oSpan2);
+	//按顺序将创建好的对应标签节点追加至Li标签
+
+	obj.appendChild(oLi);
+	//将创建好的节点追加打印至页面展示区
+}
+
+/**
+ * [printCourse 课程打印功能]
+ * @param  {[Array]} Ary  [打印数组]
+ * @param  {[number]} Star [打印起始下标]
+ * @param  {[number]} End  [打印结束下标]
+ * @return {[type]}      [description]
+ */
+function printCourse(Ary, Star, End) {
+	for (var i = Star; i < End; i++) {//遍历课程数组
+		if (Ary[i]) {//判断遍历下标存在的清空下执行语句
+			showCourse(oCoShow.children[0], Ary[i].img, Ary[i].course, Ary[i].description, Ary[i].score, Ary[i].attention);//调用课程打印功能打印课程信息
+		}
+	}
+}
+
+
+/**
  * [PageFun 分页化打印输出功能]
  * @param {[Array]} ary      [打印数组]
  * @param {[Number]} Size     [单页打印长度]
@@ -305,6 +375,8 @@ function PageFun(ary, Size, addBtn, showfunc, showObj) {
 	var cPage = document.getElementById('contentPage');//获取分页按钮标签父级对象
 	var cbtn = document.getElementById('pageBtn');
 
+	cbtn.innerHTML = '';//安装分页按钮前先清空已有的按钮
+
 	for (var i = 1; i <= pageNum; i++) {
 		/*var cli = document.createElement('li');
 		cli.innerHTML = i;
@@ -314,7 +386,7 @@ function PageFun(ary, Size, addBtn, showfunc, showObj) {
 
 	var cli = cbtn.getElementsByTagName('li');
 
-	showfunc(aCourse, Now - 1, Size);//预先打印第一页课程
+	showfunc(ary, Now - 1, Size);//预先打印第一页课程
 
 	cPage.onclick = function(e) {
 		var event = e || window.event;
@@ -323,7 +395,7 @@ function PageFun(ary, Size, addBtn, showfunc, showObj) {
 
 		if (target.className == 'lastPage') {//上一页按钮
 			if (Now == 1) {//当前页若为第一页则退出功能
-				return;
+				return alert('已是第一页了！');
 			}
 			Now--;
 			Star = pageSize * (Now - 1);//单页总数据开始下标
@@ -340,12 +412,12 @@ function PageFun(ary, Size, addBtn, showfunc, showObj) {
 			/*遍历分页按钮标签修改当前页按钮背景色*/
 
 			showObj.innerHTML = '';//清空表格已有课程信息
-			showfunc(aNavCourse, Star, End);//打印对应页数课程
+			showfunc(ary, Star, End);//打印对应页数课程
 		}
 
 		if (target.className == 'nextPage') {//下一页按钮
-			if (Now == pageNum) {//当前页若为最后一页则退出功能
-				return;
+			if (Now == pageNum) {//当前页若为最后一页则弹出提示退出功能
+				return alert('已经是最后一页了！');
 			}
 			Now++;
 			Star = pageSize * (Now - 1);//单页总数据开始下标
@@ -363,7 +435,7 @@ function PageFun(ary, Size, addBtn, showfunc, showObj) {
 			/*遍历分页按钮标签修改当前页按钮背景色*/
 
 			showObj.innerHTML = '';//清空表格已有课程信息
-			showfunc(aNavCourse, Star, End);//打印对应页数课程
+			showfunc(ary, Star, End);//打印对应页数课程
 
 		}
 
@@ -381,7 +453,7 @@ function PageFun(ary, Size, addBtn, showfunc, showObj) {
 			/*遍历分页按钮标签修改当前按钮背景色*/
 
 			showObj.innerHTML = '';//清空表格已有课程信息
-			showfunc(aNavCourse, Star, End);//打印对应页数课程
+			showfunc(ary, Star, End);//打印对应页数课程
 		}
 	}
 

@@ -13,7 +13,9 @@
 	width: 1000px;
 }
 
+/*三级联动*/
 #Container #CourseNav {
+	position: relative;
 	border: 2px solid #bfbfbf;
 }
 
@@ -45,14 +47,6 @@
 	margin: 20px 0 0 20px;
 }
 
-#Container #CourseNav #Nodus {
-}
-
-/*#Container #CourseNav input {
-	border: none;
-	background: #fff;
-}*/
-
 #Container #CourseNav ul {
 	margin-left: 85px;
 }
@@ -64,12 +58,16 @@
 	padding: 0 5px;
 }
 
-/* #CourseNav ul li:first-child {
-	margin-left: 0;
-	padding: 0 5px;
-	background: #000;
-	color: #fff;
-} */
+#Sorting {
+	position: absolute;
+	right: 150px;
+	bottom: 20px;
+}
+
+#Container #CourseNav .Sort-score {
+	margin: 0 10px;
+}
+/*End 三级联动*/
 
 /*分页按钮*/
 #contentPage {

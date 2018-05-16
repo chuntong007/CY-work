@@ -4,10 +4,12 @@ var oTechn = document.getElementById('TechnoLogy');//三级联动技术方向筛
 var oClass = document.getElementById('ClassIfy');//三级联动分类筛选对象
 var oNodus = document.getElementById('Nodus');//三级联动难度筛选对象
 var oCoShow = document.getElementById('CourseShow');//课程展示区对象
+var cbtn = document.getElementById('pageBtn');//分页按钮标父级对象
 //获取首页用于三级联动动态修改对象
 
 var nowClass = '';//声明一个用于存储当前课程类名的变量用于难度筛选时获取匹配条件
 var aNavCourse = [];//用于动态存储赛选后的课程对象数组
+var aNavCourseB = [];//用于分页打印分类筛选课程对象副数组
 
 console.log(oClass);
 
@@ -132,12 +134,12 @@ oCnav.onclick = function(e) {
 	var e = e || window.event;
 	var target = e.target || arguments.srcElement;
 	/*兼容ie获取点击事件对象*/
-	console.log(e);
 
 	// var aNavCourse = [];//用于动态存储赛选后的课程对象数组
 
 	if (target.parentElement.parentElement.id == 'TechnoLogy') {//判断点击选项为技术方向分类区块时执行语句
 		if (target.innerHTML == '全部') {//判断点击全部选项时重置所有条件选项当前样式，并打印出所有课程信息
+			aNavCourse = aCourse;//点击按钮时将重置筛选数组替换为所有课程信息
 
 			for (var k = 0; k < target.parentElement.children.length; k++) {
 				target.parentElement.children[k].className = '';//清空所有选项的当前类属性
@@ -150,9 +152,11 @@ oCnav.onclick = function(e) {
 
 			oCoShow.children[0].innerHTML = '';//清空课程展示区已有的课程信息
 
-			for (var i = 0; i < aCourse.length; i++) {//遍历课程数组
+			/*for (var i = 0; i < aCourse.length; i++) {//遍历课程数组
 				showCourse(oCoShow.children[0], aCourse[i].img, aCourse[i].course, aCourse[i].description, aCourse[i].score, aCourse[i].attention);//调用课程打印功能打印课程信息
-			}
+			}*/
+
+			PageFun(aNavCourse, 10, addChild, printCourse, oCoShow.children[0]);//调用分页打印功能打印分页后的课程信息
 			return;
 		}
 		else {
@@ -169,17 +173,13 @@ oCnav.onclick = function(e) {
 				if (aCourse[i].technology == target.innerHTML) {//遍历课程数组中技术方向与当前点击选项属性值一致执行语句
 					aNavCourse.push(aCourse[i]);//将对应技术方向课程存入联动筛选大数组
 				}
-
 			}
 
 			showNav(aNavCourse);//调用分类导航打印将技术方向筛选后的课程数组的所有类选项打印出来
 
-
 			oCoShow.children[0].innerHTML = '';//清空课程展示区已有的课程信息
 
-			for (var i = 0; i < aNavCourse.length; i++) {//遍历课程数组
-				showCourse(oCoShow.children[0], aNavCourse[i].img, aNavCourse[i].course, aNavCourse[i].description, aNavCourse[i].score, aNavCourse[i].attention);//调用课程打印功能打印课程信息
-			}
+			PageFun(aNavCourse, 10, addChild, printCourse, oCoShow.children[0]);//调用分页打印功能打印分页后的课程信息
 		}
 	}
 
@@ -195,10 +195,9 @@ oCnav.onclick = function(e) {
 
 			reloadNav(oNodus.children[1].children);//调用重置联动选项状态功能重置难度选项栏样式
 
+			oCoShow.children[0].innerHTML = '';//清空课程展示区已有的课程信息
 
-			for (var i = 0; i < aNavCourse.length; i++) {//遍历课程数组
-				showCourse(oCoShow.children[0], aNavCourse[i].img, aNavCourse[i].course, aNavCourse[i].description, aNavCourse[i].score, aNavCourse[i].attention);//调用课程打印功能打印课程信息
-			}
+			PageFun(aNavCourse, 10, addChild, printCourse, oCoShow.children[0]);//调用分页打印功能打印分页后的课程信息
 
 			return;
 		}
@@ -236,11 +235,19 @@ oCnav.onclick = function(e) {
 
 					oCoShow.children[0].innerHTML = '';//清空课程展示区已有的课程信息
 
+					cbtn.innerHTML = '';//安装分页按钮前先清空已有的按钮
+
+					aNavCourseB = [];//打印分页按钮前清空按钮筛选数组
+
 					for (var i = 0; i < aNavCourse.length; i++) {//遍历筛选后的课程数组
 						if (target.innerHTML == aNavCourse[i].classify) {//判断课程与当前点击选项匹配执行语句
-							showCourse(oCoShow.children[0], aNavCourse[i].img, aNavCourse[i].course, aNavCourse[i].description, aNavCourse[i].score, aNavCourse[i].attention);//调用课程打印功能打印课程信息
+							aNavCourseB.push(aNavCourse[i]);//将分类筛选后的课程存入数组用于分页打印
 						}
 					}
+
+					oCoShow.children[0].innerHTML = '';//清空课程展示区已有的课程信息
+
+					PageFun(aNavCourseB, 10, addChild, printCourse, oCoShow.children[0]);//调用分页打印功能打印分页后的课程信息
 
 					nowClass = target.innerHTML;//将当前点击的课程类选项名赋值给当前课程类变量
 
@@ -261,9 +268,7 @@ oCnav.onclick = function(e) {
 
 			oCoShow.children[0].innerHTML = '';//清空课程展示区已有的课程信息
 
-			for (var i = 0; i < aNavCourse.length; i++) {//遍历筛选后的课程数组
-				showCourse(oCoShow.children[0], aNavCourse[i].img, aNavCourse[i].course, aNavCourse[i].description, aNavCourse[i].score, aNavCourse[i].attention);//调用课程打印功能打印课程信息
-			}
+			PageFun(aNavCourse, 10, addChild, printCourse, oCoShow.children[0]);//调用分页打印功能打印分页后的课程信息
 
 			return;
 		}
@@ -276,15 +281,25 @@ oCnav.onclick = function(e) {
 
 			oCoShow.children[0].innerHTML = '';//清空课程展示区已有的课程信息
 			
+			aNavCourseB = [];//打印分页按钮前清空按钮筛选数组
+
 			for (var i = 0; i < aNavCourse.length; i++) {//遍历筛选后的课程数组
 				if (target.innerHTML == aNavCourse[i].nodus && nowClass && aNavCourse[i].classify == nowClass) {//判断课程与当前点击选项匹配并且当前课程类变量不为空匹配对应满足条件的课程打印
-					showCourse(oCoShow.children[0], aNavCourse[i].img, aNavCourse[i].course, aNavCourse[i].description, aNavCourse[i].score, aNavCourse[i].attention);//调用课程打印功能打印课程信息
+					/*showCourse(oCoShow.children[0], aNavCourse[i].img, aNavCourse[i].course, aNavCourse[i].description, aNavCourse[i].score, aNavCourse[i].attention);//调用课程打印功能打印课程信息*/
+					aNavCourseB.push(aNavCourse[i]);//筛选满足当前三级联动筛选条件的课程存入数组
+
 				}
 				if (target.innerHTML == aNavCourse[i].nodus && !nowClass) {//判断课程与当前点击选项匹配且不存在当前课程类选项执行课程打印
-					showCourse(oCoShow.children[0], aNavCourse[i].img, aNavCourse[i].course, aNavCourse[i].description, aNavCourse[i].score, aNavCourse[i].attention);//调用课程打印功能打印课程信息
+					/*showCourse(oCoShow.children[0], aNavCourse[i].img, aNavCourse[i].course, aNavCourse[i].description, aNavCourse[i].score, aNavCourse[i].attention);//调用课程打印功能打印课程信息*/
+					aNavCourseB.push(aNavCourse[i]);//筛选满足当前三级联动筛选条件的课程存入数组
 				}
 			}
+
+			PageFun(aNavCourseB, 10, addChild, printCourse, oCoShow.children[0]);//调用分页打印功能打印分页后的课程信息
 		}
 	}
 }
 // ----------------------End 课程中心三级联动功能----------------------
+
+// ----------------------课程排序功能----------------------
+// ----------------------End 课程排序功能----------------------
