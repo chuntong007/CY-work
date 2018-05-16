@@ -117,7 +117,9 @@ function showCourse(obj, CourseImg, CourseName, CourseDpn, CourseScore, CourseAt
  */
 function printCourse(Ary, Star, End) {
 	for (var i = Star; i < End; i++) {//遍历课程数组
-		showCourse(oCoShow.children[0], Ary[i].img, Ary[i].course, Ary[i].description, Ary[i].score, Ary[i].attention);//调用课程打印功能打印课程信息
+		if (Ary[i]) {//判断遍历下标存在的清空下执行语句
+			showCourse(oCoShow.children[0], Ary[i].img, Ary[i].course, Ary[i].description, Ary[i].score, Ary[i].attention);//调用课程打印功能打印课程信息
+		}
 	}
 }
 
