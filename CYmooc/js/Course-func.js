@@ -176,11 +176,12 @@ oCnav.onclick = function(e) {
 				}
 			}
 
+			nowTechn = target.innerHTML;//将当前技术选项状态存储
+
 			showNav(aNavCourse);//调用分类导航打印将技术方向筛选后的课程数组的所有类选项打印出来
 
 			oCoShow.children[0].innerHTML = '';//清空课程展示区已有的课程信息
 
-			nowTechn = target.innerHTML;//将当前技术选项状态存储
 			console.log(nowTechn);
 
 			PageFun(aNavCourse, 10, addChild, printCourse, oCoShow.children[0]);//调用分页打印功能打印分页后的课程信息
@@ -285,7 +286,27 @@ oCnav.onclick = function(e) {
 
 			oCoShow.children[0].innerHTML = '';//清空课程展示区已有的课程信息
 
+			aNavCourse = [];//打印分页按钮前清空按钮筛选数组
+
+			for (var i = 0; i < aCourse.length; i++) {//遍历筛选后的课程数组
+				if (nowClass) {//判断课程与当前点击选项和已存在的筛选条件匹配执行语句
+					if (nowClass == aCourse[i].classify) {
+						aNavCourse.push(aCourse[i]);//将分类筛选后的课程存入数组用于分页打印
+					}
+				}
+				if (!nowClass) {
+					if (nowTechn && aCourse[i].technology == nowTechn) {
+						aNavCourse.push(aCourse[i]);//将技术筛选后的课程存入数组
+					}
+					if (!nowTechn) {
+						aNavCourse.push(aCourse[i]);//将所有课程存入数组
+					}
+				}
+			}
+
 			PageFun(aNavCourse, 10, addChild, printCourse, oCoShow.children[0]);//调用分页打印功能打印分页后的课程信息
+
+			console.log('techn:' +nowTechn, 'class:' + nowClass);
 
 			return;
 		}
@@ -298,21 +319,25 @@ oCnav.onclick = function(e) {
 
 			oCoShow.children[0].innerHTML = '';//清空课程展示区已有的课程信息
 			
-			aNavCourseB = [];//打印分页按钮前清空按钮筛选数组
+			aNavCourse = [];//打印分页按钮前清空按钮筛选数组
 
-			for (var i = 0; i < aNavCourse.length; i++) {//遍历筛选后的课程数组
-				if (target.innerHTML == aNavCourse[i].nodus && nowClass && aNavCourse[i].classify == nowClass) {//判断课程与当前点击选项匹配并且当前课程类变量不为空匹配对应满足条件的课程打印
+			for (var i = 0; i < aCourse.length; i++) {//遍历筛选后的课程数组
+				if (target.innerHTML == aCourse[i].nodus && nowClass && aCourse[i].classify == nowClass) {//判断课程与当前点击选项匹配并且当前课程类变量不为空匹配对应满足条件的课程打印
 
-					aNavCourseB.push(aNavCourse[i]);//筛选满足当前三级联动筛选条件的课程存入数组
+					aNavCourse.push(aCourse[i]);//筛选满足当前三级联动筛选条件的课程存入数组
 
 				}
-				if (target.innerHTML == aNavCourse[i].nodus && !nowClass) {//判断课程与当前点击选项匹配且不存在当前课程类选项执行课程打印
-
-					aNavCourseB.push(aNavCourse[i]);//筛选满足当前三级联动筛选条件的课程存入数组
+				if (target.innerHTML == aCourse[i].nodus && !nowClass) {//判断课程与当前点击选项匹配且不存在当前课程类选项执行课程打印
+					if (nowTechn && aCourse[i].technology == nowTechn) {
+						aNavCourse.push(aCourse[i]);//判断筛选条件只存在技术方向且将符合技术方向的难度课程存入数组
+					}
+					if (!nowTechn) {
+						aNavCourse.push(aCourse[i]);//判断不存在其余筛选条件情况下存入对应难度课程数组
+					}
 				}
 			}
 
-			PageFun(aNavCourseB, 10, addChild, printCourse, oCoShow.children[0]);//调用分页打印功能打印分页后的课程信息
+			PageFun(aNavCourse, 10, addChild, printCourse, oCoShow.children[0]);//调用分页打印功能打印分页后的课程信息
 		}
 	}
 }
@@ -322,7 +347,85 @@ oCnav.onclick = function(e) {
 var ocheck = document.getElementsByName('Sorting-btn');
 var oselect = document.getElementById('SortSelect');
 /*获取排序条件选择对象*/
+
 oselect.onclick = function(e) {
-	console.log(e);
+	var e = e || windwo.event;
+	var target = e.target || e.srcElement;
+	/*兼容ie事件委托*/
+
+	var result = '';
+
+	for (var i = 0; i < ocheck.length; i++) {
+		if (ocheck[i].checked && ocheck[i].value == '评分') {
+			result = 'score';
+		}
+		if (ocheck[i].checked && ocheck[i].value == '关注度') {
+			result = 'attention';
+		}
+	}
+
+	if (target.value == '升序') {
+		aNavCourse.sort(function(a, b) {
+			/*if (a[result] < b[result]) {
+				return -1;
+			}
+			else {
+				return 1;
+			}*/
+			return a[result] - b[result];
+		});
+
+		oCoShow.children[0].innerHTML = '';//清空课程展示区已有的课程信息
+
+		PageFun(aNavCourse, 10, addChild, printCourse, oCoShow.children[0]);//调用分页打印功能打印分页后的课程信息
+	}
+	if (target.value == '降序') {
+		aNavCourse.sort(function(a, b) {
+			/*if (a[result] < b[result]) {
+				return 1;
+			}
+			else {
+				return -1;
+			}*/
+			return b[result] - a[result];
+		});
+
+		oCoShow.children[0].innerHTML = '';//清空课程展示区已有的课程信息
+
+		PageFun(aNavCourse, 10, addChild, printCourse, oCoShow.children[0]);//调用分页打印功能打印分页后的课程信息
+	}
+	/*switch(oselect.value) {
+		case '升序':
+		aNavCourse.sort(function(a, b) {
+			if (a[result] < b[result]) {
+				return -1;
+			}
+			else {
+				return 1;
+			}
+		});
+
+		oCoShow.children[0].innerHTML = '';//清空课程展示区已有的课程信息
+
+		PageFun(aNavCourse, 10, addChild, printCourse, oCoShow.children[0]);//调用分页打印功能打印分页后的课程信息
+		break;
+
+		case '降序':
+		aNavCourse.sort(function(a, b) {
+			if (a[result] < b[result]) {
+				return 1;
+			}
+			else {
+				return -1;
+			}
+		});
+
+		oCoShow.children[0].innerHTML = '';//清空课程展示区已有的课程信息
+
+		PageFun(aNavCourse, 10, addChild, printCourse, oCoShow.children[0]);//调用分页打印功能打印分页后的课程信息
+		break;
+	}*/
+	
 }
+
 // ----------------------End 课程排序功能----------------------
