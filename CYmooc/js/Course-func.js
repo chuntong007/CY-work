@@ -227,6 +227,8 @@ oCnav.onclick = function(e) {
 
 						if (oTechn.children[1].children[k].innerHTML == aCourse[i].technology) {//判断符合课程遍历对象的技术方向与技术分类选项匹配执行语句
 							oTechn.children[1].children[k].className = 'nav-Now';//为符合条件技术方向添加当前类
+
+							nowTechn = aCourse[i].technology;//修改当前技术方向状态
 						}
 					}
 

@@ -13,7 +13,8 @@ a {
 
 body {
 	min-width: 1000px;
-	font-size: 14px;
+	/*font: 14px '宋体', Tahoma, '\5FAE\8F6F\96C5\9ED1', Arial, Helvetica, sans-serif;*/
+	font-size: 14px; 
 }
 
 .nowWeb {
@@ -110,6 +111,7 @@ body {
 
 #Header .head-body #Registerted {
 	display: inline-block;
+	line-height: 0;
 }
 
 #Header #Registerted a {
