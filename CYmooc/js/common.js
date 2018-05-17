@@ -269,6 +269,7 @@ var oRegis = document.getElementById('Regis');
 
 function onLogin() {
 	oLogin.innerHTML = window.localStorage.getItem('hx180310nowUser') ? window.localStorage.getItem('hx180310nowUser') : oLogin.innerHTML;
+	oLogin.style.backgroundImage = window.localStorage.getItem('hx180310nowUser') ? 'url(images/user.png)' : oLogin.style.backgroundImage;
 	oRegis.innerHTML = window.localStorage.getItem('hx180310nowUser') ? '注销' : oRegis.innerHTML;
 	/*判断本地存储已有登陆账户修改登陆注册按钮显示*/
 

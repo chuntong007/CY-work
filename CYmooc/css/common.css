@@ -89,7 +89,7 @@ body {
 
 #Header .head-body #Search {
 	float: left;
-	margin: 21.5px 52px 21.5px 0;
+	margin: 21.5px 32px 21.5px 0;
 }
 
 #Header #Search #SearchText {
@@ -112,10 +112,18 @@ body {
 	display: inline-block;
 }
 
+#Header #Registerted a {
+	font-size: 20px;
+}
+
 #Header #Registerted a#Login {
 	border-right: 1px solid #fff;
 	margin-right: 10px;
 	padding-right: 10px;
+	padding-left: 40px;
+	background-size: 28px;
+	background-repeat: no-repeat;
+	background-position: center left;
 	color: #fff;
 }
 
