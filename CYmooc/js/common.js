@@ -486,10 +486,13 @@ oseText.onkeypress = function(e) {
 	var e = e || window.event;
 	/*兼容IE*/
 
-	if (e.code == 'NumpadEnter' || e.code == 'Enter' && oseText.value) {//判断搜索框已输入信息且按下回车键执行语句
+	if ((e.code == 'NumpadEnter' || e.code == 'Enter') && oseText.value) {//判断搜索框已输入信息且按下回车键执行语句
 		searCh(oseText.value);//调用课程搜索功能检索符合条件课程信息
 
 		window.location.href = 'course.html';//跳转课程中心页面
+	}
+	else {
+		alert('请输入课程信息进行查找!');
 	}
 	// console.log(e);
 }
@@ -499,6 +502,9 @@ oseBtn.onclick = function() {
 		searCh(oseText.value);//调用课程搜索功能检索符合条件课程信息
 
 		window.location.href = 'course.html';//跳转课程中心页面
+	}
+	else {
+		alert('请输入课程信息进行查找!');
 	}
 }
 /*----------------------End 搜索功能----------------------*/
