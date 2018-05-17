@@ -351,7 +351,7 @@ var oselect = document.getElementById('SortSelect');
 /*获取排序条件选择对象*/
 
 oselect.onclick = function(e) {
-	var e = e || windwo.event;
+	var e = e || window.event;
 	var target = e.target || e.srcElement;
 	/*兼容ie事件委托*/
 
@@ -396,38 +396,6 @@ oselect.onclick = function(e) {
 
 		PageFun(aNavCourse, 10, addChild, printCourse, oCoShow.children[0]);//调用分页打印功能打印分页后的课程信息
 	}
-	/*switch(oselect.value) {
-		case '升序':
-		aNavCourse.sort(function(a, b) {
-			if (a[result] < b[result]) {
-				return -1;
-			}
-			else {
-				return 1;
-			}
-		});
-
-		oCoShow.children[0].innerHTML = '';//清空课程展示区已有的课程信息
-
-		PageFun(aNavCourse, 10, addChild, printCourse, oCoShow.children[0]);//调用分页打印功能打印分页后的课程信息
-		break;
-
-		case '降序':
-		aNavCourse.sort(function(a, b) {
-			if (a[result] < b[result]) {
-				return 1;
-			}
-			else {
-				return -1;
-			}
-		});
-
-		oCoShow.children[0].innerHTML = '';//清空课程展示区已有的课程信息
-
-		PageFun(aNavCourse, 10, addChild, printCourse, oCoShow.children[0]);//调用分页打印功能打印分页后的课程信息
-		break;
-	}*/
-	
 }
 
 // ----------------------End 课程排序功能----------------------

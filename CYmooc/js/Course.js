@@ -1,4 +1,19 @@
-function Course(course, technology, classify, description, price, score, attention, teacher, imgCover, img, nodus) {
+/**
+ * [Course 课程包数据类]
+ * @param {[string]} course      [课程名称]
+ * @param {[string]} technology  [技术方向]
+ * @param {[string]} classify    [课程分类]
+ * @param {[string]} description [课程简介]
+ * @param {[number]} price       [课程价格]
+ * @param {[number]} score       [课程评分]
+ * @param {[number]} attention   [课程关注度]
+ * @param {[string]} teacher     [课程讲师]
+ * @param {[url]} imgCover    [课程封面]
+ * @param {[url]} img         [课程内容图]
+ * @param {[string]} nodus       [课程难度]
+ * @param {[Date]} period       [课程时长]
+ */
+function Course(course, technology, classify, description, price, score, attention, teacher, imgCover, img, nodus, period) {
 	this.course = course;
 	this.technology = technology;
 	this.classify = classify;
@@ -10,6 +25,7 @@ function Course(course, technology, classify, description, price, score, attenti
 	this.imgCover = imgCover;
 	this.img = img;
 	this.nodus = nodus;
+	this.period = period;
 }
 
 /**

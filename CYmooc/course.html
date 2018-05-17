@@ -20,7 +20,7 @@
 			<ul class="Nav">
 				<li><a href="index.html">首页</a></li>
 				<li class="nowWeb"><a href="javascript:void(0)">课程</a></li>
-				<li><a href="javascript:void(0)">学习</a></li>
+				<li><a href="learning.html">学习</a></li>
 				<li class="Clints">
 					<a href="javascript:void(0)">客户端</a>
 
@@ -36,7 +36,7 @@
 			
 			<div class="head-right">
 				<!-- 搜索栏开始 -->
-				<div id="Search"><input id="SearchText" placeholder="请输入关键词查找" type="text" name="" id=""><input id="SearchBtn" type="button" value=""></div>
+				<div id="Search"><input id="SearchText" placeholder="输入关键词回车或点击按钮查找" type="text" name="" id=""><input id="SearchBtn" type="button" value=""></div>
 				<!-- 搜索栏结束 -->
 				
 				<!-- 登陆注册开始 -->
@@ -131,7 +131,7 @@
 		<!-- 分页按钮结束 -->
 
 		<!-- 推荐课程模块开始 -->
-		<div class="recourse">
+		<div id="reCourse" class="recourse">
 			<ul>
 				<li>
 					<img src="images/course.jpg" alt="">
@@ -292,9 +292,24 @@
 		getVerify();//调用初始化登录注册验证码
 		// printCourse(aCourse, 0, aCourse.length - 1);
 
+		var nowSearch = window.localStorage.getItem('hx180310seCourse') ? JSON.parse(window.localStorage.getItem('hx180310seCourse')) : nowSearch;//判断本地存储是否有搜索数据，没有则返回空变量本身。
 		aNavCourse = aNavCourse.length > 0 ? aNavCourse : aCourse;//三目运算判断筛选数组已有值返回本身没有值获取课程总数组
 
-		PageFun(aNavCourse, 10, addChild, printCourse, oCoShow.children[0]);//调用分页打印功能打印分页后的课程信息
+		if (nowSearch) {//判断本地存有课程搜索信息
+			if (nowSearch.length == 0) {
+				window.onload = function() {
+					alert('没有符合条件的课程');//页面加载完后弹出提示
+				}
+
+				window.localStorage.removeItem('hx180310seCourse');//打印完搜索课程则清空本地存储
+			}
+			PageFun(nowSearch, 10, addChild, printCourse, oCoShow.children[0]);//调用分页打印功能打印分页后的课程搜索信息
+			
+			window.localStorage.removeItem('hx180310seCourse');//打印完搜索课程则清空本地存储
+		}
+		else {
+			PageFun(aNavCourse, 10, addChild, printCourse, oCoShow.children[0]);//调用分页打印功能打印分页后的课程信息
+		}
 	</script>
 	<!-- js脚本区结束 -->
 	

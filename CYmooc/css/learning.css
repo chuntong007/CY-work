@@ -1,0 +1,103 @@
+.marTop {
+	margin-top: 30px;
+}
+/* 全局属性 */
+
+/* -------------------------Container------------------------- */
+#Container {
+	margin: 0 auto;
+	padding: 20px 0;
+	width: 1000px;
+}
+
+/* 课程详情信息 */
+#Container #CourseMsg {
+	position: relative;
+	border: 2px solid #bfbfbf;
+}
+
+#Container #reCourse .reCourse-head,
+#Container #CourseMsg #Breadcrumbs {
+	padding-left: 30px;
+	height: 55px;
+	line-height: 55px;
+	text-align: left;
+	background: #14598c;
+	color: #fff;
+}
+
+#Container #CourseMsg .Message {
+	padding: 0 0 20px 20px;
+}
+
+#CourseMsg .Message {}
+
+.Message #CourseTitle {
+	margin-bottom: 30px;
+}
+
+#CourseMsg .Message .teacher {
+	margin-top: 10px;
+}
+
+#CourseMsg .Message #UserName {}
+
+#CourseMsg .Message #Msgbottom {
+	height: 40px;
+	line-height: 40px;
+}
+
+#Msgbottom ul {
+	overflow: hidden;
+
+}
+
+#Msgbottom ul li:first-child {
+	margin-left: 0;
+}
+
+#Msgbottom ul li {
+	float: left;
+	margin-left: 50px;
+}
+
+#Msgbottom #Learning {
+	margin-left: 30px;
+	padding: 5px 45px;
+	border-radius: 4px;
+	font-size: 20px;
+	background: #14598c;
+	color: #fff;
+}
+
+#Msgbottom li a {
+	margin-left: 5px;
+	color: #000;
+}
+
+#Msgbottom #Collection {
+	border-right: 2px solid #000;
+    padding: 10px 5px 10px 30px;
+    background: url(../images/空心.png);
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: center left;
+}
+
+#Msgbottom #ShareCon {
+	float: right;
+	margin: 11.5px 0;
+}
+
+#Msgbottom #ShareCon li {
+	margin-left: 0;
+	height: 20px;
+	line-height: 20px;
+}
+
+#Msgbottom #ShareCon img {
+	height: 20px;
+}
+/* End 课程详情信息 */
+
+/* -------------------------End Container------------------------- */

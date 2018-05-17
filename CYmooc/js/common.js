@@ -460,3 +460,45 @@ function PageFun(ary, Size, addBtn, showfunc, showObj) {
 
 }
 /*----------------------End 分页按钮功能----------------------*/
+
+/*----------------------搜索功能----------------------*/
+var oseText = document.getElementById('SearchText');
+var oseBtn = document.getElementById('SearchBtn');
+var aseCourse = [];
+/*获取搜索功能所需对象声明用于存储搜索课程的变量*/
+
+/**
+ * [searCh 课程搜索存储功能]
+ * @param  {[string]} obj [用户输入的搜索信息]
+ * @return {[type]}     [description]
+ */
+function searCh(obj) {
+	for (var i = 0; i < aCourse.length; i++) {
+		if (aCourse[i].course.toLowerCase().indexOf(obj.toLowerCase()) != -1) {//将搜索信息和遍历课程转化为小写忽略大小写区别进行遍历
+			aseCourse.push(aCourse[i]);//将搜索到符合条件的课程存入数组
+		}
+	}
+
+	window.localStorage.setItem('hx180310seCourse', JSON.stringify(aseCourse));//将搜索出来的课程导入本地存储
+}
+
+oseText.onkeypress = function(e) {
+	var e = e || window.event;
+	/*兼容IE*/
+
+	if (e.code == 'NumpadEnter' || e.code == 'Enter' && oseText.value) {//判断搜索框已输入信息且按下回车键执行语句
+		searCh(oseText.value);//调用课程搜索功能检索符合条件课程信息
+
+		window.location.href = 'course.html';//跳转课程中心页面
+	}
+	// console.log(e);
+}
+
+oseBtn.onclick = function() {
+	if (oseText.value) {//判断搜索框已输入信息且按下回车键执行语句
+		searCh(oseText.value);//调用课程搜索功能检索符合条件课程信息
+
+		window.location.href = 'course.html';//跳转课程中心页面
+	}
+}
+/*----------------------End 搜索功能----------------------*/
