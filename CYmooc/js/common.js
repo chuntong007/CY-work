@@ -508,3 +508,42 @@ oseBtn.onclick = function() {
 	}
 }
 /*----------------------End 搜索功能----------------------*/
+
+
+//-------------------------选项卡功能-------------------------
+/**
+ * [turnTab 选项卡切换显示]
+ * @param  {[string]} obj1 [选项卡ID]
+ * @param  {[string]} obj2 [切换显示对象ID]
+ * @return {[type]}      [description]
+ */
+function turnTab(obj1, obj2) {
+	var oTab = document.getElementById(obj1);
+	var oContent = document.getElementById(obj2);
+	// 获取选项切换过程中需要操作的选项卡对象和展示区隐藏显示对象
+
+	oTab.onclick = function(e) {
+		var e = e || window.event;
+		var target = e.target || e.srcElement;
+		//兼容IE事件委托
+
+		if (target.tagName == 'LI' && target.className != 'nowTab') {//判断点击选项不为当前状态
+			for (var i = 0; i < oTab.children.length; i++) {
+				oTab.children[i].className = '';//遍历清空所有选项当前样式；
+				oTab.children[i].index = i;//为每个选项添加属性保存下标序号
+			}
+
+			target.className = 'nowTab';//为当前点击选项安装样式类
+
+			for (var i = 0; i < oContent.children.length; i++) {//遍历展示区对象
+				if (i == target.index) {//判断遍历顺序符合当前点击选项序号属性
+					oContent.children[i].style.display = 'block';//显示对应展示对象
+				}
+				else {
+					oContent.children[i].style.display = 'none';//隐藏展示区
+				}
+			}
+		}
+	}
+}
+//-------------------------End选项卡功能-------------------------

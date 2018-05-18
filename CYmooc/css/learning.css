@@ -114,36 +114,6 @@
 /* End 课程详情信息 */
 
 /* 课程简介信息 */
-#CourseDesc {}
-
-#CourseDesc .Desc-l {
-	margin-right: 295px;
-}
-
-#CourseDesc .Desc-l #MsgHead {
-	height: 31px;
-	color: #4e4e4e;
-	text-align: center;
-}
-
-#CourseDesc #MsgHead li {
-	float: left;
-	cursor: pointer;
-	border: 1px solid #000;
-	border-radius: 4px 4px 0 0;
-	padding: 5px 0;
-	width: 33.05%;
-	background: #ddd;
-}
-
-#CourseDesc .Desc-l #MsgContent {
-	border: 2px solid #bfbfbf;
-	border-top: 1px solid #bfbfbf;
-	padding: 22px;
-}
-
-#MsgContent #CoDescription {}
-
 #CourseDesc .Desc-r {
 	float: right;
 	width: 286px;

@@ -36,7 +36,7 @@
 			
 			<div class="head-right">
 				<!-- 搜索栏开始 -->
-				<div id="Search"><input id="SearchText" placeholder="请输入关键词查找" type="text" name="" id=""><input id="SearchBtn" type="button" value=""></div>
+				<div id="Search"><input id="SearchText" placeholder="输入关键词回车或点击查找" type="text" name="" id=""><input id="SearchBtn" type="button" value=""></div>
 				<!-- 搜索栏结束 -->
 				
 				<!-- 登陆注册开始 -->
@@ -131,7 +131,7 @@
 						<img src="images/img_02.jpg" alt="">
 						<img src="images/img_03.jpg" alt="">
 					</li>
-					<li>
+					<li style="display: none;">
 						<p>
 							<h3>第1章 移动web开发与适配</h3>
 							<span>本章节讲解什么是移动web开发和PC端开发的区别，以及常见的移动web适配方案。</span>
@@ -160,7 +160,7 @@
 						<img src="images/img_02.jpg" alt="">
 						<img src="images/img_03.jpg" alt="">
 					</li>
-					<li>
+					<li style="display: none;">
 						<div class="Course-Comment"><input type="text" id="CommentText"><input type="button" value="评论" id="CommentBtn"></div>
 						<ul id="CommentShow">
 							<li><img src="images/user.png" alt="">
@@ -339,6 +339,8 @@
 	<script type="text/javascript">
 		getVerify();//调用初始化登录注册验证码
 		// printCourse(aCourse, 0, aCourse.length - 1);
+
+		turnTab('MsgHead', 'MsgContent');
 	</script>
 	<!-- js脚本区结束 -->
 	

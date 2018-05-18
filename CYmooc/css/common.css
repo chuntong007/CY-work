@@ -194,7 +194,7 @@ body {
 /* -------------------------End Footer------------------------- */
 
 
-/* 推荐课程模块 */
+/* --------------------------推荐课程模块-------------------------- */
 #Container .recourse {
 	overflow: hidden;
 	margin: 20px auto 0;
@@ -276,10 +276,10 @@ body {
 	font-size: 10px;
 }
 
-/* End 推荐课程模块 */
+/* --------------------------End 推荐课程模块-------------------------- */
 
 
-/* 登录注册模块 */
+/* --------------------------登录注册模块-------------------------- */
 #registerMask {
 	position: fixed;
 	top: 0;
@@ -370,4 +370,36 @@ body {
 	color: #fff;
 
 }
-/* End 登录注册模块 */
+/* --------------------------End 登录注册模块-------------------------- */
+
+/* --------------------------选项卡模块-------------------------- */
+#CourseDesc {}
+
+#CourseDesc .Desc-l {
+	margin-right: 295px;
+}
+
+#CourseDesc .Desc-l #MsgHead {
+	height: 31px;
+	color: #4e4e4e;
+	text-align: center;
+}
+
+#CourseDesc #MsgHead li {
+	float: left;
+	cursor: pointer;
+	border: 1px solid #000;
+	border-radius: 4px 4px 0 0;
+	padding: 5px 0;
+	width: 33.05%;
+	background: #ddd;
+}
+
+#CourseDesc .Desc-l #MsgContent {
+	border: 2px solid #bfbfbf;
+	border-top: 1px solid #bfbfbf;
+	padding: 22px;
+}
+
+#MsgContent #CoDescription {}
+/* --------------------------End 选项卡模块-------------------------- */
