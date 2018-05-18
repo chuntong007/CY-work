@@ -268,7 +268,7 @@ var oRegis = document.getElementById('Regis');
 //获取登陆注册按钮对象
 
 function onLogin() {
-	oLogin.innerHTML = window.localStorage.getItem('hx180310nowUser') ? window.localStorage.getItem('hx180310nowUser') : oLogin.innerHTML;
+	oLogin.innerHTML = window.localStorage.getItem('hx180310nowUser') ? '你好！' + window.localStorage.getItem('hx180310nowUser') : oLogin.innerHTML;
 	oLogin.style.backgroundImage = window.localStorage.getItem('hx180310nowUser') ? 'url(images/user.png)' : oLogin.style.backgroundImage;
 	oRegis.innerHTML = window.localStorage.getItem('hx180310nowUser') ? '注销' : oRegis.innerHTML;
 	/*判断本地存储已有登陆账户修改登陆注册按钮显示*/
@@ -491,7 +491,7 @@ oseText.onkeypress = function(e) {
 
 		window.location.href = 'course.html';//跳转课程中心页面
 	}
-	else {
+	if ((e.code == 'NumpadEnter' || e.code == 'Enter') && !oseText.value) {
 		alert('请输入课程信息进行查找!');
 	}
 	// console.log(e);

@@ -20,6 +20,13 @@ body {
 .nowWeb {
 	background: #104974;
 }
+
+.nowTab {
+	background: #14598c!important;
+	color: #fff;
+	margin-top: -6px;
+	padding: 8px 0!important;
+}
 /* 公共样式 */
 
 /* -------------------------Header------------------------- */
@@ -36,7 +43,7 @@ body {
 
 #Header .head-body img {
 	float: left;
-	margin: 15px 74px 15px 0;
+	margin: 15px 30px 15px 0;
 }
 
 #Header ul {
@@ -111,6 +118,7 @@ body {
 
 #Header .head-body #Registerted {
 	display: inline-block;
+	width: 180px;
 	line-height: 0;
 }
 

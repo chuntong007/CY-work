@@ -1,6 +1,10 @@
 .marTop {
 	margin-top: 30px;
 }
+
+.textCenter {
+	text-align: center;
+}
 /* 全局属性 */
 
 /* -------------------------Container------------------------- */
@@ -13,17 +17,26 @@
 /* 课程详情信息 */
 #Container #CourseMsg {
 	position: relative;
-	border: 2px solid #bfbfbf;
 }
 
-#Container #reCourse .reCourse-head,
+.reCourse-head {
+	height: 55px;
+	line-height: 55px;
+	background: #14598c;
+	color: #fff;
+
+}
+
 #Container #CourseMsg #Breadcrumbs {
 	padding-left: 30px;
 	height: 55px;
 	line-height: 55px;
-	text-align: left;
 	background: #14598c;
 	color: #fff;
+}
+
+#Container #CourseMsg #Breadcrumbs {
+	border: 2px solid #bfbfbf;
 }
 
 #Container #CourseMsg .Message {
@@ -99,5 +112,84 @@
 	height: 20px;
 }
 /* End 课程详情信息 */
+
+/* 课程简介信息 */
+#CourseDesc {}
+
+#CourseDesc .Desc-l {
+	margin-right: 295px;
+}
+
+#CourseDesc .Desc-l #MsgHead {
+	height: 31px;
+	color: #4e4e4e;
+	text-align: center;
+}
+
+#CourseDesc #MsgHead li {
+	float: left;
+	cursor: pointer;
+	border: 1px solid #000;
+	border-radius: 4px 4px 0 0;
+	padding: 5px 0;
+	width: 33.05%;
+	background: #ddd;
+}
+
+#CourseDesc .Desc-l #MsgContent {
+	border: 2px solid #bfbfbf;
+	border-top: 1px solid #bfbfbf;
+	padding: 22px;
+}
+
+#MsgContent #CoDescription {}
+
+#CourseDesc .Desc-r {
+	float: right;
+	width: 286px;
+}
+
+#CourseDesc .Desc-r .My-stu {
+	border: 2px solid #bfbfbf;
+	margin-bottom: 20px;
+}
+
+#CourseDesc .Desc-r ul {
+	overflow: hidden;
+	padding: 10px 0;
+}
+
+.My-stu ul li {
+	float: left;
+	margin-top: 10px;
+	margin-left: 30px;
+}
+
+#Container #CourseDesc .Stu-king {
+	border: 2px solid #bfbfbf;
+}
+
+
+#CourseDesc .Stu-king ul {
+	padding: 10px 5px;
+	color: #000;
+}
+
+.Stu-king ul li {
+	overflow: hidden;
+	border-bottom: 1px solid #999;
+	margin-top: 10px;
+	padding: 10px;
+}
+
+.Stu-king li img {
+	float: left;
+}
+
+.Stu-king li span {
+	display: inline-block;
+	padding: 10px;
+}
+/* End 课程简介信息 */
 
 /* -------------------------End Container------------------------- */
