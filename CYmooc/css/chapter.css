@@ -1,0 +1,136 @@
+.nowNav {
+	background: #286490;
+	color: #fff;
+}
+
+/* 全局样式 */
+
+/* -------------------------Container------------------------- */
+#Container {
+	margin: 0 auto;
+	padding: 0 0 20px;
+	width: 1000px;
+}
+
+/* 章节视频 */
+#Container .chapter-Movie {
+	margin-bottom: 30px;
+}
+
+#Container .chapter-Movie video {
+	float: left;
+	width: 670px;
+	height: 363px;
+}
+
+#Container .chapter-Movie .chapter-Nav {}
+
+.chapter-Movie .chapter-Nav #MovHead {
+	overflow: hidden;
+	text-align: center;
+	background: #252525;
+	color: #757575;
+}
+
+.chapter-Nav ul li {
+	cursor: pointer;
+}
+
+.chapter-Nav #MovHead li {
+	float: left;
+	padding: 20px 0px;
+	width: 33.05%;
+}
+
+.chapter-Movie .chapter-Nav #MovContent {
+	overflow-y: scroll;
+	height: 304px;
+	background: #404040;
+	color: #b5bec4;
+}
+
+#MovContent #ChapterNav li {
+	padding: 10px 30px;
+}
+
+#MovContent #ChapterNav .nowChap {
+	padding: 10px;
+	background: #207ec4;
+	color: #fff;
+}
+
+#ChapterNav .nowChap h3 {
+	padding-left: 30px;
+	background: url(../images/形状16.png) no-repeat 10px;
+}
+
+#ChapterNav .nowChap span {
+	padding-left: 30px;
+}
+
+#ChapterNav .nowChap #Attention {
+	background: url(../images/形状18.png) no-repeat 10px;
+}
+
+#ChapterNav li #Attention {
+	float: right;
+}
+/* End 章节视频 */
+
+/* 评分模块 */
+#CourseDesc #MsgContent .Chapter {
+	margin: 20px 0;
+}
+
+#CourseDesc .Desc-r {
+	float: right;
+	width: 286px;
+}
+
+#CourseDesc .Desc-r .My-stu {
+	border: 2px solid #bfbfbf;
+	margin-bottom: 20px;
+}
+
+#CourseDesc .My-stu .reCourse-head {
+	padding-left: 20px;
+}
+
+#CourseDesc .My-stu .Co-Score {
+	overflow: hidden;
+	border-bottom: 2px solid #878787;
+	margin: 0 30px 20px;
+	padding-bottom: 30px;
+}
+
+#CourseDesc .Co-Score p {
+	float: left;
+	margin-left: 20px;
+	text-align: center;
+	line-height: 2em;
+}
+
+#CourseDesc .Co-Score span {
+	margin-left: 20px;
+	font-size: 4em;
+	line-height: 2em;
+}
+
+#CourseDesc .My-stu #subScore {
+	overflow: hidden;
+	margin: 0 auto;
+	padding-bottom: 20px;
+	width: 212px;
+}
+
+#CourseDesc #subScore li {
+	float: left;
+	cursor: pointer;
+	width: 35px;
+	height: 35px;
+	background: url(../images/空心.png);
+	background-size: 35px;
+}
+/* End 评分模块 */
+
+/* -------------------------End Container------------------------- */

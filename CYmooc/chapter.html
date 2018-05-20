@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>传一慕课-课程学习</title>
+	<title>传一慕课-课程章节</title>
 	<link rel="icon" type="image/ico" href="images/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="css/common.css">
-	<link rel="stylesheet" type="text/css" href="css/learning.css">
+	<link rel="stylesheet" type="text/css" href="css/chapter.css">
 </head>
 <body>
 	<!-- 公共头部开始 -->
@@ -47,83 +47,141 @@
 	</div>
 	<!-- 公共头部结束 -->
 
-	<!-- 课程详情页内容主体开始 -->
+	<!-- 章节视频页内容主体开始 -->
 	<div id="Container">
 
-		<!-- 课程详情信息开始 -->
-		<div id="CourseMsg">
-
-			<!-- 面包屑导航开始 -->
-			<div id="Breadcrumbs">设计-创作 > 设计软件 > Photoshop > photoshop PS真正零基础到精通</div>
-			<!-- 面包屑导航结束 -->
-
-			<!-- 课程信息展示区开始 -->
-			<div class="Message">
-				<h1 class="marTop" id="CourseTitle">photoshop PS真正零基础到精通</h1>
-				<span class="marTop">讲师提醒：</span>
-				<div class="teacher"><img src="images/user.png" alt=""><span id="UserName">人物名称</span></div>
-				<div class="marTop" id="Msgbottom">
-					<ul>
-						<li>难度：<span id="CourseNodus">初级</span></li>
-						<li>时间：<span id="CoursePeriod">320</span>分钟</li>
-						<li>关注度：<span id="CourseAtten">123124</span></li>
-						<li><a href="chapter.html" id="Learning">开始学习</a></li>
-						<div id="ShareCon">
-							<ul>
-								<li><a href="" id="Collection">收藏</a><a href="" id="Share">分享
-								</a></li>
-								<li><a href=""><img src="images/score1.jpg" alt=""></a></li>
-								<li><a href=""><img src="images/score3.jpg" alt=""></a></li>
-								<li><a href=""><img src="images/score4.jpg" alt=""></a></li>
-								<li><a href=""><img src="images/score2.jpg" alt=""></a></li>
-							</ul>
-						</div>
-					</ul>
-				</div>
+		<!-- 课程视频模块开始 -->
+		<div class="chapter-Movie">
+			<video src="video/movie.ogg" controls="controls"></video>
+			<div class="chapter-Nav">
+				<ul id="MovHead">
+					<li class="nowNav">章节</li>
+					<li>笔记</li>
+					<li>资料</li>
+				</ul>
+				<ul id="MovContent">
+					<li>
+						<ul id="ChapterNav">
+							<li class="nowChap">
+								<h3>HTML5语法</h3>
+								<span id="Teacher">主讲人：李林老师</span>
+								<span id="Attention">123,213,213</span>
+							</li>
+							<li>
+								<h3>HTML5语法</h3>
+								<span id="Teacher">主讲人：李林老师</span>
+								<span id="Attention">123,213,213</span>
+							</li>
+							<li>
+								<h3>HTML5语法</h3>
+								<span id="Teacher">主讲人：李林老师</span>
+								<span id="Attention">123,213,213</span>
+							</li>
+							<li>
+								<h3>HTML5语法</h3>
+								<span id="Teacher">主讲人：李林老师</span>
+								<span id="Attention">123,213,213</span>
+							</li>
+							<li>
+								<h3>HTML5语法</h3>
+								<span id="Teacher">主讲人：李林老师</span>
+								<span id="Attention">123,213,213</span>
+							</li>
+							<li>
+								<h3>HTML5语法</h3>
+								<span id="Teacher">主讲人：李林老师</span>
+								<span id="Attention">123,213,213</span>
+							</li>
+							<li>
+								<h3>HTML5语法</h3>
+								<span id="Teacher">主讲人：李林老师</span>
+								<span id="Attention">123,213,213</span>
+							</li>
+							<li>
+								<h3>HTML5语法</h3>
+								<span id="Teacher">主讲人：李林老师</span>
+								<span id="Attention">123,213,213</span>
+							</li>
+						</ul>
+					</li>
+					<li></li>
+					<li></li>
+				</ul>
 			</div>
-			<!-- 课程信息展示区结束 -->
-
 		</div>
-		<!-- 课程详情信息结束 -->
+		<!-- 课程视频模块结束 -->
 
-		<!-- 课程详情简介开始 -->
+		<!-- 评论提问模块开始 -->
 		<div id="CourseDesc">
 			<div class="Desc-r">
 				<div class="My-stu">
-					<div class="reCourse-head textCenter">推荐课程</div>
-					<ul>
-						<li><img src="images/user.png" alt=""></li>
-						<li><img src="images/user.png" alt=""></li>
-						<li><img src="images/user.png" alt=""></li>
-						<li><img src="images/user.png" alt=""></li>
-						<li><img src="images/user.png" alt=""></li>
-						<li><img src="images/user.png" alt=""></li>
-						<li><img src="images/user.png" alt=""></li>
-						<li><img src="images/user.png" alt=""></li>
-						<li><img src="images/user.png" alt=""></li>
-					</ul>
-				</div>
-				<div class="Stu-king">
-					<div class="reCourse-head textCenter">学霸动态
+					<div class="reCourse-head">评分：</div>
+					<div class="Co-Score">
+						<p>逻辑内容：9.0<br>老师讲授：9.0<br>作业辅导：9.0<br>是否有用：9.0</p>
+						<span id="Score">9.0</span>
 					</div>
-					<ul>
-						<li><img src="images/user.png" alt=""><span>于2个小时前<br>老师太凶了，把我吓坏了</span></li>
-						<li><img src="images/user.png" alt=""><span>于2个小时前<br>老师太凶了，把我吓坏了</span></li>
-						<li><img src="images/user.png" alt=""><span>于2个小时前<br>老师太凶了，把我吓坏了</span></li>
-						<li><img src="images/user.png" alt=""><span>于2个小时前<br>老师太凶了，把我吓坏了</span></li>
-						<li><img src="images/user.png" alt=""><span>于2个小时前<br>老师太凶了，把我吓坏了</span></li>
-						<li><img src="images/user.png" alt=""><span>于2个小时前<br>老师太凶了，把我吓坏了</span></li>
+					<ul id="subScore">
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
 					</ul>
 				</div>
 			</div>
 			<div class="Desc-l">
 				<ul id="MsgHead">
-					<li class="nowTab">课程介绍</li>
-					<li>章节</li>
-					<li>学员评价[<span id="CommentNum">195</span>]</li>
+					<li class="nowTab">评论[<span id="CommentNum">195</span>]</li>
+					<li>问答</li>
+					<li>问答</li>
 				</ul>
 				<ul id="MsgContent">
 					<li>
+						<div class="Course-Comment"><textarea name="" id="CommentText" cols="30" rows="10" placeholder="有什么想说的在这编辑。"></textarea><input type="button" value="评论" id="CommentBtn"></div>
+						<ul id="CommentShow">
+							<li>
+								<img src="images/user.png" alt="">
+								<div>
+									<p><span class="uComment">评论账户</span><span class="timComment">于2天前</span></p>
+									<p class="conComment">老师太凶了，吓得我快尿了</p>
+									<p><img src="images/d1.jpg" alt="">[250]<img src="images/d2.jpg" alt="">[38]</p>
+								</div>
+							</li>
+							<li>
+								<img src="images/user.png" alt="">
+								<div>
+									<p><span class="uComment">评论账户</span><span class="timComment">于2天前</span></p>
+									<p class="conComment">老师太凶了，吓得我快尿了</p>
+									<p><img src="images/d1.jpg" alt="">[250]<img src="images/d2.jpg" alt="">[38]</p>
+								</div>
+							</li>
+							<li>
+								<img src="images/user.png" alt="">
+								<div>
+									<p><span class="uComment">评论账户</span><span class="timComment">于2天前</span></p>
+									<p class="conComment">老师太凶了，吓得我快尿了</p>
+									<p><img src="images/d1.jpg" alt="">[250]<img src="images/d2.jpg" alt="">[38]</p>
+								</div>
+							</li>
+						</ul>
+
+						<!-- 分页按钮开始 -->
+						<div id="contentPage">
+							<a href="javascript:void(0)" class="lastPage">上一页</a>
+							<ul id="pageBtn">
+								<li>1</li>
+								<li>2</li>
+								<li>3</li>
+								<li>4</li>
+								<li>5</li>
+							</ul>
+							<a href="javascript:void(0)" class="nextPage">下一页</a>
+						</div>
+						<!-- 分页按钮结束 -->
+
+					</li>
+					<li style="display: none;">
 						<span style="float: left;">课程——</span>
 						<div style="margin-left: 50px; margin-bottom: 20px;"><span id="CoDescription">由Adobe官方讲师：万晨曦老师亲自录制，幽默风趣，通俗易懂的讲解，让学习软件从此不再是头疼枯燥的事情。本教程高清带素材，是好评如潮，备受追捧的一套教程。</span>
 						</div>
@@ -162,90 +220,13 @@
 						<img src="images/img_02.jpg" alt="">
 						<img src="images/img_03.jpg" alt="">
 					</li>
-					<li style="display: none;">
-						<div class="Course-Comment"><textarea name="" id="CommentText" cols="30" rows="10" placeholder="有什么想说的在这编辑。"></textarea><input type="button" value="评论" id="CommentBtn"></div>
-						<ul id="CommentShow">
-							<li>
-								<img src="images/user.png" alt="">
-								<div>
-									<p><span class="uComment">评论账户</span><span class="timComment">于2天前</span></p>
-									<p class="conComment">老师太凶了，吓得我快尿了</p>
-									<p><img src="images/d1.jpg" alt="">[250]<img src="images/d2.jpg" alt="">[38]</p>
-								</div>
-							</li>
-							<li>
-								<img src="images/user.png" alt="">
-								<div>
-									<p><span class="uComment">评论账户</span><span class="timComment">于2天前</span></p>
-									<p class="conComment">老师太凶了，吓得我快尿了</p>
-									<p><img src="images/d1.jpg" alt="">[250]<img src="images/d2.jpg" alt="">[38]</p>
-								</div>
-							</li>
-							<li>
-								<img src="images/user.png" alt="">
-								<div>
-									<p><span class="uComment">评论账户</span><span class="timComment">于2天前</span></p>
-									<p class="conComment">老师太凶了，吓得我快尿了</p>
-									<p><img src="images/d1.jpg" alt="">[250]<img src="images/d2.jpg" alt="">[38]</p>
-								</div>
-							</li>
-						</ul>
-					</li>
 				</ul>
 			</div>
 		</div>
-		<!-- 课程详情简介结束 -->
-
-		<!-- 推荐课程模块开始 -->
-		<div id="reCourse" class="recourse">
-			<div class="reCourse-head textCenter">推荐课程</div>
-			<ul>
-				<li>
-					<img src="images/course.jpg" alt="">
-					<div class="course-Dp"><h4>C语言强化</h4>
-						<p>&nbsp;&nbsp;C语言有许多独特的地方。从1970年代诞生起，它的历史使命就是编写系统程序，它被设计成非常贴近底层、贴近硬件.</p>
-					</div>
-					<span class="score">评分：9.0</span>
-					<span class="attention">289人关注</span>
-				</li>
-				<li>
-					<img src="images/course.jpg" alt="">
-					<div class="course-Dp"><h4>C语言强化</h4>
-						<p>&nbsp;&nbsp;C语言有许多独特的地方。从1970年代诞生起，它的历史使命就是编写系统程序，它被设计成非常贴近底层、贴近硬件.</p>
-					</div>
-					<span class="score">评分：9.0</span>
-					<span class="attention">289人关注</span>
-				</li>
-				<li>
-					<img src="images/course.jpg" alt="">
-					<div class="course-Dp"><h4>C语言强化</h4>
-						<p>&nbsp;&nbsp;C语言有许多独特的地方。从1970年代诞生起，它的历史使命就是编写系统程序，它被设计成非常贴近底层、贴近硬件.</p>
-					</div>
-					<span class="score">评分：9.0</span>
-					<span class="attention">289人关注</span>
-				</li>
-				<li>
-					<img src="images/course.jpg" alt="">
-					<div class="course-Dp"><h4>C语言强化</h4>
-						<p>&nbsp;&nbsp;C语言有许多独特的地方。从1970年代诞生起，它的历史使命就是编写系统程序，它被设计成非常贴近底层、贴近硬件.</p>
-					</div>
-					<span class="score">评分：9.0</span>
-					<span class="attention">289人关注</span>
-				</li>
-				<li>
-					<img src="images/course.jpg" alt="">
-					<div class="course-Dp"><h4>C语言强化</h4>
-						<p>&nbsp;&nbsp;C语言有许多独特的地方。从1970年代诞生起，它的历史使命就是编写系统程序，它被设计成非常贴近底层、贴近硬件.</p>
-					</div>
-					<span class="score">评分：9.0</span>
-					<span class="attention">289人关注</span>
-				</li>
-			</ul>
-		</div>
-		<!-- 推荐课程模块结束 -->
+		<!-- 评论提问模块结束 -->
 
 	</div>
-	<!-- 课程详情页内容主体结束 -->
+	<!-- 章节视频页内容主体结束 -->
 
 	<!-- 登录注册遮罩层开始 -->
 	<div style="display: none;" id="registerMask" onclick="turnDisp('register'), turnDisp('registerMask')"></div>
@@ -359,8 +340,9 @@
 		getVerify();//调用初始化登录注册验证码
 		// printCourse(aCourse, 0, aCourse.length - 1);
 
+		turnTab('MovHead', 'MovContent', 'nowNav');//调用安装选项卡功能
+		turnTab('ChapterNav', null, 'nowChap');//调用安装选项卡功能
 		turnTab('MsgHead', 'MsgContent', 'nowTab');//调用安装选项卡功能
-		showCourseMsg();
 	</script>
 	<!-- js脚本区结束 -->
 	

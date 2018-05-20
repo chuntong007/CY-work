@@ -27,6 +27,14 @@ body {
 	margin-top: -6px;
 	padding: 8px 0!important;
 }
+
+.reCourse-head {
+	height: 55px;
+	line-height: 55px;
+	background: #14598c;
+	color: #fff;
+
+}
 /* 公共样式 */
 
 /* -------------------------Header------------------------- */
@@ -91,13 +99,11 @@ body {
 }
 
 
-#Header .head-body .head-right {
-	float: right;
-}
+#Header .head-body .head-right {}
 
 #Header .head-body #Search {
 	float: left;
-	margin: 21.5px 32px 21.5px 0;
+	margin: 21.5px 30px 21.5px 0;
 }
 
 #Header #Search #SearchText {
@@ -118,19 +124,18 @@ body {
 
 #Header .head-body #Registerted {
 	display: inline-block;
-	width: 180px;
+	width: 188px;
 	line-height: 0;
 }
 
 #Header #Registerted a {
-	font-size: 20px;
+	font-size: 12px;
 }
 
 #Header #Registerted a#Login {
 	border-right: 1px solid #fff;
 	margin-right: 10px;
-	padding-right: 10px;
-	padding-left: 40px;
+	padding: 10px 10px 10px 40px;
 	background-size: 28px;
 	background-repeat: no-repeat;
 	background-position: center left;
@@ -220,6 +225,7 @@ body {
 .recourse ul li {
 	position: relative;
 	float: left;
+	cursor: pointer;
 	overflow: hidden;
 	border: 1px solid #999;
 	margin-top: 20px;
@@ -372,6 +378,48 @@ body {
 }
 /* --------------------------End 登录注册模块-------------------------- */
 
+/*分页按钮*/
+#contentPage {
+	margin-top: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	background: #e7f1fa;
+}
+
+#contentPage a {
+	display: inline-block;
+	padding: 0 10px;
+	border-radius: 4px;
+	height: 30px;
+	background: #478dcd;
+	color: #fff;
+}
+
+#contentPage #pageBtn {
+	display: inline-block;
+	margin: 0 30px;
+	vertical-align: middle;
+}
+
+#contentPage #pageBtn li {
+	float: left;
+	cursor: pointer;
+	margin: 0 20px;
+	border-radius: 4px;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	color: #fff;
+	background: #bcb7bf;
+}
+
+#contentPage #pageBtn li:hover,
+#contentPage #pageBtn li:first-child {
+	background: #999;
+}
+/*End 分页按钮*/
+
 /* --------------------------选项卡模块-------------------------- */
 #CourseDesc {}
 
@@ -403,3 +451,58 @@ body {
 
 #MsgContent #CoDescription {}
 /* --------------------------End 选项卡模块-------------------------- */
+
+/* --------------------------评论区模块-------------------------- */
+.Course-Comment {
+	border-bottom: 2px solid #ddd;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+}
+
+.Course-Comment #CommentText {
+	resize: none;
+	border: none;
+	border-bottom: 1px solid #c3c3c3;
+	width: 550px;
+	height: 44px;
+}
+
+.Course-Comment #CommentBtn {
+	float: right;
+	cursor: pointer;
+	border: none;
+	border-radius: 4px;
+	margin: 10px 0;
+	width: 80px;
+	height: 30px;
+	background: #999;
+	color: #fff;
+}
+
+#CommentShow li {
+	border: 1px solid #000;
+	margin-bottom: 20px;
+	padding: 20px 20px 10px;
+}
+
+#CommentShow li img[src="images/user.png"] {
+	float: left;
+}
+
+#CommentShow li p {
+	margin-bottom: 10px;
+}
+
+#CommentShow li div {
+	margin-left: 80px;
+}
+
+#CommentShow li p:last-Child {
+	text-align: right;
+}
+
+#CommentShow .uComment {
+	margin-right: 20px;
+	font-size: 18px;
+}
+/* --------------------------End 评论区模块-------------------------- */

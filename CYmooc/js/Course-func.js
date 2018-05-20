@@ -348,9 +348,10 @@ oCnav.onclick = function(e) {
 // ----------------------课程排序功能----------------------
 var ocheck = document.getElementsByName('Sorting-btn');
 var oselect = document.getElementById('SortSelect');
+var oSort = document.getElementById('Sorting');
 /*获取排序条件选择对象*/
 
-oselect.onclick = function(e) {
+oSort.onclick = function(e) {
 	var e = e || window.event;
 	var target = e.target || e.srcElement;
 	/*兼容ie事件委托*/
@@ -366,7 +367,7 @@ oselect.onclick = function(e) {
 		}
 	}
 
-	if (target.value == '升序') {
+	if (oselect.value == '升序') {
 		aNavCourse.sort(function(a, b) {
 			/*if (a[result] < b[result]) {
 				return -1;
@@ -381,7 +382,7 @@ oselect.onclick = function(e) {
 
 		PageFun(aNavCourse, 10, addChild, printCourse, oCoShow.children[0]);//调用分页打印功能打印分页后的课程信息
 	}
-	if (target.value == '降序') {
+	if (oselect.value == '降序') {
 		aNavCourse.sort(function(a, b) {
 			/*if (a[result] < b[result]) {
 				return 1;
@@ -395,6 +396,9 @@ oselect.onclick = function(e) {
 		oCoShow.children[0].innerHTML = '';//清空课程展示区已有的课程信息
 
 		PageFun(aNavCourse, 10, addChild, printCourse, oCoShow.children[0]);//调用分页打印功能打印分页后的课程信息
+	}
+	if (!oselect.value && target.tagName != 'SELECT' && target.tagName != 'DIV' && target.tagName != 'LABEL') {
+		alert('请选择排序方式');
 	}
 }
 

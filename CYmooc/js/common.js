@@ -18,12 +18,11 @@ function turnDisp(iD) {
 
 /*----------------------登录注册功能----------------------*/
 var aUser = [//声明存储用户信息数组
-	{"username": "ln","phonenum": 110,"emailsrc": "1221421@qq.com", "password": 123},
-	{"username":"a123123","phonenum":"13123123123","emailsrc": "1231421@qq.com", "password":"123123"}
+	{username: "ln",phonenum: 110,emailsrc: "1221421@qq.com", password: 123,userdate:"2018-05-19T15:22:55.256Z",ranknum:1,integral:0,allintergral:0,balance:0},
+	{username:"a123123",phonenum:"13123123123",emailsrc: "1231421@qq.com", password:"123123",userdate:"2018-05-19T15:22:55.256Z",ranknum:1,integral:0,allintergral:0,balance:0}
 	/*以上为测试用账户对象*/
 ];
-window.localStorage.setItem('hx180310user', JSON.stringify(aUser));
-var wUser = JSON.parse(window.localStorage.getItem('hx180310user')) == null ? aUser : JSON.parse(window.localStorage.getItem('hx180310user'));//获取当前本地存储的账户数据
+var aUser = JSON.parse(window.localStorage.getItem('hx180310user')) == null ? aUser : JSON.parse(window.localStorage.getItem('hx180310user'));//获取当前本地存储的账户数据
 
 function getVerify() {//声明刷新验证码函数
 	var sNum = '1234567890qwertyuiopasdfghjklzxcvbnm';
@@ -44,7 +43,7 @@ function getVerify() {//声明刷新验证码函数
 }
 
 var phonRex = /^[1][3-9]\d{9}$/;
-var countRex = /\w{6,30}$/;
+var countRex = /^\w{6,8}$/;
 var passRex = /\w{6,20}$/;
 var emailRex = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
 // 声明用户注册信息正则表达式
@@ -60,11 +59,6 @@ function getReg() {//声明注册功能
 	var uDate = new Date();
 	var ary;
 	/*获取注册信息输入对象*/
-	
-
-	aUser = JSON.parse(window.localStorage.getItem('hx180310user')) == null ? aUser : JSON.parse(window.localStorage.getItem('hx180310user'));//赋值用户数组进行三目运算判断，当本地存储没有用户数据赋为原先值，否则赋值本地用户数组数据。
-
-
 
 	if (vEmail.match(emailRex) && uCount.match(countRex) && uPhon.match(phonRex) && uPswd.match(passRex) && uVerf) {//判断文本库已填入信息
 		for (var i = 0; i < aUser.length; i++) {//循环遍历账户信息数组
@@ -115,12 +109,12 @@ function getlogin() {//声明登录账户功能
 	/*获取登入信息对象*/
 
 	if (uCount && uPswd && uVerf.toLowerCase() == Verf.toLowerCase()) {
-		for (var i = 0; i < wUser.length; i++) {//遍历账户数组是否有符合条件账户信息，找到后弹出提示并返回
-			if (wUser[i].username == uCount && wUser[i].password == uPswd) {
+		for (var i = 0; i < aUser.length; i++) {//遍历账户数组是否有符合条件账户信息，找到后弹出提示并返回
+			if (aUser[i].username == uCount && aUser[i].password == uPswd) {
 				alert('登录成功!');
 				// appOff('regsiterMask'), appOff('regsiter');//登录成功后调用隐藏遮罩层函数
 
-				window.localStorage.setItem('hx180310nowUser', wUser[i].username);//向本定存储增加一个键名为nowUser值为uCount的数据
+				window.localStorage.setItem('hx180310nowUser', aUser[i].username);//向本定存储增加一个键名为nowUser值为uCount的数据
 				// window.location.href = 'my12306.html';//跳转页面到个人帐号界面
 				window.location.reload();
 				return;
@@ -515,11 +509,12 @@ oseBtn.onclick = function() {
  * [turnTab 选项卡切换显示]
  * @param  {[string]} obj1 [选项卡ID]
  * @param  {[string]} obj2 [切换显示对象ID]
+ * @param  {[stylesheet-class]} style [点击后显示的样式类名]
  * @return {[type]}      [description]
  */
-function turnTab(obj1, obj2) {
+function turnTab(obj1, obj2, style) {
 	var oTab = document.getElementById(obj1);
-	var oContent = document.getElementById(obj2);
+	var oContent = obj2 ? document.getElementById(obj2) : false;
 	// 获取选项切换过程中需要操作的选项卡对象和展示区隐藏显示对象
 
 	oTab.onclick = function(e) {
@@ -533,7 +528,11 @@ function turnTab(obj1, obj2) {
 				oTab.children[i].index = i;//为每个选项添加属性保存下标序号
 			}
 
-			target.className = 'nowTab';//为当前点击选项安装样式类
+			target.className = style;//为当前点击选项安装样式类
+
+			if (!oContent) {
+				return;//当切换对象未传参则退出函数不执行后续功能
+			}
 
 			for (var i = 0; i < oContent.children.length; i++) {//遍历展示区对象
 				if (i == target.index) {//判断遍历顺序符合当前点击选项序号属性
@@ -547,3 +546,68 @@ function turnTab(obj1, obj2) {
 	}
 }
 //-------------------------End选项卡功能-------------------------
+
+//-------------------------课程点击跳转功能-------------------------
+var nowCourse = '';//用于保存当前点击课程名
+
+/**
+ * [turnCourse 课程点击跳转]
+ * @param  {[string]} obj [课程展示对象ID]
+ * @return {[type]}     [description]
+ */
+function turnCourse(obj) {
+	var oShow = document.getElementById(obj);
+
+	oShow.onclick = function(e) {
+		var e = e || window.event;
+		var target = e.target || e.srcElement;
+		//兼容IE
+
+		if (target.tagName != 'DIV' && target.tagName != 'UL') {//判断触发点击事件标签不为LI之外的对象获取标签中的课程名
+			nowCourse = target.tagName == 'LI' ? target.getElementsByTagName('H4')[0].innerText : target.parentElement.getElementsByTagName('H4')[0].innerText;//当点击对象为LI直接获取子集课程名，否则返回父级进行获取
+
+			for (var i = 0; i < aCourse.length; i++) {
+				if (aCourse[i].course.indexOf(nowCourse) != -1) {
+					window.localStorage.setItem('hx180310nowCourse', JSON.stringify(aCourse[i]));//遍历出当前点击课程对象存入本地
+					break;
+				}
+			}
+
+			window.location.href = 'learning.html';//跳转页课程详情页打印当前课程信息
+		}
+	}
+}
+//-------------------------End 课程点击跳转功能-------------------------
+
+//-------------------------课程详情动态显示功能-------------------------
+function showCourseMsg() {
+	if (!window.localStorage.getItem('hx180310nowCourse')) {
+		return;//当本地存储没有课程对象则退出函数
+	}
+	var nowCourse = JSON.parse(window.localStorage.getItem('hx180310nowCourse'));
+
+	var oTitle = document.getElementsByTagName('TITLE');
+	var oBread = document.getElementById('Breadcrumbs');
+	var oCtitle = document.getElementById('CourseTitle');
+	var oTeacher = document.getElementById('UserName');
+	var oNodus = document.getElementById('CourseNodus');
+	var oDate = document.getElementById('CoursePeriod');
+	var oAtten = document.getElementById('CourseAtten');
+	var oDescr = document.getElementById('CoDescription');
+	var oPic = document.getElementById('picture');
+	// 获取动态打印课程信息的对象
+
+	oTitle[0].innerHTML = nowCourse.course + '-传一慕课';
+	oBread.innerHTML = nowCourse.technology + '&nbsp;>&nbsp;' + nowCourse.classify + '&nbsp;>&nbsp;' + nowCourse.course;
+	oCtitle.innerHTML = nowCourse.course;
+	oTeacher.innerHTML = nowCourse.teacher;
+	oNodus.innerHTML = nowCourse.nodus;
+	oAtten.innerHTML = nowCourse.attention;
+	oDescr.innerHTML = nowCourse.description;
+	oPic.innerHTML = '';
+	//给对应节点添加课程信息
+
+	addChild(oPic, 'img', null, nowCourse.img, 'src');//调用节点追加功能给章节图片区添加课程图片
+
+}
+//-------------------------End 课程详情动态显示功能-------------------------

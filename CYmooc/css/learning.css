@@ -19,14 +19,6 @@
 	position: relative;
 }
 
-.reCourse-head {
-	height: 55px;
-	line-height: 55px;
-	background: #14598c;
-	color: #fff;
-
-}
-
 #Container #CourseMsg #Breadcrumbs {
 	padding-left: 30px;
 	height: 55px;
@@ -114,6 +106,10 @@
 /* End 课程详情信息 */
 
 /* 课程简介信息 */
+#CourseDesc #MsgContent .Chapter {
+	margin: 20px 0;
+}
+
 #CourseDesc .Desc-r {
 	float: right;
 	width: 286px;
