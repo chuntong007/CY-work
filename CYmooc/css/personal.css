@@ -1,0 +1,77 @@
+.nowCoNav {
+	background-color: #14598c!important;
+	color: #fff!important;
+}
+/* 全局属性 */
+
+/* -------------------------Container------------------------- */
+#Container {
+	overflow: hidden;
+	margin: 0 auto;
+	padding: 20px 0;
+	width: 1000px;
+}
+
+#Container .sideBar-left {
+	float: left;
+	width: 262px;
+}
+
+#Container .sideBar-left .UserMsg {
+	border-bottom: 2px solid #fff;
+	padding: 20px;
+	background: #eee;
+}
+
+#Container .UserMsg img {
+	float: left;
+	margin: 20px 0;
+}
+
+#Container .UserMsg div {
+	margin-left: 70px;
+}
+
+#Container .UserMsg h3 {
+	margin-bottom: 10px;
+}
+
+#Container .UserMsg p {
+	margin-top: 5px;
+	font-size: 14px;
+	color: #666;
+}
+
+#Container .sideBar-left .UserType {
+	margin-bottom: 30px;
+	padding: 20px;
+	background: #eee;
+}
+
+#Container .UserType .learnTime {
+	padding: 10px 0 10px 20px;
+    background: url(../images/20180514135251.png) no-repeat left;
+    background-size: 20px;
+}
+
+#Container .UserType .Gobalance {
+	margin-top: 20px;
+	padding: 10px 0 10px 20px;
+    background: url(../images/20180514135337.png) no-repeat left;
+    background-size: 20px;
+}
+
+#Container .UserType span {
+	color: #f00;
+}
+
+#Container .sideBar-left #CourseNav {}
+
+#Container #CourseNav li {
+	cursor: pointer;
+	border-bottom: 2px solid #fff;
+	padding: 20px 0 20px 50px;
+	background: #ddd;
+	color: #444;
+}
+/* -------------------------End Container------------------------- */

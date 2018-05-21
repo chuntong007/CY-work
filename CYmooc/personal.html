@@ -5,6 +5,7 @@
 	<title>传一慕课-个人中心</title>
 	<link rel="icon" type="image/ico" href="images/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/personal.css">
 </head>
 <body>
 	<!-- 公共头部开始 -->
@@ -45,6 +46,40 @@
 		</div>
 	</div>
 	<!-- 公共头部结束 -->
+
+	<!-- 学习中心内容主体开始 -->
+	<div id="Container">
+
+		<!-- 左侧个人信息导航栏开始 -->
+		<div class="sideBar-left">
+			<div class="UserMsg">
+				<img src="images/user.png" alt="">
+				<div>
+					<h3 id="UserName">海浪</h3>
+					<p id="UserDate">注册日期：2018-05-20</p>
+					<p id="InterGral">经验：2154</p>
+					<p id="Rank">排行：52640</p>
+				</div>
+			</div>
+			<div class="UserType">
+				<div class="learnTime">总学习时长：</div>
+				<span id="Hours">306</span>小时
+				<span id="Minute">50</span>分钟
+				<span id="Secends">156</span>秒
+				<div class="Gobalance">金币余额：</div>
+				<span id="Golden">1000</span>币
+			</div>
+			<ul id="CourseNav">
+				<li class="nowCoNav" style="background-image: url(images/mycourse.png); background-repeat:  no-repeat; background-position:  20px 20px; background-color: #ddd;">我的课程</li>
+				<li style="background: url(images/mytag.png) #ddd no-repeat 20px 20px;">我的订单</li>
+				<li style="background: url(images/mywrite.png) #ddd no-repeat 20px 20px;">我的笔记</li>
+				<li style="background: url(images/mycolock.png) #ddd no-repeat 20px 20px;">我的学习记录</li>
+			</ul>
+		</div>
+		<!-- 左侧个人信息导航栏结束 -->
+
+	</div>
+	<!-- 学习中心内容主体结束 -->
 
 	<!-- 登录注册遮罩层开始 -->
 	<div style="display: none;" id="registerMask" onclick="turnDisp('register'), turnDisp('registerMask')"></div>
