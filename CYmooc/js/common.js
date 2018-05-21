@@ -56,7 +56,8 @@ function getReg() {//声明注册功能
 	var uPswd2 = document.getElementById('Password2').value;
 	var uVerf = document.getElementById('verify').value;
 	var Verf = document.getElementById('verify-code').innerHTML;
-	var uDate = new Date();
+	var nDate = new Date();
+	var uDate = nDate.getFullYear() + '/' + (nDate.getMonth() + 1) + '/' + nDate.getDate();
 	var ary;
 	/*获取注册信息输入对象*/
 
@@ -84,7 +85,7 @@ function getReg() {//声明注册功能
 			}
 		}
 
-		ary = new User(uCount, uPhon, uPswd, vEmail, 0, 0, 0, 1, uDate);//手机号账号名都未重复情况下将初始各项参数的注册信息写入数组变量
+		ary = new User(uCount, uPhon, uPswd, vEmail, 500, 300, 300, "入门", uDate);//手机号账号名都未重复情况下将初始各项参数的注册信息写入数组变量
 		aUser.push(ary);//将账号数组写入第一维存储数组变量
 		window.localStorage.setItem('hx180310user', JSON.stringify(aUser));//将存储用户信息的数组变量以数组形式存储于本地空间。
 
@@ -261,7 +262,7 @@ var oLogin = document.getElementById('Login');
 var oRegis = document.getElementById('Regis');
 //获取登陆注册按钮对象
 
-function onLogin() {
+function onLogin() {//登入注册按钮切换显示功能
 	oLogin.innerHTML = window.localStorage.getItem('hx180310nowUser') ? '你好！' + window.localStorage.getItem('hx180310nowUser') : oLogin.innerHTML;
 	oLogin.style.backgroundImage = window.localStorage.getItem('hx180310nowUser') ? 'url(images/user.png)' : oLogin.style.backgroundImage;
 	oLogin.href = window.localStorage.getItem('hx180310nowUser') ? 'personal.html' : oLogin.href;
@@ -624,3 +625,63 @@ function userType() {
 	}
 }
 /*----------------------End 判断个人页面非法访问跳转功能----------------------*/
+
+
+//-------------------------课程购买功能-------------------------
+function turnShop() {//课程学习购买判断跳转功能
+	var oLean = document.getElementById('Learning');
+	var oCtitle = document.getElementById('CourseTitle');
+	// 获取课程跳转按钮对象和用于遍历订单的课程名称
+	
+	/*var result = new Orders('基于websocket的火拼俄罗斯（单机版）', 'Lnation', '已购', 200);
+	result.date = result.date();//调用订单类属性方法刷新获取订单操作时间
+	nowOrders.push(result);
+
+	window.localStorage.setItem('hx180310nowOrders', JSON.stringify(nowOrders));*/
+
+	oLean.onclick = function() {
+		var nowOrders = window.localStorage.getItem('hx180310nowOrders') ? JSON.parse(window.localStorage.getItem('hx180310nowOrders')) : [];//本地存储有用户订单则获取没有返回空数组
+		var nowUser = window.localStorage.getItem('hx180310nowUser') ? window.localStorage.getItem('hx180310nowUser') : nowUser;//本地存储有用户订单则获取没有返回空数组
+		
+		if (!nowUser) {
+			alert('请先登入账号再进行课程学习');
+			return;
+		}
+
+		for (var i = 0; i < nowOrders.length; i++) {
+			if (nowOrders[i].cBelong == oCtitle.innerText && nowOrders[i].uBelong == nowUser && nowOrders[i].status == '已购') {
+				window.location.href = 'chapter.html';//拥有属于当前用户课程订单且已购买跳转章节页
+				return;
+			}
+			else if (nowOrders[i].cBelong == oCtitle.innerText && nowOrders[i].uBelong == nowUser && nowOrders[i].status == '未购') {
+				if (confirm('课程还没购买是进入购物车结算？')) {
+					window.location.href = 'personal.html';//拥有属于当前用户课程但是未购弹出提示确认跳转学习中心页面
+					return;
+				}
+				else {
+					return;
+				}
+			}
+		}
+
+		if (confirm('还未购买课程是否添加进购物车？')) {
+			for (var i = 0; i < aCourse.length; i++) {
+				if (aCourse[i].course == oCtitle.innerText) {
+					var cPrice = aCourse[i].price;//遍历数组获取课程价格
+					var result = new Orders(oCtitle.innerText, nowUser, '未购', cPrice);
+					result.date = result.date();//调用订单类属性方法刷新获取订单操作时间
+					nowOrders.push(result);
+
+					window.localStorage.setItem('hx180310nowOrders', JSON.stringify(nowOrders));//当订单中不存在课程调用类存储当前课程订单信息于本地。
+					window.location.href = 'personal.html';//跳转学习中心页面
+					return;
+				}
+			}
+		}
+		else {
+			return;
+		}
+
+	}
+}
+//-------------------------课程购买功能-------------------------

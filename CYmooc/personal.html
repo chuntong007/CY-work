@@ -56,9 +56,11 @@
 				<img src="images/user.png" alt="">
 				<div>
 					<h3 id="UserName">海浪</h3>
-					<p id="UserDate">注册日期：2018-05-20</p>
-					<p id="InterGral">经验：2154</p>
-					<p id="Rank">排行：52640</p>
+					<span id="UserDate">注册日期：2018-05-20</span>
+					<br>
+					<span id="InterGral">等级：2154</span>
+					<br>
+					<span id="Rank">积分：52640</span><input type="button" value="积分兑换">
 				</div>
 			</div>
 			<div class="UserType">
@@ -174,11 +176,11 @@
 				</li>
 				<li>
 					<ul id="OrderHead" class="Msg-Head">
-						<li class="nowTab">已购买</li>
-						<li>待支付</li>
+						<li>已购买</li>
+						<li  class="nowTab">待支付</li>
 					</ul>
 					<ul id="OrderContent" class="Msg-Content">
-						<li>
+						<li style="display: none;">
 							<!-- 已购买展示区域开始 -->
 							<div id="OrderShow" class="recourse">
 								<ul>
@@ -274,7 +276,7 @@
 							</div>
 							<!-- 推荐课程模块结束 -->
 						</li>
-						<li style="display: none;">
+						<li>
 
 							<!-- 待支付展示区域开始 -->
 							<div id="OrderShow2">
@@ -412,6 +414,7 @@
 	<script src="js/Course.js" type="text/javascript"></script>
 	<script src="js/common.js" type="text/javascript"></script>
 	<script src="js/User.js" type="text/javascript"></script>
+	<script src="js/personal.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		userType();//调用非法访问跳转功能
 

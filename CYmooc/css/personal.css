@@ -1,6 +1,6 @@
 .nowCoNav {
-	background-color: #14598c!important;
 	color: #fff!important;
+	background: url(../images/mytag.png) no-repeat 20px 20px, url(../images/nowselect.png) #14587c no-repeat right!important;
 }
 /* 全局属性 */
 
@@ -37,10 +37,19 @@
 	margin-bottom: 10px;
 }
 
-#Container .UserMsg p {
+#Container .UserMsg span {
 	margin-top: 5px;
 	font-size: 14px;
 	color: #666;
+}
+
+#Container .UserMsg input {
+	border: none;
+	border-radius: 4px;
+	margin-left: 5px;
+	padding: 5px;
+	background: #14598c;
+	color: #fff;
 }
 
 #Container .sideBar-left .UserType {
@@ -64,6 +73,15 @@
 
 #Container .UserType span {
 	color: #f00;
+}
+
+#Container .UserType #addGold {
+	border: none;
+	border-radius: 4px;
+	margin-left: 5px;
+	padding: 5px;
+	background: #14598c;
+	color: #fff;
 }
 
 #Container .sideBar-left #CourseNav {}
@@ -121,11 +139,11 @@
 }
 
 #OrderShow2 .order-head span {
-	margin-left: 50px;
+	margin-left: 80px;
 }
 
 #OrderShow2 .order-head span:first-child {
-	margin-right: 200px;
+	margin-right: 95px;
 }
 
 #OrderShow2 ul li {
@@ -142,7 +160,7 @@
 }
 
 #OrderShow2 li .CourseName {
-	margin: 0 180px 0 5px;
+	/*margin: 0 180px 0 5px;*/
 }
 
 #OrderShow2 li .CoursePrice {
@@ -150,11 +168,16 @@
 }
 
 #OrderShow2 li span {
-	margin-left: 40px;
+	/* margin-right: 35px;
+	margin-left: 40px; */
+	display: inline-block;
+	width: 180px;
+	text-align: center;
 }
 
 #OrderShow2 li input {
-	width: 20px
+	width: 20px;
+	text-align: center;
 }
 /* End 待支付展示区 */
 
