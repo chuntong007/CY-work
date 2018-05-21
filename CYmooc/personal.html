@@ -78,6 +78,86 @@
 		</div>
 		<!-- 左侧个人信息导航栏结束 -->
 
+		<!-- 右侧导航切换显示区开始 -->
+		<div id="CourseDesc" class="sideBar-right">
+			<ul id="ContShow">
+				<li>
+					<ul id="MsgHead">
+						<li class="nowTab">在学</li>
+						<li>学完</li>
+						<li>想学</li>
+					</ul>
+					<ul id="MsgContent">
+						<li>
+							<!-- 课程展示区域开始 -->
+							<div id="CourseShow" class="recourse">
+								<ul></ul>
+							</div>
+							<!-- 课程展示区域结束 -->
+
+							<!-- 分页按钮开始 -->
+							<div id="contentPage">
+								<a href="javascript:void(0)" class="lastPage">上一页</a>
+								<ul id="pageBtn">
+									<li>1</li>
+									<li>2</li>
+									<li>3</li>
+									<li>4</li>
+									<li>5</li>
+								</ul>
+								<a href="javascript:void(0)" class="nextPage">下一页</a>
+							</div>
+							<!-- 分页按钮结束 -->
+
+						</li>
+						<li style="display: none;">
+							<span style="float: left;">课程——</span>
+							<div style="margin-left: 50px; margin-bottom: 20px;"><span id="CoDescription">由Adobe官方讲师：万晨曦老师亲自录制，幽默风趣，通俗易懂的讲解，让学习软件从此不再是头疼枯燥的事情。本教程高清带素材，是好评如潮，备受追捧的一套教程。</span>
+							</div>
+							<div id="picture">
+								<img src="images/img_01.jpg" alt="">
+								<img src="images/img_02.jpg" alt="">
+								<img src="images/img_03.jpg" alt="">
+							</div>
+						</li>
+						<li style="display: none;">
+							<div class="Chapter">
+								<h3>第1章 移动web开发与适配</h3>
+								<span>本章节讲解什么是移动web开发和PC端开发的区别，以及常见的移动web适配方案。</span>
+							</div>
+							<div class="Chapter">
+								<h3>第2章 移动web开发与适配</h3>
+								<span>本章节讲解什么是移动web开发和PC端开发的区别，以及常见的移动web适配方案。</span>
+							</div>
+							<div class="Chapter">
+								<h3>第3章 移动web开发与适配</h3>
+								<span>本章节讲解什么是移动web开发和PC端开发的区别，以及常见的移动web适配方案。</span>
+							</div>
+							<div class="Chapter">
+								<h3>第4章 移动web开发与适配</h3>
+								<span>本章节讲解什么是移动web开发和PC端开发的区别，以及常见的移动web适配方案。</span>
+							</div>
+							<div class="Chapter">
+								<h3>第5章 移动web开发与适配</h3>
+								<span>本章节讲解什么是移动web开发和PC端开发的区别，以及常见的移动web适配方案。</span>
+							</div>
+							<div class="Chapter">
+								<h3>第6章 移动web开发与适配</h3>
+								<span>本章节讲解什么是移动web开发和PC端开发的区别，以及常见的移动web适配方案。</span>
+							</div>
+							<img src="images/img_01.jpg" alt="">
+							<img src="images/img_02.jpg" alt="">
+							<img src="images/img_03.jpg" alt="">
+						</li>
+					</ul>
+				</li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<!-- 右侧导航切换显示区结束 -->
+
 	</div>
 	<!-- 学习中心内容主体结束 -->
 
@@ -193,7 +273,11 @@
 		getVerify();//调用初始化登录注册验证码
 		// printCourse(aCourse, 0, aCourse.length - 1);
 
-		// turnTab('MsgHead', 'MsgContent');
+		turnTab('CourseNav', 'ContShow', 'nowCoNav');
+		turnTab('MsgHead', 'MsgContent', 'nowTab');
+		//安装选项卡功能
+
+		// PageFun(aNavCourse, 10, addChild, printCourse, oCoShow.children[0]);//调用分页打印功能打印分页后的课程搜索信息
 	</script>
 	<!-- js脚本区结束 -->
 	

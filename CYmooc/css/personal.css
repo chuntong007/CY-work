@@ -12,6 +12,7 @@
 	width: 1000px;
 }
 
+/* 左侧个人信息导航栏 */
 #Container .sideBar-left {
 	float: left;
 	width: 262px;
@@ -43,7 +44,7 @@
 }
 
 #Container .sideBar-left .UserType {
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 	padding: 20px;
 	background: #eee;
 }
@@ -74,4 +75,22 @@
 	background: #ddd;
 	color: #444;
 }
+/* End 左侧个人信息导航栏 */
+
+/* 右侧导航切换显示区 */
+#Container .sideBar-right {
+	margin-left: 280px;
+	padding: 20px 0;
+}
+#ContShow #MsgHead {
+	text-align: center;
+}
+
+#CourseDesc.sideBar-right #MsgHead li {
+	border: none;
+	margin-right: 5px;
+	width: 160px;
+}
+/* End 右侧导航切换显示区 */
+
 /* -------------------------End Container------------------------- */

@@ -427,7 +427,7 @@ body {
 	margin-right: 295px;
 }
 
-#CourseDesc .Desc-l #MsgHead {
+#CourseDesc #MsgHead {
 	height: 31px;
 	color: #4e4e4e;
 	text-align: center;
@@ -443,7 +443,7 @@ body {
 	background: #ddd;
 }
 
-#CourseDesc .Desc-l #MsgContent {
+#CourseDesc #MsgContent {
 	border: 2px solid #bfbfbf;
 	border-top: 1px solid #bfbfbf;
 	padding: 22px;
