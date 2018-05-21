@@ -171,7 +171,11 @@
 	/* margin-right: 35px;
 	margin-left: 40px; */
 	display: inline-block;
+	overflow: hidden;
+	margin-bottom: -36px;
 	width: 180px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 	text-align: center;
 }
 
