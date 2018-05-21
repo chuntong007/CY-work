@@ -82,15 +82,82 @@
 	margin-left: 280px;
 	padding: 20px 0;
 }
-#ContShow #MsgHead {
-	text-align: center;
-}
 
 #CourseDesc.sideBar-right #MsgHead li {
 	border: none;
 	margin-right: 5px;
 	width: 160px;
 }
+
+#Container #CourseShow3.recourse,
+#Container #CourseShow2.recourse,
+#Container #CourseShow.recourse {
+	margin: 0;
+	width: auto;
+}
+
+#CourseShow3.recourse li,
+#CourseShow2.recourse li,
+#CourseShow li {
+	margin: 8px 0 0 8px;
+}
+
+/* 待支付展示区 */
+#CourseDesc #OrderContent {
+	padding: 0;
+}
+
+#OrderContent #OrderShow2 {
+	margin: 0;
+	padding: 0;
+}
+
+#OrderShow2 .order-head {
+	height: 50px;
+	font-size: 18px;
+	line-height: 50px;
+	background: #14587c;
+	color: #fff;
+}
+
+#OrderShow2 .order-head span {
+	margin-left: 50px;
+}
+
+#OrderShow2 .order-head span:first-child {
+	margin-right: 200px;
+}
+
+#OrderShow2 ul li {
+	height: 80px;
+	line-height: 80px;
+	background: #ddd;
+}
+
+#OrderShow2 li img {
+	margin-left: 20px;
+	width: 60px;
+	height: 60px;
+	vertical-align: middle;
+}
+
+#OrderShow2 li .CourseName {
+	margin: 0 180px 0 5px;
+}
+
+#OrderShow2 li .CoursePrice {
+	margin-right: 35px;
+}
+
+#OrderShow2 li span {
+	margin-left: 40px;
+}
+
+#OrderShow2 li input {
+	width: 20px
+}
+/* End 待支付展示区 */
+
 /* End 右侧导航切换显示区 */
 
 /* -------------------------End Container------------------------- */

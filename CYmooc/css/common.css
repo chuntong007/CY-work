@@ -204,7 +204,6 @@ body {
 	overflow: hidden;
 	margin: 20px auto 0;
 	padding: 10px 0;
-	width: 1000px;
 	text-align: center;
 }
 
@@ -427,12 +426,14 @@ body {
 	margin-right: 295px;
 }
 
+#CourseDesc .Msg-Head,
 #CourseDesc #MsgHead {
 	height: 31px;
 	color: #4e4e4e;
 	text-align: center;
 }
 
+#CourseDesc .Msg-Head li,
 #CourseDesc #MsgHead li {
 	float: left;
 	cursor: pointer;
@@ -443,6 +444,7 @@ body {
 	background: #ddd;
 }
 
+#CourseDesc .Msg-Content,
 #CourseDesc #MsgContent {
 	border: 2px solid #bfbfbf;
 	border-top: 1px solid #bfbfbf;

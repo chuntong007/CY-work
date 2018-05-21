@@ -264,6 +264,7 @@ var oRegis = document.getElementById('Regis');
 function onLogin() {
 	oLogin.innerHTML = window.localStorage.getItem('hx180310nowUser') ? '你好！' + window.localStorage.getItem('hx180310nowUser') : oLogin.innerHTML;
 	oLogin.style.backgroundImage = window.localStorage.getItem('hx180310nowUser') ? 'url(images/user.png)' : oLogin.style.backgroundImage;
+	oLogin.href = window.localStorage.getItem('hx180310nowUser') ? 'personal.html' : oLogin.href;
 	oRegis.innerHTML = window.localStorage.getItem('hx180310nowUser') ? '注销' : oRegis.innerHTML;
 	/*判断本地存储已有登陆账户修改登陆注册按钮显示*/
 
@@ -611,3 +612,15 @@ function showCourseMsg() {
 
 }
 //-------------------------End 课程详情动态显示功能-------------------------
+
+/*----------------------判断个人页面非法访问跳转功能----------------------*/
+function userType() {
+	if (window.localStorage.getItem('hx180310nowUser')) {
+		return;
+	}
+	else {
+		window.onload = alert('请先登入账号');
+		window.location.href = 'index.html';
+	}
+}
+/*----------------------End 判断个人页面非法访问跳转功能----------------------*/

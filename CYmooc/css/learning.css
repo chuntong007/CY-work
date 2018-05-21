@@ -156,6 +156,10 @@
 	display: inline-block;
 	padding: 10px;
 }
+
+#Container .recourse {
+	clear: both;
+}
 /* End 课程简介信息 */
 
 /* -------------------------End Container------------------------- */
