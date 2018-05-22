@@ -1,0 +1,508 @@
+h1 {
+	margin-bottom: 5px;
+	font-size: 29px;
+	font-weight: normal;
+}
+
+h2 {
+	margin-bottom: 5px;
+	font-size: 20px;
+	font-weight: normal;
+	color: #838383;
+}
+
+h3 {
+	margin-bottom: 5px;
+	font-size: 12px;
+	font-weight: normal;
+	color: #4f4f4f;
+}
+
+body {
+	background: #f2f2f2;
+}
+/* 全局属性 */
+
+/* -------------------------Container------------------------- */
+#Container {
+	/*overflow: hidden;*/
+}
+
+/* banner轮播图 */
+#Container #banner {
+	position: relative;
+	margin: 0 auto;
+	width: 948px;
+}
+
+#Container .banner-wrap {
+	height: 580px;
+	background: url(../images/banner_bg.png) no-repeat center;
+}
+
+#Container #banner #bannerBox {
+	overflow: hidden;
+	height: 459px;
+}
+
+#Container #banner #circle {
+	margin: 0 auto;
+	width: 135px;
+}
+
+#banner #circle li:first-child {
+	background: #fff;
+}
+
+#banner #circle li {
+	float: left;
+	cursor: pointer;
+	border: 1px solid #747474;
+	border-radius: 50%;
+	margin-right: 10px;
+	width: 15px;
+	height: 15px;
+	background: #747474;
+}
+
+#Container #banner #bannerBtn {
+	position: absolute;
+	top: 50%;
+	width: 100%;
+}
+
+#Container #bannerBtn .btn-l {
+	position: absolute;
+	left: -100px;
+	cursor: pointer;
+	padding: 10px 0;
+}
+
+#Container #bannerBtn .btn-r {
+	position: absolute;
+	right: -100px;
+	cursor: pointer;
+	padding: 10px 0;
+}
+
+#Container #bannerBtn .btn-l:hover,
+#Container #bannerBtn .btn-r:hover {
+	background: #000;
+	opacity: 0.63;
+	border-radius: 4px;
+	padding: 10px 0;
+}
+/* End banner轮播图 */
+
+/* 技术方向模块 */
+#Container .technical {
+	overflow: hidden;
+	margin: 20px auto 0;
+	padding: 10px 0;
+	width: 888px;
+	height: 280px;
+	text-align: center;
+}
+
+#Container .technical img {
+	width: 100%;
+	-webkit-box-shadow: 0px 0px 0px 0px #000;
+	box-shadow: 0px 0px 0px 0px #000;
+	-webkit-transition: width 0.2s, box-shadow 0.2s, transform 1s;
+	-o-transition: width 0.2s, box-shadow 0.2s, transform 1s;
+	transition: width 0.2s, box-shadow 0.2s, transform 1s;
+}
+
+#Container .technical img:hover {
+	width: 105%;
+	box-shadow: 0px 2px 7px 3px #A196A0;
+	transform: rotate(360deg);
+}
+
+#Container .technical .thc-left {
+	float: left;
+	margin-left: 5px;
+}
+
+#Container .technical .thc-right {
+	float: left;
+}
+
+#Container .technical .thc-center {
+	float: left;
+	margin: 0 10px;
+	width: 460px;
+}
+
+.thc-center ul li {
+	float: left;
+	margin-right: 7.5px;
+	height: 80px;
+}
+
+#Container .thc-center li:last-child {
+	margin-left: 4px;
+}
+
+.thc-center ul li.top {
+	margin-bottom: 9px
+}
+
+.thc-center ul li.last {
+	margin-right: 0;
+	margin-left: 2px;
+}
+/* End 技术方向模块 */
+
+/* 我该怎么学模块 */
+#Container .learning-wrap {
+	background: #bdc1c4;
+}
+
+#Container .learning {
+	overflow: hidden;
+	margin: 20px auto 0;
+	padding: 40px 0;
+	width: 872px;
+	text-align: center;
+}
+
+#Container .learning ul {
+	margin-top: 30px;
+}
+
+.learning ul li {
+	overflow: hidden;
+}
+
+.learning li:nth-child(2) div {
+	float: left;
+	text-align: right;
+}
+
+.learning li div {
+	float: right;
+	width: 594px;
+	text-align: left;
+}
+
+.learning div a {
+	color: #5bc4d0;
+}
+
+.learning div p {
+	margin-top: 10px;
+	font-size: 12px;
+}
+/* End 我该怎么学模块 */
+
+
+/* 手风琴特效模块 */
+#Container .teacher-msg {
+	margin: 20px auto 0;
+	padding: 40px 0;
+	width: 938px;
+	text-align: center;
+}
+
+#Container .teacher-msg .teacher-content {
+	overflow: hidden;
+	background: #000;
+}
+
+#Container .teacher-msg ul {
+	float: left;
+	height: 290px;
+	background: #000;
+}
+
+.teacher-msg ul li {
+	float: right;
+	overflow: hidden;
+	border-left: 10px solid #000;
+	padding: 25px 0;
+	width: 120px;
+	-webkit-transition: width 0.5s;
+	-o-transition: width 0.5s;
+	transition: width 0.5s;
+}
+
+.teacher-msg ul:hover li {
+	width: 50px;
+}
+
+.teacher-msg ul li:first-child {}
+
+.teacher-msg ul li:hover {
+	width: 558px;
+}
+
+.teacher-msg li .teacher-wrap {
+	width: 558px;
+	height: 240px;
+}
+
+li .teacher-wrap div {
+	float: right;
+	padding-left: 6px;
+	width: 350px;
+	height: 240px;
+	text-align: left;
+	background: #fff;
+}
+
+.teacher-msg div .msg-head {
+	font-size: 15px;
+}
+
+.teacher-msg div span {
+	font-size: 19px;
+}
+
+.teacher-msg div .msg-exper {
+	font-size: 12px;
+	margin: 15px 0;
+}
+/* End 手风琴特效模块 */
+
+
+/* 走马灯模块 */
+#Container .student-works {
+	margin: 0 auto 20px;
+	width: 950px;
+	text-align: center;
+}
+
+#Container .student-works .works-wrap {
+	position: relative;
+	overflow: hidden;
+	width: 950px;
+	height: 300px;
+}
+
+.student-works #worksWindow {
+	position: absolute;
+	width: 1900px;
+	height: 300px;
+}
+
+#Container .works-wrap ul {
+	float: left;
+	overflow: hidden;
+	width: 950px;
+	background: #bcbfc0;
+}
+
+.student-works ul li {
+	float: left;
+	margin-right: 5px;
+	padding: 20px 12px;
+	width: 160px;
+	height: 260px;
+	text-align: left;
+	-webkit-transition: width 0.2s, height 0.2s;
+	-o-transition: width 0.2s, height 0.2s;
+	transition: width 0.2s, height 0.2s;
+}
+
+.student-works ul li:hover {
+	width: 165px;
+	height: 255px;
+	-webkit-box-shadow: 6px 6px 8px 0px #423c3c;
+	box-shadow: 6px 6px 8px 0px #423c3c;
+	background: #c6c8c9;
+}
+
+.student-works li img {
+	margin-bottom: 10px;
+}
+/* End 走马灯模块 */
+
+/* 企业合作模块 */
+#Container .cooperation {
+	overflow: hidden;
+	margin: 20px auto 0;
+	padding: 40px 0;
+	width: 938px;
+	text-align: center;
+}
+
+#Container .cooperation ul {}
+
+#Container .cooperation li {
+	float: left;
+	margin-top: 20px;
+	margin-right: 25px;
+}
+
+#Container .cooperation li:last-child {
+	margin-right: 0;
+}
+
+.cooperation li img {}
+/* End 企业合作模块 */
+
+/* 学霸墙模块 */
+#Container .photo-wall {
+	overflow: hidden;
+	padding: 40px 0;
+	text-align: center;
+	background: url(../images/bg_02.png);
+}
+
+#Container .photo-wall .photo-content {
+	overflow: hidden;
+	margin: 12px auto 0;
+	width: 940px;
+}
+
+#Container .photo-content ul {
+	float: left;
+	width: 188px;
+	height: 188px;
+}
+
+#Container .photo-content li {
+	position: relative;
+	float: left;
+}
+
+.photo-content li div {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.63;
+	-webkit-transition: opacity 0.2s;
+	-o-transition: opacity 0.2s;
+	transition: opacity 0.2s;
+}
+
+.photo-content li img {
+	width: 100%;
+	height: 100%;
+	-webkit-transition: width 0.2s, height 0.2s;
+	-o-transition: width 0.2s, height 0.2s;
+	transition: width 0.2s, height 0.2s;
+}
+
+.photo-content li.small:hover img,
+.photo-content li:hover img {
+	width: 105%;
+	height: 105%;
+}
+
+.photo-content li:hover div {
+	opacity: 0;
+}
+
+#Container .photo-content li.small {
+	width: 94px;
+	height: 94px;
+}
+/* End 学霸墙模块 */
+
+/* 就业信息模块 */
+#Container .getJob {
+	overflow: hidden;
+	margin: 0 auto 20px;
+	width: 1000px;
+	text-align: center;
+}
+
+#Container .getJob h1 {
+	margin: 30px 0;
+}
+
+#Container .getJob ul {
+	overflow: hidden;
+	margin: 20px 0;
+}
+
+#Container .getJob li {
+	float: left;
+}
+
+#Container .getJob li:last-child {
+	margin: 12px;
+}
+
+.getJob li span {
+	display: inline-block;
+	margin-right: 5px;
+	width: 50px;
+	font-size: 18px;
+}
+/* End 就业信息模块 */
+
+/* 就业推荐模块 */
+#Container .recommen-wrap {
+	overflow: hidden;
+	background: url(../images/bg_03.jpg) center;
+}
+
+#Container .recommen-wrap .recommen {
+	margin: 40px auto;
+	width: 1000px;
+	text-align: center;
+}
+
+#Container .recommen h1 {}
+
+#Container .recommen h2 {
+	margin-top: 40px;
+}
+
+#Container .recommen a {
+	display: inline-block;
+	margin: 230px 0 10px;
+	padding: 13px;
+	border-radius: 30px;
+	font-size: 25px;
+	background: #005c9f;
+	color: #fff;
+}
+/* End 就业推荐模块 */
+/* -------------------------End Container------------------------- */
+
+
+/* ---------------------------FixedColumn--------------------------- */
+#FixedColumn {
+	position: fixed;
+	z-index: 1000;
+	display: none;
+	top: 20%;
+	right: 18%;
+	margin-right: -90px;
+	width: 178px;
+	height: 384px;
+}
+
+/* 固定广告位模块 */
+#FixedColumn .fix-banner {
+	background: #000;
+}
+
+#FixedColumn .fix-banner .banner-mask {
+	overflow: hidden;
+}
+
+#FixedColumn .banner-mask img {
+	float: left;
+	margin: 1px;
+}
+/* End 固定广告位模块 */
+
+/* 返回顶部按钮模块 */
+#FixedColumn .toTop {
+	position: absolute;
+	bottom: -70px;
+	left: 70px;
+	display: block;
+	width: 38px;
+	height: 36px;
+	background: url(../images/fanhui.png) center;
+}
+/* End 返回顶部按钮模块 */
+/* -------------------------End FixedColumn------------------------- */
