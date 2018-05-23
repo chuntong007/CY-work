@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>一阶项目机试题</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="container">
+		<ul id="content">
+			<li>1</li>
+			<li style="display: none;">
+				<input id="IdCard" type="text" placeholder="请输入18位身份证号码">
+				<br>
+				<input onclick="VerifyId()" type="button" value="校验身份证">
+			</li>
+			<li style="display: none;">
+				<div>
+					<h1 id="Title">个人所得税计算器2018</h1>
+					应缴所得额： <span id="Result"></span>元
+					<br>
+					<span id="value1">税前工资：</span><input type="text" id="Wage">元
+					<br>
+					<span id="value2">各项社会保险费：</span><input type="text" id="Insurance">元
+					<br>
+					<input type="button" value="计算" id="Count">
+					<input type="button" value="重置" id="Reset">
+				</div>
+			</li>
+		</ul>
+		<h1>点击题目</h1>
+		<ul id="turnBtn">
+			<li class="Now">题目一</li>
+			<li>题目二</li>
+			<li>题目三</li>
+		</ul>
+	</div>
+
+	<script type="text/javascript" src="common.js"></script>
+</body>
+</html>
