@@ -1,0 +1,202 @@
+* {
+	border: none;
+	margin: 0;
+	padding: 0;
+	transition: all 0.2s;
+}
+
+body {
+    font-family: -apple-system,"Helvetica Neue",Arial,"PingFang SC","Hiragino Sans GB",STHeiti,"Microsoft YaHei","Microsoft JhengHei","Source Han Sans SC","Noto Sans CJK SC","Source Han Sans CN","Noto Sans SC","Source Han Sans TC","Noto Sans CJK TC","WenQuanYi Micro Hei",SimSun,sans-serif;
+}
+
+h1 {
+    font-family: '微软雅黑','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+/*通用样式*/
+
+/*-----------------登录界面-----------------*/
+body .login {}
+
+.login h1 {
+	margin: 50px 0 100px;
+	font-weight: lighter;
+	text-align: center;
+}
+
+.login .log-content {
+	position: relative;
+	border-radius: 2px;
+	box-shadow: 0px 0px 10px 0px;
+	margin: 0 auto;
+	width: 430px;
+	height: 330px;
+}
+
+.login .log-content .log-head {
+	height: 130px;
+	background: url(../images/center.jpg);
+}
+
+.log-content .log-head h2 {
+	margin-left: 10px;
+	padding: 10px 0 10px 30px;
+	font-size: 20px;
+	font-weight: lighter;
+	color: #fff;
+	background: url(../images/qq.png) no-repeat center left;
+	background-size: 25px 25px; 
+}
+
+.login .log-content .log-opera {
+	margin: 0 auto;
+	width: 240px;
+}
+
+.log-content .log-opera .head-img {
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.log-opera .head-img #UserImg {
+	border-radius: 50%;
+	box-shadow: 0px 0px 10px 0px;
+	margin-top: -17%;
+	width: 70px;
+	height: 70px;
+}
+
+.log-content .log-inp {
+	border-bottom: 1px solid #b8babc;
+}
+
+.log-content .log-inp input {
+	border: none;
+	padding-left: 20px;
+	width: 220px;
+	height: 35px;
+}
+
+.log-content .log-inp #userNameL {
+    background: url(../images/name.png) no-repeat center left;
+}
+
+.log-content .log-inp #passWordL {
+    background: url(../images/pass.png) no-repeat center left;
+}
+
+.log-content .log-opera #Login {
+	border: none;
+	margin-top: 15px;
+	border-radius: 2px;
+	box-shadow: 0px 0px 10px 1px;
+	width: 100%;
+	height: 35px;
+	background: #09bffe;
+	color: #fff;
+}
+
+.log-content .log-opera .turnRegis {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	text-decoration: none;
+	color: #b8babc;
+}
+/*-----------------End 登录界面-----------------*/
+
+
+/*-----------------注册界面-----------------*/
+body .register {
+	display: none;
+}
+
+.register .side {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 480px;
+	height: 100%;
+	background-image: url(../images/01-1.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+@media screen and (max-width: 1100px) {
+	.register .side {
+		width: 0px;
+	}
+	.register div.main-wrap {
+		margin-left: 0;
+	}
+}
+
+.register .main-wrap {
+	position: relative;
+	margin-left: 480px;
+	height: 100%;
+}
+
+.main-wrap .main {
+	margin: 120px auto 0;
+	width: 480px;
+}
+
+.main .welcome {
+	margin-bottom: 20px;
+	font-size: 44px;
+}
+
+.main .header {
+	margin-bottom: 64px;
+	font-size: 28px;
+	line-height: 1.2em;
+	color: #333;
+}
+
+.main .header a {
+	float: right;
+	font-size: 24px;
+	text-decoration: none;
+	color: #359eff;
+}
+
+.main .header a:hover {
+	color: #2b72ff;
+}
+
+.main .input-area {
+	margin-bottom: 35px;
+}
+
+.input-area input {
+	border: 1px solid #aaa;
+	border-radius: 4px;
+	width: 428px;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 25px;
+}
+
+.input-area #PhType {
+	width: 102px;
+}
+
+.input-area #phoneNum {
+	float: right;
+	width: 255px;
+}
+
+input#Register {
+	border: none;
+	border-radius: 4px;
+	width: 100%;
+	height: 60px;
+	background: #3487ff;
+	color: #fff;
+}
+
+input#Register:hover {
+	background: #3580eb;
+}
+/*-----------------End 注册界面-----------------*/
