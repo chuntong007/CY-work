@@ -8,7 +8,7 @@ function User(username, password, phonenum) {
 	this.username = username;
 	this.password = password;
 	this.phonenum = phonenum;
-	this.QQid = function() {
+	this.QQid = function() {//动态生成九位QQ号码
 		var result = '';
 
 		while(true) {
