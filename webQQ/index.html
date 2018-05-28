@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>QQ</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+
+	<!-- 登录界面开始 -->
+	<div class="login">
+		<h1>Smart QQ</h1>
+		<div class="log-content">
+			<div class="log-head"><h2>QQ</h2></div>
+			<div class="log-opera">
+				<div class="head-img">
+					<img src="images/head.jpg" alt="" id="UserImg">
+				</div>
+				<div class="log-inp"><input placeholder="QQ号码/手机/邮箱" type="text" id="userNameL"></div>
+				<div class="log-inp"><input placeholder="密码" type="passsword" id="passWordL"></div>
+				<button id="Login">登录</button>
+				<br>
+				<a href="javascript:void(0)" onclick="$('.login').css('display', 'none');$('.register').css('display', 'block')" class="turnRegis">注册帐号</a>
+			</div>
+		</div>
+	</div>
+	<!-- 登录界面结束 -->
+
+	<!-- 注册界面开始 -->
+	<div class="register">
+		<div class="side"></div>
+		<div class="main-wrap">
+			<div class="main">
+				<div class="welcome">欢迎注册QQ</div>
+				<div class="header">每一天，乐在沟通。<a onclick="$('.login').css('display', 'block');$('.register').css('display', 'none')" href="javascript:void(0)">登录跳转</a></div>
+				<form action="">
+					<div class="input-area">
+						<input placeholder="昵称" type="text" id="userNameR">
+					</div>
+					<div class="input-area">
+						<input placeholder="密码" type="password" name="" id="passWordR">
+					</div>
+					<div class="input-area">
+						<input placeholder="手机号码" type="text" id="phoneNum"><input type="text" readonly="true" value="+86" id="PhType">
+					</div>
+					<input type="button" value="立即注册" id="Register">
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- 注册界面结束 -->
+
+	<!-- 脚本区开始 -->
+	<script type="text/javascript" src="js/jquery-1.11.min.js"></script>
+	<script type="text/javascript" src="js/User.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<!-- 脚本区结束 -->
+</body>
+</html>
