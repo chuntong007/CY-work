@@ -59,4 +59,65 @@ $('#Login').click(function() {
 		});
 	}
 });
+
+// 注册按钮跳转显示
+$('.turnRegis').click(function() {
+	$('.login').fadeToggle(300);
+	$('.register').fadeToggle(300);
+	$('input:not("#PhType, #Register")').val('');
+})
+
+// 正则校验注册信息
+$('#userNameR').bind('blur input propertychange', function() {//昵称校验
+	for (var i = 0; i < aUser.length; i++) {
+		if ($(this).val() == aUser[i].username) {
+			$(this).next().removeClass('ok').addClass('error').html('昵称重复');
+			break;
+		}
+		else if ($(this).val() != aUser[i].username && $(this).val()){
+			$(this).next().removeClass('error').addClass('ok').html('昵称可用');
+			break;
+		}
+		else {
+			$(this).next().removeClass('ok').addClass('error').html('昵称不可以为空');
+			break;
+		}
+	}
+});
+
+$('#passWordR').bind('blur input propertychange', function() {//密码校验
+	for (var i = 0; i < aUser.length; i++) {
+		if (!$(this).val().match(passRex) && $(this).val()) {
+			$(this).next().removeClass('ok').addClass('error');
+			break;
+		}
+		else if ($(this).val().match(passRex)){
+			$(this).next().removeClass('error').addClass('ok');
+			break;
+		}
+		else {
+			$(this).next().removeClass('ok').addClass('error').html('昵称不可以为空');
+			break;
+		}
+	}
+})
+
+$('#phonenum').bind('blur input propertychange', function() {//手机号校验
+	for (var i = 0; i < aUser.length; i++) {
+		if (!$(this).val().match(passRex) && $(this).val()) {
+			$(this).next().removeClass('ok').addClass('error');
+			break;
+		}
+		else if ($(this).val().match(passRex)){
+			$(this).next().removeClass('error').addClass('ok');
+			break;
+		}
+		else {
+			$(this).next().removeClass('ok').addClass('error').html('昵称不可以为空');
+			break;
+		}
+	}
+})
+// End 正则校验注册信息
+
 // --------------------End 登录注册--------------------

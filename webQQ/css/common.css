@@ -16,10 +16,14 @@ h1 {
 /*通用样式*/
 
 /*-----------------登录界面-----------------*/
-body .login {}
+body .login {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+}
 
 .login h1 {
-	margin: 50px 0 100px;
+	margin: 100px 0 100px;
 	font-weight: lighter;
 	text-align: center;
 }
@@ -108,6 +112,9 @@ body .login {}
 
 /*-----------------注册界面-----------------*/
 body .register {
+	position: fixed;
+	width: 100%;
+	height: 100%;
 	display: none;
 }
 
@@ -178,6 +185,11 @@ body .register {
 	padding: 0 25px;
 }
 
+.input-area div {
+	overflow: hidden;
+	height: 0;
+}
+
 .input-area #PhType {
 	width: 102px;
 }
@@ -199,4 +211,33 @@ input#Register {
 input#Register:hover {
 	background: #3580eb;
 }
+
+input#userNameR {}
+
+input#passWordR {}
+
+input#phoneNum {}
+
+.error {
+	margin-top: 10px;
+	padding-left: 24px;
+	height: 18px!important;
+	font-size: 14px;
+	line-height: 18px;
+    background-image: url(../images/error.png);
+    background-repeat: no-repeat;
+	color: #ff5b5b;
+}
+
+.ok {
+	margin-top: 10px;
+	padding-left: 24px;
+	height: 18px!important;
+	font-size: 14px;
+	line-height: 18px;
+    background-image: url(../images/tick.png);
+    background-repeat: no-repeat;
+	color: #46e76c;}
+
+.main .phonenum {}
 /*-----------------End 注册界面-----------------*/
