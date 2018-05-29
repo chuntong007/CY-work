@@ -16,12 +16,13 @@ $('#Register').click(function() {
 	var ary;
 	// 获取注册信息输入对象
 	if (uCount.val() && uPaswd.val().match(passRex) && uPhon.val().match(phoneRex)) {
-		ary = new User(uCount, uPaswd, uPhon);//将注册信息导入对象
+		ary = new User(uCount.val(), uPaswd.val(), uPhon.val());//将注册信息导入对象
 		ary.QQid = ary.QQid();//动态生成QQ号码
 		
 		aUser.push(ary);
 
 		window.localStorage.setItem('hx180310QQuser', JSON.stringify(aUser));//将注册信息存入本地
+		window.localStorage.setItem('hx180310QQnoWuser', ary.QQid);//将注册信息存入本地
 
 		alert('注册成功' + ',您的QQ号为：' + ary.QQid + ' 请及时进行记录！');
 
@@ -30,8 +31,11 @@ $('#Register').click(function() {
 		uPhon.val('');
 		//清空输入框
 
-		$('.register').css('display', 'none');
-		$('.login').css('display', 'block');
+		$('.login').fadeToggle(300);
+		$('.register').fadeToggle(300);
+		$('input:not("#PhType, #Register")').val('');
+		$('#userNameL').val(window.localStorage.getItem('hx180310QQnoWuser'));
+
 		//跳转显示登录界面
 	}
 
@@ -46,7 +50,7 @@ $('#Login').click(function() {
 	if (uCount.val() && uPswd.val()) {
 		$(aUser).each(function() {
 			if ((uCount.val() == this.QQid || uCount.val() == this.phonenum) && this.password == uPswd.val()) {
-				window.localStorage.setItem('hx180310QQnowuser', this.QQid);//向本地存储添加当前登录账户QQ号
+				window.localStorage.setItem('hx180310QQnoWuser', this.QQid);//向本地存储添加当前登录账户QQ号
 				
 				alert('登录成功');
 
@@ -65,55 +69,55 @@ $('.turnRegis').click(function() {
 	$('.login').fadeToggle(300);
 	$('.register').fadeToggle(300);
 	$('input:not("#PhType, #Register")').val('');
-})
+});
 
 // 正则校验注册信息
 $('#userNameR').bind('blur input propertychange', function() {//昵称校验
+	aUser = window.localStorage.getItem('hx180310QQuser') ? aUser : JSON.parse(window.localStorage.getItem('hx180310QQuser'));
+
 	for (var i = 0; i < aUser.length; i++) {
 		if ($(this).val() == aUser[i].username) {
 			$(this).next().removeClass('ok').addClass('error').html('昵称重复');
-			break;
+			return
 		}
-		else if ($(this).val() != aUser[i].username && $(this).val()){
-			$(this).next().removeClass('error').addClass('ok').html('昵称可用');
-			break;
-		}
-		else {
-			$(this).next().removeClass('ok').addClass('error').html('昵称不可以为空');
-			break;
-		}
+	}
+
+	if ($(this).val()){
+		$(this).next().removeClass('error').addClass('ok').html('昵称可用');
+	}
+	else {
+		$(this).next().removeClass('ok').addClass('error').html('昵称不可以为空');
 	}
 });
 
 $('#passWordR').bind('blur input propertychange', function() {//密码校验
-	for (var i = 0; i < aUser.length; i++) {
-		if (!$(this).val().match(passRex) && $(this).val()) {
-			$(this).next().removeClass('ok').addClass('error');
-			break;
-		}
-		else if ($(this).val().match(passRex)){
-			$(this).next().removeClass('error').addClass('ok');
-			break;
-		}
-		else {
-			$(this).next().removeClass('ok').addClass('error').html('昵称不可以为空');
-			break;
-		}
+	aUser = window.localStorage.getItem('hx180310QQuser') ? aUser : JSON.parse(window.localStorage.getItem('hx180310QQuser'));
+
+	if (!$(this).val().match(passRex) && $(this).val()) {
+		$(this).next().removeClass('ok').addClass('error');
+	}
+	else if ($(this).val().match(passRex)){
+		$(this).next().removeClass('error').addClass('ok');
+	}
+	else {
+		$(this).next().removeClass('ok').addClass('error').html('昵称不可以为空');
 	}
 })
 
-$('#phonenum').bind('blur input propertychange', function() {//手机号校验
+$('#phoneNum').bind('blur input propertychange', function() {//手机号校验
+	aUser = window.localStorage.getItem('hx180310QQuser') ? aUser : JSON.parse(window.localStorage.getItem('hx180310QQuser'));
+
 	for (var i = 0; i < aUser.length; i++) {
 		if (!$(this).val().match(passRex) && $(this).val()) {
-			$(this).next().removeClass('ok').addClass('error');
+			$(this).next('.phonenum').removeClass('ok').addClass('error');
 			break;
 		}
 		else if ($(this).val().match(passRex)){
-			$(this).next().removeClass('error').addClass('ok');
+			$(this).next('.phonenum').removeClass('error').addClass('ok');
 			break;
 		}
 		else {
-			$(this).next().removeClass('ok').addClass('error').html('昵称不可以为空');
+			$(this).next('.phonenum').removeClass('ok').addClass('error').html('昵称不可以为空');
 			break;
 		}
 	}
