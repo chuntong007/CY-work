@@ -73,7 +73,7 @@ $('.turnRegis').click(function() {
 
 // 正则校验注册信息
 $('#userNameR').bind('blur input propertychange', function() {//昵称校验
-	aUser = window.localStorage.getItem('hx180310QQuser') ? aUser : JSON.parse(window.localStorage.getItem('hx180310QQuser'));
+	aUser = window.localStorage.getItem('hx180310QQuser') ? JSON.parse(window.localStorage.getItem('hx180310QQuser')) : aUser;
 
 	for (var i = 0; i < aUser.length; i++) {
 		if ($(this).val() == aUser[i].username) {
@@ -91,7 +91,7 @@ $('#userNameR').bind('blur input propertychange', function() {//昵称校验
 });
 
 $('#passWordR').bind('blur input propertychange', function() {//密码校验
-	aUser = window.localStorage.getItem('hx180310QQuser') ? aUser : JSON.parse(window.localStorage.getItem('hx180310QQuser'));
+	aUser = window.localStorage.getItem('hx180310QQuser') ? JSON.parse(window.localStorage.getItem('hx180310QQuser')) : aUser;
 
 	if (!$(this).val().match(passRex) && $(this).val()) {
 		$(this).next().removeClass('ok').addClass('error');
@@ -105,7 +105,7 @@ $('#passWordR').bind('blur input propertychange', function() {//密码校验
 })
 
 $('#phoneNum').bind('blur input propertychange', function() {//手机号校验
-	aUser = window.localStorage.getItem('hx180310QQuser') ? aUser : JSON.parse(window.localStorage.getItem('hx180310QQuser'));
+	aUser = window.localStorage.getItem('hx180310QQuser') ? JSON.parse(window.localStorage.getItem('hx180310QQuser')) : aUser;
 
 	for (var i = 0; i < aUser.length; i++) {
 		if (!$(this).val().match(passRex) && $(this).val()) {
