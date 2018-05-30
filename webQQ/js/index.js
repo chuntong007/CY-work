@@ -107,21 +107,25 @@ $('#passWordR').bind('blur input propertychange', function() {//密码校验
 $('#phoneNum').bind('blur input propertychange', function() {//手机号校验
 	aUser = window.localStorage.getItem('hx180310QQuser') ? JSON.parse(window.localStorage.getItem('hx180310QQuser')) : aUser;
 
-	for (var i = 0; i < aUser.length; i++) {
-		if (!$(this).val().match(passRex) && $(this).val()) {
-			$(this).next('.phonenum').removeClass('ok').addClass('error');
-			break;
-		}
-		else if ($(this).val().match(passRex)){
-			$(this).next('.phonenum').removeClass('error').addClass('ok');
-			break;
+	$.each(aUser, function(index, item) {
+		if ($('#phoneNum').val()) {
+			if ($('#phoneNum').val() == item.phonenum) {
+				$('.phonenum').removeClass('ok').addClass('error').text('手机号重复');
+				return false;
+			}
+			if (!$('#phoneNum').val().match(phoneRex) && $('#phoneNum').val()) {
+				$('.phonenum').removeClass('ok').addClass('error').text('手机号有误');
+				return false;
+			}
+			if ($('#phoneNum').val().match(phoneRex)) {
+				$('.phonenum').removeClass('error').addClass('ok').text('手机号可用');
+			}
 		}
 		else {
-			$(this).next('.phonenum').removeClass('ok').addClass('error').html('昵称不可以为空');
-			break;
-		}
-	}
-})
+				$('.phonenum').removeClass('ok').addClass('error').text('手机号不能为空');
+			}
+	})
+});
 // End 正则校验注册信息
 
 // --------------------End 登录注册--------------------
