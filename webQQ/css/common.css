@@ -22,8 +22,16 @@ body .login {
 	height: 100%;
 }
 
+.login .login-wrap {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin-top: -211px;
+    margin-left: -215px;
+}
+
 .login h1 {
-	margin: 100px 0 100px;
+	margin-bottom: 50px;
 	font-weight: lighter;
 	text-align: center;
 }
@@ -241,3 +249,15 @@ input#phoneNum {}
 
 .main .phonenum {}
 /*-----------------End 注册界面-----------------*/
+
+/* 进度条 */
+div.progress {
+	display: none;
+	margin-top: 20px;
+}
+
+.sr-only {
+	position: static!important;
+	white-space: nowrap;
+}
+/* End 进度条 */

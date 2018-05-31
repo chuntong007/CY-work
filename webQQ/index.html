@@ -4,25 +4,37 @@
 	<meta charset="UTF-8">
 	<title>QQ</title>
 	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
 
 	<!-- 登录界面开始 -->
 	<div class="login">
-		<h1>Smart QQ</h1>
-		<div class="log-content">
-			<div class="log-head"><h2>QQ</h2></div>
-			<div class="log-opera">
-				<div class="head-img">
-					<img src="images/head.jpg" alt="" id="UserImg">
+		<div class="login-wrap">
+			<h1>Smart QQ</h1>
+			<div class="log-content">
+				<div class="log-head"><h2>QQ</h2></div>
+				<div class="log-opera">
+					<div class="head-img">
+						<img src="images/head.jpg" alt="" id="UserImg">
+					</div>
+					<div class="log-inp"><input placeholder="QQ号码/手机" type="text" id="userNameL"></div>
+					<div class="log-inp"><input placeholder="密码" type="password" id="passWordL"></div>
+					<button id="Login">登录</button>
+					<br>
+					<a href="javascript:void(0)" onclick="" class="turnRegis">注册帐号</a>
 				</div>
-				<div class="log-inp"><input placeholder="QQ号码/手机" type="text" id="userNameL"></div>
-				<div class="log-inp"><input placeholder="密码" type="password" id="passWordL"></div>
-				<button id="Login">登录</button>
-				<br>
-				<a href="javascript:void(0)" onclick="" class="turnRegis">注册帐号</a>
 			</div>
+
+			<!-- 进度条开始 -->
+			<div class="progress">
+			  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" >
+			    <span class="sr-only">45% Complete</span>
+			  </div>
+			</div>
+			<!-- 进度条结束 -->
+
 		</div>
 	</div>
 	<!-- 登录界面结束 -->
