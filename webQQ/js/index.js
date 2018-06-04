@@ -32,7 +32,7 @@ $('#Register').click(function() {
 			aUser.push(ary);
 
 			window.localStorage.setItem('hx180310QQuser', JSON.stringify(aUser));//将注册信息存入本地
-			window.localStorage.setItem('hx180310QQnoWuser', ary.QQid);//将注册信息存入本地
+			window.localStorage.setItem('hx180310QQnowUser', ary.QQid);//将注册信息存入本地
 
 			alert('注册成功' + ',您的QQ号为：' + ary.QQid + ' 请及时进行记录！');
 
@@ -44,7 +44,7 @@ $('#Register').click(function() {
 			$('.login').fadeToggle(300);
 			$('.register').fadeToggle(300);
 			$('input:not("#PhType, #Register")').val('');
-			$('#userNameL').val(window.localStorage.getItem('hx180310QQnoWuser'));
+			$('#userNameL').val(window.localStorage.getItem('hx180310QQnowUser'));
 
 			//跳转显示登录界面
 		}
@@ -77,7 +77,7 @@ $('#Login').click(function() {
 				var result = true;
 				$(aUser).each(function() {
 					if ((uCount.val() == this.QQid || uCount.val() == this.phonenum) && this.password == uPswd.val()) {
-						window.localStorage.setItem('hx180310QQnoWuser', this.QQid);//向本地存储添加当前登录账户QQ号
+						window.localStorage.setItem('hx180310QQnowUser', JSON.stringify(this));//向本地存储添加当前登录账户QQ号
 						
 						alert('登录成功');
 
@@ -85,6 +85,7 @@ $('#Login').click(function() {
 						uPswd.val('');
 						//清空输入框
 
+						window.location.href = 'login.html';
 						return result = false;
 					}
 				});
