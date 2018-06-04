@@ -15,41 +15,40 @@ $('#Register').click(function() {
 	var uPhon = $('#phoneNum');
 	var ary;
 	// 获取注册信息输入对象
-	if (uCount.val() && uPaswd.val().match(passRex) && uPhon.val().match(phoneRex)) {
-		ary = new User(uCount.val(), uPaswd.val(), uPhon.val());//将注册信息导入对象
-		ary.QQid = ary.QQid();//动态生成QQ号码
-		
-		aUser.push(ary);
+	$.each(aUser, function(index, item) {
+		if (uCount.val() == item.username) {
+			return false;
+		}
+		if (uPhon.val() == item.phonenum) {
+			return false;
+		}
+		if (uCount.val() && uPaswd.val().match(passRex) && uPhon.val().match(phoneRex)) {
+			ary = new User(uCount.val(), uPaswd.val(), uPhon.val());//将注册信息导入对象
+			ary.QQid = ary.QQid();//动态生成QQ号码
+			if (ary.QQid == item.QQid) {
+				ary.QQid = ary.QQid();
+			}
+			
+			aUser.push(ary);
 
-<<<<<<< HEAD
-		window.localStorage.setItem('hx180310QQuser', JSON.stringify(aUser));//将注册信息存入本地
-		window.localStorage.setItem('hx180310QQnoWuser', ary.QQid);//将注册信息存入本地
-=======
 			window.localStorage.setItem('hx180310QQuser', JSON.stringify(aUser));//将注册信息存入本地
-			window.localStorage.setItem('hx180310QQnoWuser', ary.QQid);//将注册信息存入本地
->>>>>>> parent of 2d5abb7... 2018-06-05
+			window.localStorage.setItem('hx180310QQnowUser', ary.QQid);//将注册信息存入本地
 
-		alert('注册成功' + ',您的QQ号为：' + ary.QQid + ' 请及时进行记录！');
+			alert('注册成功' + ',您的QQ号为：' + ary.QQid + ' 请及时进行记录！');
 
-		uCount.val('');
-		uPaswd.val('');
-		uPhon.val('');
-		//清空输入框
+			uCount.val('');
+			uPaswd.val('');
+			uPhon.val('');
+			//清空输入框
 
-<<<<<<< HEAD
-		$('.login').fadeToggle(300);
-		$('.register').fadeToggle(300);
-		$('input:not("#PhType, #Register")').val('');
-		$('#userNameL').val(window.localStorage.getItem('hx180310QQnoWuser'));
-=======
 			$('.login').fadeToggle(300);
 			$('.register').fadeToggle(300);
 			$('input:not("#PhType, #Register")').val('');
-			$('#userNameL').val(window.localStorage.getItem('hx180310QQnoWuser'));
->>>>>>> parent of 2d5abb7... 2018-06-05
+			$('#userNameL').val(window.localStorage.getItem('hx180310QQnowUser'));
 
-		//跳转显示登录界面
-	}
+			//跳转显示登录界面
+		}
+	});
 
 });
 
@@ -59,14 +58,6 @@ $('#Login').click(function() {
 	var uPswd = $('#passWordL');
 	// 获取登录信息对象
 
-<<<<<<< HEAD
-	if (uCount.val() && uPswd.val()) {
-		$(aUser).each(function() {
-			if ((uCount.val() == this.QQid || uCount.val() == this.phonenum) && this.password == uPswd.val()) {
-				window.localStorage.setItem('hx180310QQnoWuser', this.QQid);//向本地存储添加当前登录账户QQ号
-				
-				alert('登录成功');
-=======
 	var pGindex = 0;
 
 	function proBar() {//进度条加载
@@ -86,7 +77,7 @@ $('#Login').click(function() {
 				var result = true;
 				$(aUser).each(function() {
 					if ((uCount.val() == this.QQid || uCount.val() == this.phonenum) && this.password == uPswd.val()) {
-						window.localStorage.setItem('hx180310QQnoWuser', this.QQid);//向本地存储添加当前登录账户QQ号
+						window.localStorage.setItem('hx180310QQnowUser', JSON.stringify(this));//向本地存储添加当前登录账户QQ号
 						
 						alert('登录成功');
 
@@ -94,6 +85,7 @@ $('#Login').click(function() {
 						uPswd.val('');
 						//清空输入框
 
+						window.location.href = 'login.html';
 						return result = false;
 					}
 				});
@@ -103,16 +95,16 @@ $('#Login').click(function() {
 				}
 			}
 		}
->>>>>>> parent of 2d5abb7... 2018-06-05
 
-				uCount.val('');
-				uPswd.val('');
-				//清空输入框
-
-				return;
-			}
-		});
 	}
+
+	if (uCount.val() && uPswd.val()) {
+		proBar();
+	}
+	else {
+		alert('请输入账号密码');
+	}
+	
 });
 
 // 注册按钮跳转显示
@@ -120,6 +112,7 @@ $('.turnRegis').click(function() {
 	$('.login').fadeToggle(300);
 	$('.register').fadeToggle(300);
 	$('input:not("#PhType, #Register")').val('');
+	$('.userName, .password, .phonenum').removeClass('error').removeClass('ok');
 });
 
 // 正则校验注册信息
@@ -145,13 +138,13 @@ $('#passWordR').bind('blur input propertychange', function() {//密码校验
 	aUser = window.localStorage.getItem('hx180310QQuser') ? JSON.parse(window.localStorage.getItem('hx180310QQuser')) : aUser;
 
 	if (!$(this).val().match(passRex) && $(this).val()) {
-		$(this).next().removeClass('ok').addClass('error');
+		$(this).next().removeClass('ok').addClass('error').text('长度为8-16个字符');
 	}
 	else if ($(this).val().match(passRex)){
-		$(this).next().removeClass('error').addClass('ok');
+		$(this).next().removeClass('error').addClass('ok').text('长度为8-16个字符');
 	}
 	else {
-		$(this).next().removeClass('ok').addClass('error').html('昵称不可以为空');
+		$(this).next().removeClass('ok').addClass('error').html('密码不可以为空');
 	}
 })
 

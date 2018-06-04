@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 //////////////////////////////// 进度条功能 ////////////////////////////////
 var pGindex = 0;
 
@@ -20,4 +18,12 @@ function proBar() {
 }
 
 //////////////////////////////// End 进度条功能 ////////////////////////////////
->>>>>>> parent of 2d5abb7... 2018-06-05
+
+// 非法访问阻止跳转
+function unAccess() {
+	if (!localStorage.hx180310QQnowUser) {
+		window.onload = alert('账号未登录');
+		window.location.href = 'index.html';
+	}
+}
+// End非法访问阻止跳转
