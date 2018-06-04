@@ -57,6 +57,8 @@ var aFriend = [
 var oRemG = {};
 var oRemC = {};
 // 信息删除操作存储
+var Top = 60;
+var Left = 60;
 
 // 联系人列表打印
 function showContacts() {
@@ -83,19 +85,35 @@ function showContacts() {
 				var oCont_name = $('<span class="Friend-name"></span>').text(item2.name);
 
 				// 联系人右键选项
-				oCont_list.on('contextmenu', function(e) {
-					var e = e || window.Event;
-					var target = e.target || e.srcElement;
+				oCont_list.on({
+					'contextmenu': function(e) {
+						var e = e || window.Event;
+						var target = e.target || e.srcElement;
 
-					e.preventDefault();
+						e.preventDefault();
 
-					$('.main-contacts').css({
-						'top': e.pageY,
-						'left': e.pageX,
-						'display': 'block'
-					});
+						$('.main-contacts').css({
+							'top': e.pageY,
+							'left': e.pageX,
+							'display': 'block'
+						});
 
-					oRemC = oCont_list;
+						oRemC = oCont_list;
+					},
+					'dblclick': function(e) {
+						var aH1 = $('.Msg-head h1');
+
+						for (var i = 0; i < aH1.length; i++) {
+							if (aH1[i].innerText == item2.name) {
+								return;
+							}
+						}
+
+						Top += 20;
+						Left += 20;
+
+						var oMchat = new MsgChat(item2.name, Top, Left);
+					}
 				});
 
 				oCont_list.append(oCont_img);
@@ -250,4 +268,44 @@ $('.mainB').on('click', function(e) {
 });
 
 // 聊天框封装
-function MsgChat() {}
+
+/**
+ * [MsgChat 聊天框]
+ * @param {[string]} ConName [对话人昵称]
+ * @param {[number]} top     [顶部定位距离]
+ * @param {[number]} left    [左侧定位距离]
+ */
+function MsgChat(ConName, top, left) {
+	var oChat = $('<div class="Msg-chat"></div>');
+	var oHead = $('<header class="Msg-head"></header>');
+	var oBody = $('<div class="Msg-body"></div>');
+	var oFoot = $('<footer class="Msg-footer"><div class="face"><span></span></div><div contenteditable="true" class="inpArea"></div><button>发送</button></footer>');
+
+	var oBtl = $('<div class="btn-l"><span></span></div>');
+	var oH1 = $('<h1></h1>').text(ConName);
+	var oBtn = $('<button class="btn-r"><span>关闭</span></button>');
+
+	oHead.append(oBtl);
+	oHead.append(oH1);
+	oHead.append(oBtn);
+
+	oChat.append(oHead);
+	oChat.append(oBody);
+	oChat.append(oFoot);
+
+	oChat.css({
+		'top': top + 'px',
+		'left': left + 'px'
+	});
+
+	$('.Msg-container').append(oChat);
+}
+
+$('.Msg-chat').on('mousedown', function(e) {
+	$(this).on('mousemove', function(e) {
+		console.log($('.Msg-chat')[0].clientTop, $('.Msg-chat')[0].clientLeft);
+	})
+	$(this).on('mouseup', function(e) {
+		$(this).off('mousemove')
+	})
+})
