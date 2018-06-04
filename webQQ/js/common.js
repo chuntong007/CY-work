@@ -18,12 +18,3 @@ function proBar() {
 }
 
 //////////////////////////////// End 进度条功能 ////////////////////////////////
-
-// 非法访问阻止跳转
-function unAccess() {
-	if (!localStorage.hx180310QQnowUser) {
-		window.onload = alert('账号未登录');
-		window.location.href = 'index.html';
-	}
-}
-// End非法访问阻止跳转
