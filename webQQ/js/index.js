@@ -21,8 +21,13 @@ $('#Register').click(function() {
 		
 		aUser.push(ary);
 
+<<<<<<< HEAD
 		window.localStorage.setItem('hx180310QQuser', JSON.stringify(aUser));//将注册信息存入本地
 		window.localStorage.setItem('hx180310QQnoWuser', ary.QQid);//将注册信息存入本地
+=======
+			window.localStorage.setItem('hx180310QQuser', JSON.stringify(aUser));//将注册信息存入本地
+			window.localStorage.setItem('hx180310QQnoWuser', ary.QQid);//将注册信息存入本地
+>>>>>>> parent of 2d5abb7... 2018-06-05
 
 		alert('注册成功' + ',您的QQ号为：' + ary.QQid + ' 请及时进行记录！');
 
@@ -31,10 +36,17 @@ $('#Register').click(function() {
 		uPhon.val('');
 		//清空输入框
 
+<<<<<<< HEAD
 		$('.login').fadeToggle(300);
 		$('.register').fadeToggle(300);
 		$('input:not("#PhType, #Register")').val('');
 		$('#userNameL').val(window.localStorage.getItem('hx180310QQnoWuser'));
+=======
+			$('.login').fadeToggle(300);
+			$('.register').fadeToggle(300);
+			$('input:not("#PhType, #Register")').val('');
+			$('#userNameL').val(window.localStorage.getItem('hx180310QQnoWuser'));
+>>>>>>> parent of 2d5abb7... 2018-06-05
 
 		//跳转显示登录界面
 	}
@@ -47,12 +59,51 @@ $('#Login').click(function() {
 	var uPswd = $('#passWordL');
 	// 获取登录信息对象
 
+<<<<<<< HEAD
 	if (uCount.val() && uPswd.val()) {
 		$(aUser).each(function() {
 			if ((uCount.val() == this.QQid || uCount.val() == this.phonenum) && this.password == uPswd.val()) {
 				window.localStorage.setItem('hx180310QQnoWuser', this.QQid);//向本地存储添加当前登录账户QQ号
 				
 				alert('登录成功');
+=======
+	var pGindex = 0;
+
+	function proBar() {//进度条加载
+		$('div.progress').css('display', 'block');
+		$('.progress-bar').css({
+			'width': pGindex + '%'
+		});//进度条动态加载
+		$('.sr-only').text(pGindex + '% Complete');//动态显示加载进度
+
+		pGindex++;
+
+		var pgBar = setTimeout(proBar, 50);
+
+		if (pGindex > 100) {
+			clearTimeout(pgBar);
+			if (uCount.val() && uPswd.val()) {
+				var result = true;
+				$(aUser).each(function() {
+					if ((uCount.val() == this.QQid || uCount.val() == this.phonenum) && this.password == uPswd.val()) {
+						window.localStorage.setItem('hx180310QQnoWuser', this.QQid);//向本地存储添加当前登录账户QQ号
+						
+						alert('登录成功');
+
+						uCount.val('');
+						uPswd.val('');
+						//清空输入框
+
+						return result = false;
+					}
+				});
+
+				if (result) {
+					alert('账号或密码出错');
+				}
+			}
+		}
+>>>>>>> parent of 2d5abb7... 2018-06-05
 
 				uCount.val('');
 				uPswd.val('');

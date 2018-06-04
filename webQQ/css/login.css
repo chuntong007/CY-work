@@ -1,0 +1,89 @@
+body {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: url(../images/22.jpg);
+	-webkit-background-size: 100%;
+	background-size: 100%;
+}
+/*全局样式*/
+
+#bgImg {
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+/* wrap-content */
+.wrap-content {
+	margin: 0 auto;
+	width: 1000px;
+	height: 100%;
+}
+
+.wrap-content .main-side {
+	float: left;
+	width: 280px;
+	height: 100%;
+}
+
+.wrap-content .main-side {}
+
+#userImg {
+	width: 40px;
+	height: 40px;
+}
+
+#userName {
+	margin-left: 20px;
+	font-size: 16px;
+	text-shadow: 0 0 3px snow, 0 0 3px snow, 0 0 3px snow, 0 0 3px snow;
+}
+
+.user-head .icons-list {
+	margin-top: 8px;
+}
+
+.user-head {
+	margin: 10px 0;
+}
+
+.user-head .icons-list a {
+	float: left;
+	margin-right: 8px;
+	width: 15px;
+	height: 15px;
+	background-image: url(../images/icons_list.png);
+	background-repeat: no-repeat;
+}
+
+.icons-list .i-1 {
+	background-position: 0 0;
+}
+.icons-list .i-2 {
+	background-position: -20px 0;
+}
+.icons-list .i-3 {
+	background-position: -40px 0;
+}
+.icons-list .i-4 {
+	background-position: -60px 0;
+}
+.icons-list .i-5 {
+	background-position: -81px 0;
+}
+.icons-list .i-6 {
+	background-position: -103px -1px;
+}
+.icons-list .i-7 {
+	background-position: -124px 0;
+}
+.icons-list .i-8 {
+	background-position: -144px 0;
+}
+.icons-list .i-9 {
+	background-position: -166px 0;
+}
+
+/* End wrap-content */
