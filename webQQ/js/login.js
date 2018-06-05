@@ -269,6 +269,8 @@ $('.mainB').on('click', function(e) {
 
 // 聊天框封装
 
+var zIndex = 10;
+
 /**
  * [MsgChat 聊天框]
  * @param {[string]} ConName [对话人昵称]
@@ -276,36 +278,85 @@ $('.mainB').on('click', function(e) {
  * @param {[number]} left    [左侧定位距离]
  */
 function MsgChat(ConName, top, left) {
-	var oChat = $('<div class="Msg-chat"></div>');
-	var oHead = $('<header class="Msg-head"></header>');
-	var oBody = $('<div class="Msg-body"></div>');
-	var oFoot = $('<footer class="Msg-footer"><div class="face"><span></span></div><div contenteditable="true" class="inpArea"></div><button>发送</button></footer>');
+	var self = this;
+	this.oChat = $('<div class="Msg-chat"></div>');
+	this.oHead = $('<header class="Msg-head"></header>');
+	this.oBody = $('<div class="Msg-body"></div>');
+	this.oFoot = $('<footer class="Msg-footer"></footer>');
+	this.oInpDiv = $('<div class="inpArea" contenteditable="true"></div>');//输入框
+	this.oFace = $('<div class="face"><span></span></div>');
+	this.oBtnS = $('<button>发送</button>');//发送按钮
+	this.oBtl = $('<div class="btn-l"><span></span></div>');
+	this.oH1 = $('<h1></h1>').text(ConName);
+	this.oClos = $('<button class="btn-r"><span>关闭</span></button>');
 
-	var oBtl = $('<div class="btn-l"><span></span></div>');
-	var oH1 = $('<h1></h1>').text(ConName);
-	var oBtn = $('<button class="btn-r"><span>关闭</span></button>');
+	this.oHead.append(this.oBtl, this.oH1, this.oClos);
 
-	oHead.append(oBtl);
-	oHead.append(oH1);
-	oHead.append(oBtn);
+	this.oFoot.append(this.oFace, this.oInpDiv, this.oBtnS);
 
-	oChat.append(oHead);
-	oChat.append(oBody);
-	oChat.append(oFoot);
+	this.oChat.append(this.oHead, this.oBody, this.oFoot);
 
-	oChat.css({
+	this.oChat.css({
 		'top': top + 'px',
 		'left': left + 'px'
 	});
+	/*this.oChat[0].clientTop = top;
+	this.oChat[0].clientLeft = left;*/
 
-	$('.Msg-container').append(oChat);
+	// 信息发送功能
+	this.oBtnS.on('click', function(e) {
+		var oP = $('<p></p>');
+		if (self.oInpDiv.text()) {
+			oP.text(self.oInpDiv.text());
+			self.oBody.append(oP);
+			self.oInpDiv.text('');
+		}
+
+		console.log(e);
+	});
+
+	$(document).on('keydown', function(e) {
+		var e = e || window.Event;
+		// IE
+		var oP = $('<p></p>');
+
+		if (self.oInpDiv.is(':focus') && e.ctrlKey && e.keyCode == 13 && self.oInpDiv.text()) {
+			oP.text(self.oInpDiv.text());
+			self.oBody.append(oP);
+			self.oInpDiv.text('');
+		}
+	})
+
+	// 鼠标拖拽
+	self.oChat.on('mousedown', function(e) {
+		var ChatX = e.clientX - self.oChat[0].offsetLeft;
+		var ChatY = e.clientY - self.oChat[0].offsetTop;
+
+		zIndex++;
+
+		$(this).css('z-index', zIndex);
+
+		$(this).on('mousemove', function(e) {
+			// console.log(ConName ,self.oChat[0].offsetLeft, self.oChat[0].offsetTop, self.oChat[0]);
+
+			$(this).css({
+				'top': e.clientY - ChatY + 'px',
+				'left': e.clientX - ChatX + 'px'
+			});
+
+			/*$(this)[0].style.top = e.clientY - ChatY + 'px';
+			$(this)[0].style.left = e.clientX - ChatX + 'px';*/
+
+		});
+		$(this).on('mouseup', function(e) {
+			$(this).off('mousemove');
+		});
+	});
+
+	//消息框关闭功能
+	$(this.oClos).on('click', function() {
+		self.oChat.remove();
+	})
+
+	$('.Msg-container').append(this.oChat);
 }
-
-$('.Msg-chat').on('mousedown', function(e) {
-	$(this).on('mousemove', function(e) {
-		console.log($('.Msg-chat')[0].clientTop, $('.Msg-chat')[0].clientLeft);
-	})
-	$(this).on('mouseup', function(e) {
-		$(this).off('mousemove')
-	})
-})

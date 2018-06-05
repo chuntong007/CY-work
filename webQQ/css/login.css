@@ -324,8 +324,6 @@ li.tab-now {
 
 .Msg-chat {
 	position: absolute;
-	top: 12%;
-	left: 12%;
 	width: 500px;
 	height: 400px;
 }
@@ -384,6 +382,7 @@ li.tab-now {
 	width: 100%;
 	height: calc(100% - 95px);
 	background: rgba(0, 0, 0, .5);
+	color: #fff;
 }
 
 .Msg-chat .Msg-footer {
@@ -413,6 +412,7 @@ li.tab-now {
 }
 
 .Msg-footer .inpArea {
+	overflow: hidden;
     border-radius: 5px;
     margin: 5px 10px 5px 6px;
     padding: 5px 10px;
