@@ -337,15 +337,11 @@ function MsgChat(ConName, top, left) {
 		$(this).css('z-index', zIndex);
 
 		$(this).on('mousemove', function(e) {
-			// console.log(ConName ,self.oChat[0].offsetLeft, self.oChat[0].offsetTop, self.oChat[0]);
 
 			$(this).css({
 				'top': e.clientY - ChatY + 'px',
 				'left': e.clientX - ChatX + 'px'
 			});
-
-			/*$(this)[0].style.top = e.clientY - ChatY + 'px';
-			$(this)[0].style.left = e.clientX - ChatX + 'px';*/
 
 		});
 		$(this).on('mouseup', function(e) {
@@ -360,3 +356,29 @@ function MsgChat(ConName, top, left) {
 
 	$('.Msg-container').append(this.oChat);
 }
+
+console.log($('.panelBody > div'), $('.panelFooter ul > li'))
+
+// 选项卡切换
+
+$('.panelFooter ul > li').on('click', function(e) {
+	var e = e || window.Event;
+	var self = this;
+
+	$.each($('.panelFooter ul > li'), function(index, item) {//遍历选项修改当前样式
+		$(item).removeClass('selected');
+	});
+
+	$.each($('.panelBody > div'), function(index2, item2) {//遍历隐藏显示选项菜单
+		if ($(self).index() == index2) {//判断选项列表下标和点击选项相匹配
+			$(item2).show();
+		}
+		else {
+			$(item2).hide();
+		}
+	});
+
+	$(this).addClass('selected');
+
+	console.log($(this).index());
+});

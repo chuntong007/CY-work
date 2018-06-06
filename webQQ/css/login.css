@@ -187,7 +187,7 @@ li.tab-now {
 }
 
 #contactShow {
-	overflow-y: scroll;
+	overflow-y: auto;
 	width: 280px;
 	height: calc(100% - 42px);
 }
@@ -324,8 +324,11 @@ li.tab-now {
 
 .Msg-chat {
 	position: absolute;
+	top: 12%;
+	left: 12%;
 	width: 500px;
 	height: 400px;
+	transition: none;
 }
 
 .Msg-chat .Msg-head {
@@ -409,6 +412,17 @@ li.tab-now {
 	height: 30px;
     background: url(../images/chat_bottombar_icon_face.png);
     background-size: 100% 100%;
+}
+
+.face ul {
+	position: absolute;
+	overflow-y: auto;
+	width: 100%;
+	height: 300px;
+}
+
+.face ul li {
+	float: left;
 }
 
 .Msg-footer .inpArea {
