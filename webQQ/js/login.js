@@ -279,20 +279,40 @@ var zIndex = 10;
  */
 function MsgChat(ConName, top, left) {
 	var self = this;
-	this.oChat = $('<div class="Msg-chat"></div>');
-	this.oHead = $('<header class="Msg-head"></header>');
-	this.oBody = $('<div class="Msg-body"></div>');
-	this.oFoot = $('<footer class="Msg-footer"></footer>');
+	this.oChat = $('<div class="Msg-chat"></div>');//聊天弹窗
+	this.oHead = $('<header class="Msg-head"></header>');//聊天窗头部
+	this.oBody = $('<div class="Msg-body"></div>');//聊天信息展示区
+	this.oFoot = $('<footer class="Msg-footer"></footer>');//聊天窗底部输入操作区
 	this.oInpDiv = $('<div class="inpArea" contenteditable="true"></div>');//输入框
-	this.oFace = $('<div class="face"><span></span></div>');
+	this.oFace = $('<div class="face"></div>');//表情标签
 	this.oBtnS = $('<button>发送</button>');//发送按钮
 	this.oBtl = $('<div class="btn-l"><span></span></div>');
 	this.oH1 = $('<h1></h1>').text(ConName);
-	this.oClos = $('<button class="btn-r"><span>关闭</span></button>');
+	this.oClos = $('<button class="btn-r"><span>关闭</span></button>');//关闭按钮
+	this.oFaceU = $('<ul></ul>');//表情容器
+	this.oFsPan = $('<span></span>');//表情按钮
+
+	for (var i = 1; i <= 75; i++) {//表情标签遍历插入
+		this.oFaceLi = $('<li></li>');
+		this.oFaImg = $('<img src="" alt="" />').attr('src','images/' + i + '.gif');
+
+		this.oFaceLi.append(this.oFaImg);
+		this.oFaceU.append(this.oFaceLi).on('click', function(e) {
+			e.preventDefault();
+		});
+
+		this.oFaImg.on('click', function(e) {
+			$(this).clone().appendTo(self.oInpDiv);//选中表情点击复制进聊天输入框
+		})
+	}
+
+	this.oFace.append(this.oFsPan).on('click', function(e) {
+		self.oFaceU.slideToggle(100);
+	});
 
 	this.oHead.append(this.oBtl, this.oH1, this.oClos);
 
-	this.oFoot.append(this.oFace, this.oInpDiv, this.oBtnS);
+	this.oFoot.append(this.oFace, this.oInpDiv, this.oBtnS, this.oFaceU);
 
 	this.oChat.append(this.oHead, this.oBody, this.oFoot);
 
@@ -305,11 +325,11 @@ function MsgChat(ConName, top, left) {
 
 	// 信息发送功能
 	this.oBtnS.on('click', function(e) {
-		var oP = $('<p></p>');
-		if (self.oInpDiv.text()) {
-			oP.text(self.oInpDiv.text());
+		var oP = $('<pre></pre>');
+		if (self.oInpDiv.html()) {
+			oP.html(self.oInpDiv.html());
 			self.oBody.append(oP);
-			self.oInpDiv.text('');
+			self.oInpDiv.html('');
 		}
 
 		console.log(e);
@@ -318,33 +338,38 @@ function MsgChat(ConName, top, left) {
 	$(document).on('keydown', function(e) {
 		var e = e || window.Event;
 		// IE
-		var oP = $('<p></p>');
+		var oP = $('<pre></pre>');
 
 		if (self.oInpDiv.is(':focus') && e.ctrlKey && e.keyCode == 13 && self.oInpDiv.text()) {
-			oP.text(self.oInpDiv.text());
+			oP.html(self.oInpDiv.html());
 			self.oBody.append(oP);
-			self.oInpDiv.text('');
+			self.oInpDiv.html('');
 		}
 	})
 
 	// 鼠标拖拽
 	self.oChat.on('mousedown', function(e) {
+		zIndex++;
+
+		$(this).css('z-index', zIndex);
+	});
+	this.oHead.on('mousedown', function(e) {//聊天窗头部拖拽
 		var ChatX = e.clientX - self.oChat[0].offsetLeft;
 		var ChatY = e.clientY - self.oChat[0].offsetTop;
 
 		zIndex++;
 
-		$(this).css('z-index', zIndex);
+		self.oChat.css('z-index', zIndex);
 
 		$(this).on('mousemove', function(e) {
 
-			$(this).css({
+			self.oChat.css({
 				'top': e.clientY - ChatY + 'px',
 				'left': e.clientX - ChatX + 'px'
 			});
 
 		});
-		$(this).on('mouseup', function(e) {
+		$(this).on('mouseup mouseout', function(e) {
 			$(this).off('mousemove');
 		});
 	});
@@ -379,6 +404,4 @@ $('.panelFooter ul > li').on('click', function(e) {
 	});
 
 	$(this).addClass('selected');
-
-	console.log($(this).index());
 });
