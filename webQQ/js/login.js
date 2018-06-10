@@ -330,9 +330,9 @@ function MsgChat(ConName, top, left) {
 			oP.html(self.oInpDiv.html());
 			self.oBody.append(oP);
 			self.oInpDiv.html('');
+			self.oBody[0].scrollTop = self.oBody[0].scrollHeight;// 保持消息框显示底部最新信息
 		}
 
-		console.log(e);
 	});
 
 	$(document).on('keydown', function(e) {
@@ -340,10 +340,11 @@ function MsgChat(ConName, top, left) {
 		// IE
 		var oP = $('<pre></pre>');
 
-		if (self.oInpDiv.is(':focus') && e.ctrlKey && e.keyCode == 13 && self.oInpDiv.text()) {
+		if (self.oInpDiv.is(':focus') && e.ctrlKey && e.keyCode == 13 && self.oInpDiv.html()) {
 			oP.html(self.oInpDiv.html());
 			self.oBody.append(oP);
 			self.oInpDiv.html('');
+			self.oBody[0].scrollTop = self.oBody[0].scrollHeight;// 保持消息框显示底部最新信息
 		}
 	})
 
@@ -361,7 +362,7 @@ function MsgChat(ConName, top, left) {
 
 		self.oChat.css('z-index', zIndex);
 
-		$(this).on('mousemove', function(e) {
+		$('body').on('mousemove', function(e) {
 
 			self.oChat.css({
 				'top': e.clientY - ChatY + 'px',
@@ -369,8 +370,8 @@ function MsgChat(ConName, top, left) {
 			});
 
 		});
-		$(this).on('mouseup mouseout', function(e) {
-			$(this).off('mousemove');
+		$('body').on('mouseup', function(e) {
+			$('body').off('mousemove');
 		});
 	});
 
