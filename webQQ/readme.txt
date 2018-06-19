@@ -1,3 +1,32 @@
+（1）版本更新(2018-06-11)
+	1、修改信息发送格式，增加时间戳。
+
+（2）遇到的问题
+	
+
+（3）解决方案
+
+
+（4）结果：
+
+
+insert into user(name,pwd,phon,qqid) values('陈建川',123,13123123123, 665254192);
+insert into user(name,pwd,phon,qqid) values('陈建峰',123,13123123124, 178972264);
+insert into user(name,pwd,phon,qqid) values('王海龙',123,13123123125, 117424028);
+insert into user(name,pwd,phon,qqid) values('邵婷婷',123,13123123126, 537238511);
+insert into user(name,pwd,phon,qqid) values('罗岚',123,13123123127, 776377818);
+insert into user(name,pwd,phon,qqid) values('绿巨人',123,13123123128, 189535472);
+insert into user(name,pwd,phon,qqid) values('黑寡妇',123,13123123129, 928832952);
+insert into user(name,pwd,phon,qqid) values('钢铁侠',123,13123123130, 461984804);
+insert into user(name,pwd,phon,qqid) values('雷神',123,13123123131, 672300112);
+insert into user(name,pwd,phon,qqid) values('蜘蛛侠',123,13123123132, 115138266);
+insert into user(name,pwd,phon,qqid) values('神奇博士',123,13123123133, 617531839);
+insert into user(name,pwd,phon,qqid) values('孙悟空',123,13123123134, 877241153);
+insert into user(name,pwd,phon,qqid) values('唐僧',123,13123123135, 333072275);
+insert into user(name,pwd,phon,qqid) values('沙悟净',123,13123123136, 578252293);
+insert into user(name,pwd,phon,qqid) values('猪八戒',123,13123123137, 464345858);
+---------------------------------------------------------------------------------------------------------------------------------
+
 （1）版本更新(2018-6-7)
 	1、信息发送自动显示滚动条下方最新消息。
 
