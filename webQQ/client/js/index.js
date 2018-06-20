@@ -1,3 +1,34 @@
+// --------------------websocket--------------------
+var socket = new WebSocket('ws://127.0.0.1:8090');//声明WebSocket协议对象连接服wS服务器
+
+socket.onopen = function() {
+	socket.onmessage = function(msg) {
+		console.log(msg.data);
+		var message = JSON.parse(msg.data);
+
+		if (message.type == 'Login') {
+			console.log(message);
+
+			if (message.result == 1) {
+				alert('登陆成功');
+
+				window.localStorage.setItem('hx180310QQnowUser', JSON.stringify(message.obj));//向本地存储添加当前登录账户对象
+
+				window.location.href = 'login.html';
+			}
+
+			if (message.result == 0) {
+				alert('账号或密码出错');
+
+				$('#userNameL').val('');
+				$('#passWordL').val('');
+				//清空输入框
+			}
+		}
+	}
+}
+// --------------------End websocket--------------------
+
 // --------------------登录注册--------------------
 var aUser = [
 	{username: "ln", phonenum: 110, password: "123", QQid: "165857894"}
@@ -69,11 +100,20 @@ $('#Login').click(function() {
 
 		pGindex++;
 
-		var pgBar = setTimeout(proBar, 50);
+		var pgBar = setTimeout(proBar, 50);//进度条加载
 
 		if (pGindex > 100) {
 			clearTimeout(pgBar);
-			if (uCount.val() && uPswd.val()) {
+
+			var loginReqBag = {//创建登陆请求包
+				type: 'Login',
+				user: uCount.val(),
+				pwd: uPswd.val()
+			}
+
+			socket.send(JSON.stringify(loginReqBag));
+
+			/*if (uCount.val() && uPswd.val()) {//账号登陆功能数据判断
 				var result = true;
 				$(aUser).each(function() {
 					if ((uCount.val() == this.QQid || uCount.val() == this.phonenum) && this.password == uPswd.val()) {
@@ -93,7 +133,7 @@ $('#Login').click(function() {
 				if (result) {
 					alert('账号或密码出错');
 				}
-			}
+			}*/
 		}
 
 	}
@@ -173,14 +213,3 @@ $('#phoneNum').bind('blur input propertychange', function() {//手机号校验
 // End 正则校验注册信息
 
 // --------------------End 登录注册--------------------
-
-
-// --------------------websocket--------------------
-var socket = new WebSocket('ws://127.0.0.1:8090');
-
-socket.onopen = function() {
-	socket.onmessage = function(msg) {
-		console.log(msg.data);
-	}
-}
-// --------------------End websocket--------------------
