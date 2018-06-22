@@ -1,0 +1,39 @@
+* {
+	border: none;
+	margin: 0;
+	padding: 0;
+	transition: all 0.2s;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul li {
+	list-style: none;
+}
+/* 通用样式 */
+
+/*-------------------------------container-------------------------------*/
+#container {
+	overflow: hidden;
+	margin: 50px auto 0;
+	width: 800px;
+	height: 480px;
+}
+
+section {
+	width: 100%;
+	height: 100%;
+}
+
+.Scene1 {
+	background: url(../img/Bg/checkpointbg.png);
+}
+.Scene2 {
+	background: url(../img/Bg/garagebg.png);
+}
+.Scene3 {
+	background: url(../img/Bg/loadingbg.jpg);
+}
+/*-------------------------------End container-------------------------------*/
